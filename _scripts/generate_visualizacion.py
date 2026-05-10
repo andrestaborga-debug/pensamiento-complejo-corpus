@@ -583,6 +583,117 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .dend-link { fill: none; stroke: var(--ink-soft); stroke-opacity: 0.35; stroke-width: 1; }
   .dend-node circle { stroke: var(--bg); stroke-width: 1; }
   .dend-label { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 9px; fill: var(--ink); }
+  /* Global stats banner */
+  .global-stats {
+    margin-top: 24px;
+    display: flex; flex-wrap: wrap; gap: 28px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+  }
+  .stat {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .stat-val {
+    font-size: 1.55em;
+    font-weight: 600;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  /* Communities */
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .community-card {
+    border-radius: 4px;
+    padding: 14px 16px;
+    color: #fff;
+  }
+  .community-card .ch-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6em;
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  .community-card .ch-trad {
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+  .community-card .ch-size {
+    font-size: 0.78em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+  }
+  .community-card ul {
+    margin: 0; padding: 0;
+    list-style: none;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.84em;
+    line-height: 1.5;
+  }
+  .community-card li {
+    padding: 1px 0;
+    opacity: 0.95;
+  }
+  /* Tradicion vs comunidad matrix */
+  .trad-comm-matrix {
+    display: grid;
+    gap: 1px;
+    margin-top: 14px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.82em;
+  }
+  .tcm-cell {
+    background: #fcfaf6;
+    padding: 6px 8px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .tcm-cell.has-value { background: var(--paper); color: var(--ink); font-weight: 600; }
+  .tcm-cell.dominant { color: #fff; }
+  .tcm-header {
+    background: transparent;
+    color: var(--ink);
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.78em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .tcm-corner { background: transparent; }
+  .dissidents-list {
+    margin-top: 18px;
+    columns: 2;
+    column-gap: 28px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.86em;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) { .dissidents-list { columns: 1; } }
+  .dissident-item {
+    break-inside: avoid;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .dissident-arrow {
+    color: var(--muted);
+    margin: 0 6px;
+  }
+  .dissident-from { color: var(--ink-soft); }
+  .dissident-to { color: var(--accent); font-weight: 600; }
   /* Metrics table */
   .metric-card {
     background: #fcfaf6;
@@ -733,6 +844,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <h2>10 · Análisis de centralidad (NetworkX)</h2>
       <p class="desc">Rankings calculados con algoritmos de teoría de redes. <strong>Betweenness</strong> identifica los conceptos puente; <strong>eigenvector</strong> los conectados a otros importantes; <strong>closeness</strong> los más accesibles desde todo el corpus. <strong>Modularity</strong> = <span id="metric-modularity"></span> con <span id="metric-n-communities"></span> comunidades algorítmicas.</p>
       <div id="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 18px;"></div>
+    </section>
+
+    <section id="communities-section">
+      <h2>11 · Comunidades algorítmicas</h2>
+      <p class="desc">El algoritmo de Louvain detectó <strong>9 comunidades</strong> con modularidad 0.599 — estructura comunitaria fuerte. Cada tarjeta abajo muestra una comunidad real: sus miembros y su <strong>tradición dominante</strong>. Algunas coinciden con tradiciones declaradas; otras revelan reagrupamientos del algoritmo.</p>
+      <div id="communities-grid" class="community-grid"></div>
+    </section>
+
+    <section id="dissidents-section">
+      <h2>12 · Tradición declarada vs comunidad</h2>
+      <p class="desc">Cuántos conceptos de cada tradición caen en cada comunidad. La diagonal indica acuerdo. <strong>Las celdas fuera de la diagonal son los conceptos disidentes</strong>: el algoritmo los puso en una comunidad cuya tradición dominante es distinta de la suya. Esos son los puentes interteóricos visibles.</p>
+      <div id="trad-comm-matrix"></div>
+      <h3 style="margin-top: 28px; font-family: 'Cormorant Garamond', Georgia, serif; color: var(--accent); font-size: 1.15em;">
+        Conceptos disidentes — su comunidad domina otra tradición
+      </h3>
+      <div id="dissidents-list" class="dissidents-list"></div>
     </section>
   </div>
 </main>
@@ -1376,6 +1503,26 @@ if (DATA.metrics) {
   document.getElementById("metric-modularity").textContent = DATA.metrics.modularity.toFixed(3);
   document.getElementById("metric-n-communities").textContent = DATA.metrics.n_communities;
 
+  // Banner global
+  const gs = DATA.metrics.global_stats;
+  if (gs) {
+    const banner = d3.select("#global-stats");
+    const stats = [
+      {val: gs.n_nodes, label: "Conceptos"},
+      {val: gs.n_edges, label: "Conexiones"},
+      {val: gs.density.toFixed(3), label: "Densidad"},
+      {val: gs.avg_degree.toFixed(1), label: "Grado promedio"},
+      {val: gs.avg_clustering.toFixed(3), label: "Clustering"},
+      {val: gs.diameter, label: "Diámetro"},
+      {val: gs.avg_path_length.toFixed(2), label: "Camino promedio"},
+    ];
+    stats.forEach(s => {
+      const item = banner.append("div").attr("class", "stat");
+      item.append("div").attr("class", "stat-val").text(s.val);
+      item.append("div").attr("class", "stat-label").text(s.label);
+    });
+  }
+
   const cards = [
     {
       key: "betweenness",
@@ -1417,6 +1564,73 @@ if (DATA.metrics) {
       li.append("span").attr("class", "term").text(term);
       li.append("span").attr("class", "val").text(card.fmt(val));
     });
+  });
+
+  /* ============================================================
+     11 · Comunidades algorítmicas
+     ============================================================ */
+  const cgrid = d3.select("#communities-grid");
+  DATA.metrics.communities.forEach(c => {
+    const trad = TRADICIONES[c.dominant_tradition] || {color: "#666", label: c.dominant_tradition};
+    const card = cgrid.append("div").attr("class", "community-card")
+      .style("background", trad.color);
+    card.append("div").attr("class", "ch-num").text("Comunidad " + (c.id + 1));
+    card.append("div").attr("class", "ch-trad").text(trad.label);
+    card.append("div").attr("class", "ch-size").text(c.size + " conceptos");
+    const ul = card.append("ul");
+    c.members.forEach(m => ul.append("li").text("· " + m));
+  });
+
+  /* ============================================================
+     12 · Matriz tradición × comunidad + disidentes
+     ============================================================ */
+  const tcm = DATA.metrics.trad_x_comm_matrix;
+  const matrixDiv = d3.select("#trad-comm-matrix");
+  matrixDiv.html("").append("div").attr("class", "trad-comm-matrix")
+    .style("grid-template-columns", `200px repeat(${tcm.communities.length}, 1fr)`);
+  const tcmGrid = d3.select(".trad-comm-matrix");
+
+  // Header row
+  tcmGrid.append("div").attr("class", "tcm-cell tcm-corner");
+  tcm.communities.forEach(c => {
+    const trad = tcm.community_dominant[c];
+    const cell = tcmGrid.append("div").attr("class", "tcm-cell tcm-header")
+      .style("text-align", "center")
+      .style("color", TRADICIONES[trad]?.color || "#888")
+      .style("font-weight", "600");
+    cell.text("C" + (c + 1));
+  });
+
+  // Data rows
+  tcm.traditions.forEach((trad, ti) => {
+    const tlabel = TRADICIONES[trad]?.label || trad;
+    const tcolor = TRADICIONES[trad]?.color || "#888";
+    tcmGrid.append("div").attr("class", "tcm-cell tcm-header")
+      .style("color", tcolor).text(tlabel);
+    tcm.matrix[ti].forEach((val, ci) => {
+      const cell = tcmGrid.append("div").attr("class", "tcm-cell")
+        .text(val || "");
+      if (val > 0) {
+        cell.classed("has-value", true);
+        if (tcm.community_dominant[ci] === trad) {
+          cell.classed("dominant", true)
+              .style("background", tcolor);
+        }
+      }
+    });
+  });
+
+  // Lista de disidentes
+  const dlist = d3.select("#dissidents-list");
+  DATA.metrics.disidentes.forEach(d => {
+    const item = dlist.append("div").attr("class", "dissident-item");
+    item.append("strong").text(d.term);
+    item.append("br");
+    item.append("span").attr("class", "dissident-from")
+      .text((TRADICIONES[d.own_tradition]?.label || d.own_tradition));
+    item.append("span").attr("class", "dissident-arrow").text("→");
+    item.append("span").attr("class", "dissident-to")
+      .text("comunidad de " + (TRADICIONES[d.community_dominant_tradition]?.label || d.community_dominant_tradition));
   });
 }
 
