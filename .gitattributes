@@ -1,0 +1,9 @@
+# Normaliza line endings para evitar warnings CRLF/LF en Windows
+* text=auto eol=lf
+
+# Archivos binarios — no tocar
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.zip binary
