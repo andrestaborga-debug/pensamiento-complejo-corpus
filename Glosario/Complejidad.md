@@ -43,3 +43,36 @@ Aceptar la complejidad significa renunciar al sueño de certeza absoluta. Pero t
 - [[Emergencia]]
 - [[Orden / Desorden]]
 - [[Paradigma de simplificación]]
+
+## Cómo se compone la complejidad
+
+```mermaid
+flowchart TB
+    C((Complejidad))
+    C --> P1[Principio<br/>dialógico]
+    C --> P2[Principio<br/>hologramático]
+    C --> P3[Bucle<br/>recursivo]
+    
+    P1 -.- E1["orden + desorden<br/>se necesitan"]
+    P2 -.- E2["el todo está en cada parte<br/>la parte está en el todo"]
+    P3 -.- E3["los productos producen<br/>al productor"]
+    
+    E1 --> R[Realidad compleja]
+    E2 --> R
+    E3 --> R
+    
+    R --> O[Orden]
+    R --> D[Desorden]
+    R --> Org[Organización]
+    O <--> D
+    O --> Org
+    D --> Org
+    
+    style C fill:#7a2e2e,stroke:#5b1f1f,color:#fff
+    style R fill:#b8851f,stroke:#8c6418,color:#fff
+    style O fill:#4a6b3c,stroke:#2d4422,color:#fff
+    style D fill:#3c5b6b,stroke:#1f3844,color:#fff
+    style Org fill:#6b4a3c,stroke:#44291f,color:#fff
+```
+
+> No es resultado: es **proceso**. Orden, desorden y organización se producen mutuamente sin sintetizarse en una unidad superior.

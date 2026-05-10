@@ -41,3 +41,49 @@ Nacido en París en 1921, Morin atraviesa el siglo XX como testigo y teórico: R
 
 > "Conocer y pensar no es llegar a una verdad absolutamente cierta, es dialogar con la incertidumbre."  
 > — *El Método*
+
+## Mapa mental del corpus
+
+```mermaid
+mindmap
+  root((Edgar Morin))
+    Pensamiento complejo
+      Principio dialógico
+      Principio hologramático
+      Bucle recursivo
+      Auto-eco-organización
+    El Método (1977-2004)
+      I La naturaleza
+      II La vida
+      III El conocimiento
+      IV Las ideas
+      V La humanidad
+      VI Ética
+    Reforma del pensamiento
+      Religar saberes
+      Bien pensar
+      Comprensión
+      Antropo-ética
+    Política
+      Tierra-Patria
+      Antropolítica
+      Política de civilización
+    Diálogos con
+      Prigogine
+      Maturana
+      Cibernética 2do orden
+```
+
+## Los 6 volúmenes de El Método
+
+```mermaid
+flowchart LR
+    M1[I La naturaleza<br/>de la Naturaleza<br/>1977] --> M2[II La vida<br/>de la Vida<br/>1980]
+    M2 --> M3[III El conocimiento<br/>del Conocimiento<br/>1986]
+    M3 --> M4[IV Las ideas<br/>1991]
+    M4 --> M5[V La humanidad<br/>de la Humanidad<br/>2001]
+    M5 --> M6[VI Ética<br/>2004]
+    
+    style M1 fill:#7a2e2e,stroke:#5b1f1f,color:#fff
+    style M6 fill:#7a2e2e,stroke:#5b1f1f,color:#fff
+```

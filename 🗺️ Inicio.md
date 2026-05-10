@@ -19,9 +19,10 @@ Este es el **mapa raíz**. El vault tiene **dos capas**: el demo curado (autores
 
 ## Mapas temáticos
 
-- [[🧭 Mapa de tradiciones]] — agrupa autores y conceptos por escuela intelectual
+- [[🧭 Mapa de tradiciones]] — agrupa autores y conceptos por escuela intelectual (con timeline + genealogía Mermaid)
 - [[📊 Dashboard del vault]] — vistas dinámicas con Dataview
 - [[🔌 Plugins recomendados]] — qué instalar para el siguiente nivel
+- [[🌐 Visualizaciones Mermaid]] — catálogo de diagramas embebidos (timeline, mindmap, flowchart, etc.)
 
 ## Autores curados
 
