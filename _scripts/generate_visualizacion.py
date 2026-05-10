@@ -359,6 +359,15 @@ def build_visualization_data(entries):
     for e in entries:
         by_tradicion[e.get("tradition", "")] += 1
 
+    # 10) Metrics — carga del JSON generado por analyze_network.py si existe
+    metrics_path = VAULT / "Visualizaciones" / "gephi" / "metrics.json"
+    metrics = None
+    if metrics_path.exists():
+        try:
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+        except Exception:
+            metrics = None
+
     return {
         "timeline": timeline,
         "chord": chord,
@@ -368,6 +377,7 @@ def build_visualization_data(entries):
         "network": network,
         "concept_chord": concept_chord,
         "heatmap": heatmap,
+        "metrics": metrics,
         "tradiciones": TRADICIONES,
         "counts": dict(by_tradicion),
     }
@@ -573,6 +583,57 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .dend-link { fill: none; stroke: var(--ink-soft); stroke-opacity: 0.35; stroke-width: 1; }
   .dend-node circle { stroke: var(--bg); stroke-width: 1; }
   .dend-label { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 9px; fill: var(--ink); }
+  /* Metrics table */
+  .metric-card {
+    background: #fcfaf6;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .metric-card h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1em;
+    color: var(--accent);
+    margin: 0 0 4px 0;
+    font-weight: 600;
+  }
+  .metric-card .metric-desc {
+    font-size: 0.78em;
+    color: var(--muted);
+    margin: 0 0 10px 0;
+  }
+  .metric-card ol {
+    margin: 0;
+    padding-left: 22px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.86em;
+    line-height: 1.6;
+    counter-reset: rank;
+  }
+  .metric-card li {
+    list-style: none;
+    counter-increment: rank;
+    padding-left: 4px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+  .metric-card li::before {
+    content: counter(rank) ".";
+    position: absolute;
+    left: -22px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .metric-card li .term { color: var(--ink); }
+  .metric-card li .val { color: var(--muted); float: right; font-variant-numeric: tabular-nums; }
+  .metric-card li .swatch {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
   /* Footer */
   footer {
     max-width: 1280px;
@@ -591,6 +652,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <header>
   <h1>Pensamiento <em>complejo</em> · visualización del corpus</h1>
   <p>__INTRO__</p>
+  <div id="global-stats" class="global-stats"></div>
 </header>
 
 <main>
@@ -606,6 +668,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <a href="#heatmap-section">8 · Matriz de co-referencias</a>
     <a href="#dendrogram-section">9 · Dendrograma radial</a>
     <a href="#metrics-section">10 · Análisis de centralidad</a>
+    <a href="#communities-section">11 · Comunidades algorítmicas</a>
+    <a href="#dissidents-section">12 · Tradición vs comunidad</a>
   </nav>
 
   <div class="content">
@@ -1304,6 +1368,57 @@ ddNode.filter(d => d.depth === 3).append("text")
   .attr("text-anchor", d => d.x < Math.PI ? "start" : "end")
   .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
   .text(d => d.data.name.length > 22 ? d.data.name.slice(0,20)+"…" : d.data.name);
+
+/* ============================================================
+   10 · Tabla de métricas (NetworkX)
+   ============================================================ */
+if (DATA.metrics) {
+  document.getElementById("metric-modularity").textContent = DATA.metrics.modularity.toFixed(3);
+  document.getElementById("metric-n-communities").textContent = DATA.metrics.n_communities;
+
+  const cards = [
+    {
+      key: "betweenness",
+      title: "Betweenness centrality",
+      desc: "Conceptos puente. Más alto = más cruciales para conectar el corpus.",
+      fmt: v => v.toFixed(3),
+    },
+    {
+      key: "eigenvector",
+      title: "Eigenvector centrality",
+      desc: "Importancia por prestigio. Conectados a otros conceptos importantes.",
+      fmt: v => v.toFixed(3),
+    },
+    {
+      key: "closeness",
+      title: "Closeness centrality",
+      desc: "Qué tan accesible es cada concepto desde todo el corpus.",
+      fmt: v => v.toFixed(3),
+    },
+    {
+      key: "degree",
+      title: "Degree (conexiones brutas)",
+      desc: "Cantidad bruta de aristas. Métrica más simple.",
+      fmt: v => v.toFixed(0),
+    },
+  ];
+
+  const grid = d3.select("#metrics-grid");
+  cards.forEach(card => {
+    const list = DATA.metrics.rankings[card.key].slice(0, 12);
+    const div = grid.append("div").attr("class", "metric-card");
+    div.append("h3").text(card.title);
+    div.append("p").attr("class", "metric-desc").text(card.desc);
+    const ol = div.append("ol");
+    list.forEach(([term, val, trad]) => {
+      const li = ol.append("li");
+      li.append("span").attr("class", "swatch")
+        .style("background", TRADICIONES[trad]?.color || "#888");
+      li.append("span").attr("class", "term").text(term);
+      li.append("span").attr("class", "val").text(card.fmt(val));
+    });
+  });
+}
 
 </script>
 </body>

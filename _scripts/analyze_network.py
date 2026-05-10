@@ -201,10 +201,82 @@ def main():
     nx.write_gexf(G, gexf_path)
     print(f"\nGEXF enriquecido: {gexf_path}")
 
+    # ============================================================
+    # METRICAS GLOBALES DEL CORPUS
+    # ============================================================
+    n_components = nx.number_connected_components(G)
+    largest_cc = max(nx.connected_components(G), key=len)
+    G_lcc = G.subgraph(largest_cc)
+    density = nx.density(G)
+    avg_clustering = nx.average_clustering(G, weight="weight")
+    avg_degree = sum(dict(G.degree()).values()) / G.number_of_nodes()
+    diameter = nx.diameter(G_lcc)
+    avg_path = nx.average_shortest_path_length(G_lcc)
+
+    global_stats = {
+        "n_nodes": G.number_of_nodes(),
+        "n_edges": G.number_of_edges(),
+        "n_components": n_components,
+        "largest_cc_size": len(largest_cc),
+        "density": density,
+        "avg_degree": avg_degree,
+        "avg_clustering": avg_clustering,
+        "diameter": diameter,
+        "avg_path_length": avg_path,
+    }
+    print(f"\nMetricas globales:")
+    print(f"  Nodos: {global_stats['n_nodes']}, aristas: {global_stats['n_edges']}")
+    print(f"  Componentes: {n_components} (mayor: {len(largest_cc)} nodos)")
+    print(f"  Densidad: {density:.3f}")
+    print(f"  Grado promedio: {avg_degree:.1f}")
+    print(f"  Coeficiente de clustering: {avg_clustering:.3f}")
+    print(f"  Diametro: {diameter}")
+    print(f"  Longitud promedio de camino: {avg_path:.2f}")
+
+    # ============================================================
+    # CONCEPTOS DISIDENTES (tradicion declarada != comunidad dominante)
+    # ============================================================
+    # Para cada comunidad, calcular su tradicion dominante
+    community_dominant_trad = {}
+    for i, comm in enumerate(communities):
+        from collections import Counter as _C
+        tcount = _C([slug_to_tradition[n] for n in comm])
+        community_dominant_trad[i] = tcount.most_common(1)[0][0]
+
+    disidentes = []
+    for n in G.nodes:
+        own_trad = slug_to_tradition[n]
+        comm_id = node_to_community[n]
+        comm_trad = community_dominant_trad[comm_id]
+        if own_trad != comm_trad:
+            disidentes.append({
+                "term": slug_to_term[n],
+                "own_tradition": own_trad,
+                "community_id": comm_id,
+                "community_dominant_tradition": comm_trad,
+            })
+    disidentes.sort(key=lambda d: (d["own_tradition"], d["term"]))
+    print(f"\nConceptos disidentes (su comunidad domina otra tradicion): {len(disidentes)}")
+
+    # Matriz tradicion x comunidad
+    trad_x_comm = defaultdict(lambda: defaultdict(int))
+    for n in G.nodes:
+        trad_x_comm[slug_to_tradition[n]][node_to_community[n]] += 1
+    matrix_data = {
+        "traditions": list(TRADICIONES.keys()),
+        "communities": list(range(len(communities))),
+        "matrix": [
+            [trad_x_comm[t].get(c, 0) for c in range(len(communities))]
+            for t in TRADICIONES.keys()
+        ],
+        "community_dominant": [community_dominant_trad[c] for c in range(len(communities))],
+    }
+
     # Guardar JSON con metricas para el HTML
     metrics_data = {
         "modularity": modularity_score,
         "n_communities": len(communities),
+        "global_stats": global_stats,
         "rankings": {
             "betweenness": top("betweenness", 15),
             "eigenvector": top("eigenvector", 15),
@@ -216,13 +288,12 @@ def main():
                 "id": i,
                 "size": len(comm),
                 "members": sorted([slug_to_term[n] for n in comm]),
-                "dominant_tradition": max(
-                    set([slug_to_tradition[n] for n in comm]),
-                    key=lambda t: sum(1 for n in comm if slug_to_tradition[n] == t),
-                ),
+                "dominant_tradition": community_dominant_trad[i],
             }
             for i, comm in enumerate(communities)
         ],
+        "disidentes": disidentes,
+        "trad_x_comm_matrix": matrix_data,
     }
     metrics_json = OUT / "metrics.json"
     metrics_json.write_text(json.dumps(metrics_data, ensure_ascii=False, indent=2),

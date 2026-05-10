@@ -1,6 +1,17 @@
 {
   "modularity": 0.599076789084047,
   "n_communities": 9,
+  "global_stats": {
+    "n_nodes": 91,
+    "n_edges": 297,
+    "n_components": 1,
+    "largest_cc_size": 91,
+    "density": 0.07252747252747253,
+    "avg_degree": 6.527472527472527,
+    "avg_clustering": 0.30175683130808134,
+    "diameter": 6,
+    "avg_path_length": 2.977777777777778
+  },
   "rankings": {
     "betweenness": [
       [
@@ -466,5 +477,299 @@
       ],
       "dominant_tradition": "social"
     }
-  ]
+  ],
+  "disidentes": [
+    {
+      "term": "Acoplamiento estructural",
+      "own_tradition": "autopoiesis",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Autopoiesis",
+      "own_tradition": "autopoiesis",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Clausura operacional",
+      "own_tradition": "autopoiesis",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Deriva natural",
+      "own_tradition": "autopoiesis",
+      "community_id": 7,
+      "community_dominant_tradition": "termodinamica"
+    },
+    {
+      "term": "Todo hacer es conocer",
+      "own_tradition": "autopoiesis",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Codificación indiferenciada",
+      "own_tradition": "cybernetics",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Computar la realidad",
+      "own_tradition": "cybernetics",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Doble clausura",
+      "own_tradition": "cybernetics",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "El ambiente como invención",
+      "own_tradition": "cybernetics",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Imperativo ético constructivista",
+      "own_tradition": "cybernetics",
+      "community_id": 5,
+      "community_dominant_tradition": "predictive"
+    },
+    {
+      "term": "Camino medio",
+      "own_tradition": "embodied",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Hacer camino al andar",
+      "own_tradition": "embodied",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Sin yo (Selfless mind)",
+      "own_tradition": "embodied",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Complejo principal",
+      "own_tradition": "iit",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Información integrada (Φ)",
+      "own_tradition": "iit",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Cogito computante",
+      "own_tradition": "morin",
+      "community_id": 2,
+      "community_dominant_tradition": "embodied"
+    },
+    {
+      "term": "Computación viviente",
+      "own_tradition": "morin",
+      "community_id": 2,
+      "community_dominant_tradition": "embodied"
+    },
+    {
+      "term": "Máquina viviente",
+      "own_tradition": "morin",
+      "community_id": 2,
+      "community_dominant_tradition": "embodied"
+    },
+    {
+      "term": "Sujeto",
+      "own_tradition": "morin",
+      "community_id": 2,
+      "community_dominant_tradition": "embodied"
+    },
+    {
+      "term": "Trinidad cognitiva (cerebro-mente-cultura)",
+      "own_tradition": "morin",
+      "community_id": 2,
+      "community_dominant_tradition": "embodied"
+    },
+    {
+      "term": "Cosmopsicismo",
+      "own_tradition": "panpsiquismo",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Panpsiquismo",
+      "own_tradition": "panpsiquismo",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Problema de la combinación",
+      "own_tradition": "panpsiquismo",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    },
+    {
+      "term": "Universalismo del yo (open individualism)",
+      "own_tradition": "panpsiquismo",
+      "community_id": 6,
+      "community_dominant_tradition": "proceso"
+    }
+  ],
+  "trad_x_comm_matrix": {
+    "traditions": [
+      "morin",
+      "autopoiesis",
+      "cybernetics",
+      "embodied",
+      "predictive",
+      "iit",
+      "panpsiquismo",
+      "termodinamica",
+      "proceso",
+      "social"
+    ],
+    "communities": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "matrix": [
+      [
+        10,
+        11,
+        5,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ]
+    ],
+    "community_dominant": [
+      "morin",
+      "morin",
+      "embodied",
+      "morin",
+      "termodinamica",
+      "predictive",
+      "proceso",
+      "termodinamica",
+      "social"
+    ]
+  }
 }
