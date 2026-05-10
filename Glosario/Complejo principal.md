@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Giulio Tononi
 obra: An Information Integration Theory of Consciousness
 tradicion: iit
-tradicion_label: "Información integrada (IIT)"
+tradicion_label: Información integrada (IIT)
 tema: Consciencia y experiencia
-fuente: "Giulio Tononi, An Information Integration Theory of Consciousness (2004), <a class="chapter-link" href="Biblioteca/Giulio%20Tononi%20-%20An%20Information%20Integration%20Theory%20of%20Consciousness%20(2004%2C%20paper).pdf#page=6">p.6 — Complexes</a>"
-chip: "Tononi"
+fuente: "Giulio Tononi, An Information Integration Theory of Consciousness (2004), p.6 — Complexes"
+chip: Tononi
 tags:
   - tipo/concepto
   - tradicion/iit
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Giulio Tononi]]
 - Obra: [[An Information Integration Theory of Consciousness]]
-- Fuente: Giulio Tononi, An Information Integration Theory of Consciousness (2004), <a class="chapter-link" href="Biblioteca/Giulio%20Tononi%20-%20An%20Information%20Integration%20Theory%20of%20Consciousness%20(2004%2C%20paper).pdf#page=6">p.6 — Complexes</a>
+- Fuente: Giulio Tononi, An Information Integration Theory of Consciousness (2004), p.6 — Complexes
 
 ## Explicación
 
@@ -33,7 +33,7 @@ Esta noción explica de forma elegante varios fenómenos: por qué la conscienci
 
 ## Cita fundadora
 
-> What we are left with are complexes —individual entities that can integrate information. Specifically, a complex is a subset S having Φ &gt; 0 that is not included within a larger subset having higher Φ.
+> What we are left with are complexes —individual entities that can integrate information. Specifically, a complex is a subset S having Φ > 0 that is not included within a larger subset having higher Φ.
 
 ## Conceptos relacionados
 

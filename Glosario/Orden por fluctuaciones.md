@@ -1,11 +1,11 @@
 ---
 tipo: concepto
-autor_origen: Ilya Prigogine &amp; Isabelle Stengers
+autor_origen: "Ilya Prigogine & Isabelle Stengers"
 obra: La nueva alianza
 tradicion: termodinamica
-tradicion_label: "Termodinámica del orden"
+tradicion_label: Termodinámica del orden
 tema: Termodinámica y autoorganización
-fuente: "Prigogine &amp; Stengers, La nueva alianza (1979), <a class="chapter-link" href="Biblioteca/Prigogine%20%26%20Stengers%2C%20La%20nueva%20alianza.pdf#page=193">Cap. VI — Orden por fluctuaciones</a>"
+fuente: "Prigogine & Stengers, La nueva alianza (1979), Cap. VI — Orden por fluctuaciones"
 chip: "Prigogine & Stengers"
 tags:
   - tipo/concepto
@@ -19,9 +19,9 @@ tags:
 
 ## Origen
 
-- Autor: [[Ilya Prigogine &amp; Isabelle Stengers]]
+- Autor: [[Ilya Prigogine & Isabelle Stengers]]
 - Obra: [[La nueva alianza]]
-- Fuente: Prigogine &amp; Stengers, La nueva alianza (1979), <a class="chapter-link" href="Biblioteca/Prigogine%20%26%20Stengers%2C%20La%20nueva%20alianza.pdf#page=193">Cap. VI — Orden por fluctuaciones</a>
+- Fuente: Prigogine & Stengers, La nueva alianza (1979), Cap. VI — Orden por fluctuaciones
 
 ## Explicación
 

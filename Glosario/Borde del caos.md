@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Stuart Kauffman
 obra: At Home in the Universe
 tradicion: termodinamica
-tradicion_label: "Termodinámica del orden"
+tradicion_label: Termodinámica del orden
 tema: Termodinámica y autoorganización
-fuente: "Stuart Kauffman, At Home in the Universe (1995), <a class="chapter-link" href="Biblioteca/Stuart%20Kauffman%2C%20At%20Home%20in%20the%20Universe.pdf#page=49">Cap. 4 — Order for Free</a>"
-chip: "Kauffman"
+fuente: "Stuart Kauffman, At Home in the Universe (1995), Cap. 4 — Order for Free"
+chip: Kauffman
 tags:
   - tipo/concepto
   - tradicion/termodinamica
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Stuart Kauffman]]
 - Obra: [[At Home in the Universe]]
-- Fuente: Stuart Kauffman, At Home in the Universe (1995), <a class="chapter-link" href="Biblioteca/Stuart%20Kauffman%2C%20At%20Home%20in%20the%20Universe.pdf#page=49">Cap. 4 — Order for Free</a>
+- Fuente: Stuart Kauffman, At Home in the Universe (1995), Cap. 4 — Order for Free
 
 ## Explicación
 

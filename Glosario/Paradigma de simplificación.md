@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método IV — Las ideas
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Paradigma y método
 volumen: 4
-fuente: "Vol. 4 — Las Ideas"
-chip: "Morin IV"
+fuente: Vol. 4 — Las Ideas
+chip: Morin IV
 tags:
   - tipo/concepto
   - tradicion/morin

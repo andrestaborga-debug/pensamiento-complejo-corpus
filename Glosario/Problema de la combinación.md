@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: William Seager (ed.)
 obra: The Routledge Handbook of Panpsychism
 tradicion: panpsiquismo
-tradicion_label: "Panpsiquismo &amp; identidad"
+tradicion_label: "Panpsiquismo & identidad"
 tema: Consciencia y experiencia
-fuente: "William Seager (ed.), The Routledge Handbook of Panpsychism (2020), <a class="chapter-link" href="Biblioteca/William%20Seager%20(ed)%20-%20The%20Routledge%20Handbook%20of%20Panpsychism%20(Strawson%2C%20Goff%20et%20al).pdf#page=12">Preface to the Handbook</a>"
-chip: "Seager (ed.)"
+fuente: "William Seager (ed.), The Routledge Handbook of Panpsychism (2020), Preface to the Handbook"
+chip: Seager (ed.)
 tags:
   - tipo/concepto
   - tradicion/panpsiquismo
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[William Seager (ed.)]]
 - Obra: [[The Routledge Handbook of Panpsychism]]
-- Fuente: William Seager (ed.), The Routledge Handbook of Panpsychism (2020), <a class="chapter-link" href="Biblioteca/William%20Seager%20(ed)%20-%20The%20Routledge%20Handbook%20of%20Panpsychism%20(Strawson%2C%20Goff%20et%20al).pdf#page=12">Preface to the Handbook</a>
+- Fuente: William Seager (ed.), The Routledge Handbook of Panpsychism (2020), Preface to the Handbook
 
 ## Explicación
 

@@ -1,11 +1,11 @@
 ---
 tipo: concepto
-autor_origen: Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz
+autor_origen: "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz"
 obra: La revolución contemporánea del saber y la complejidad social
 tradicion: social
-tradicion_label: "Complejidad social"
+tradicion_label: Complejidad social
 tema: Complejidad social
-fuente: "Sotolongo &amp; Delgado, La revolución contemporánea del saber y la complejidad social (CLACSO, 2006), <a class="chapter-link" href="Biblioteca/sotolongo.pdf#page=41">Cap. III — La epistemología hermenéutica de segundo orden</a>"
+fuente: "Sotolongo & Delgado, La revolución contemporánea del saber y la complejidad social (CLACSO, 2006), Cap. III — La epistemología hermenéutica de segundo orden"
 chip: "Sotolongo & Delgado"
 tags:
   - tipo/concepto
@@ -19,9 +19,9 @@ tags:
 
 ## Origen
 
-- Autor: [[Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz]]
+- Autor: [[Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz]]
 - Obra: [[La revolución contemporánea del saber y la complejidad social]]
-- Fuente: Sotolongo &amp; Delgado, La revolución contemporánea del saber y la complejidad social (CLACSO, 2006), <a class="chapter-link" href="Biblioteca/sotolongo.pdf#page=41">Cap. III — La epistemología hermenéutica de segundo orden</a>
+- Fuente: Sotolongo & Delgado, La revolución contemporánea del saber y la complejidad social (CLACSO, 2006), Cap. III — La epistemología hermenéutica de segundo orden
 
 ## Explicación
 

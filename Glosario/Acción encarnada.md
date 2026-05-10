@@ -1,12 +1,12 @@
 ---
 tipo: concepto
-autor_origen: Francisco Varela, Evan Thompson &amp; Eleanor Rosch
+autor_origen: "Francisco Varela, Evan Thompson & Eleanor Rosch"
 obra: The Embodied Mind
 tradicion: embodied
-tradicion_label: "Cognición encarnada"
+tradicion_label: Cognición encarnada
 tema: Cognición encarnada
-fuente: "Varela, Thompson &amp; Rosch, The Embodied Mind (1991), <a class="chapter-link" href="Biblioteca/Varela,%20Thompson,%20Rosch%20-%20The%20Embodied%20Mind%20(1991).pdf#page=176">Cap. 8 — Enaction: Embodied Cognition</a>"
-chip: "Varela/Thompson/Rosch"
+fuente: "Varela, Thompson & Rosch, The Embodied Mind (1991), Cap. 8 — Enaction: Embodied Cognition"
+chip: Varela/Thompson/Rosch
 tags:
   - tipo/concepto
   - tradicion/embodied
@@ -19,9 +19,9 @@ tags:
 
 ## Origen
 
-- Autor: [[Francisco Varela, Evan Thompson &amp; Eleanor Rosch]]
+- Autor: [[Francisco Varela, Evan Thompson & Eleanor Rosch]]
 - Obra: [[The Embodied Mind]]
-- Fuente: Varela, Thompson &amp; Rosch, The Embodied Mind (1991), <a class="chapter-link" href="Biblioteca/Varela,%20Thompson,%20Rosch%20-%20The%20Embodied%20Mind%20(1991).pdf#page=176">Cap. 8 — Enaction: Embodied Cognition</a>
+- Fuente: Varela, Thompson & Rosch, The Embodied Mind (1991), Cap. 8 — Enaction: Embodied Cognition
 
 ## Explicación
 

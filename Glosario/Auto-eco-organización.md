@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método II — La vida de la Vida
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Vida y auto-organización
 volumen: 2
-fuente: "Vol. 2 — La vida de la Vida"
-chip: "Morin II"
+fuente: Vol. 2 — La vida de la Vida
+chip: Morin II
 tags:
   - tipo/concepto
   - tradicion/morin

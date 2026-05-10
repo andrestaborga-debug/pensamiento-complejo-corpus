@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método V — La humanidad de la Humanidad
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Paradigma y método
 volumen: 5
-fuente: "Vol. 5 — La humanidad de la Humanidad"
-chip: "Morin V"
+fuente: Vol. 5 — La humanidad de la Humanidad
+chip: Morin V
 tags:
   - tipo/concepto
   - tradicion/morin

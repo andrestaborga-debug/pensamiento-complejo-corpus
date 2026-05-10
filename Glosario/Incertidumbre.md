@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método III — El conocimiento del Conocimiento
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Conocimiento y cognición
 volumen: 3
-fuente: "Vol. 3 — El conocimiento del Conocimiento"
-chip: "Morin III"
+fuente: Vol. 3 — El conocimiento del Conocimiento
+chip: Morin III
 tags:
   - tipo/concepto
   - tradicion/morin

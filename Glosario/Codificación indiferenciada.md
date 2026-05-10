@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Heinz von Foerster
 obra: On Constructing a Reality
 tradicion: cibernetica
-tradicion_label: "Cibernética de 2° orden"
+tradicion_label: Cibernética de 2° orden
 tema: Organización del vivo
-fuente: "Heinz von Foerster, On Constructing a Reality (1973), <a class="chapter-link" href="Biblioteca/Heinz%20von%20Foerster%2C%20On%20Constructing%20a%20Reality.pdf#page=5">Interpretation, p.38</a>"
-chip: "von Foerster"
+fuente: "Heinz von Foerster, On Constructing a Reality (1973), Interpretation, p.38"
+chip: von Foerster
 tags:
   - tipo/concepto
   - tradicion/cibernetica
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Heinz von Foerster]]
 - Obra: [[On Constructing a Reality]]
-- Fuente: Heinz von Foerster, On Constructing a Reality (1973), <a class="chapter-link" href="Biblioteca/Heinz%20von%20Foerster%2C%20On%20Constructing%20a%20Reality.pdf#page=5">Interpretation, p.38</a>
+- Fuente: Heinz von Foerster, On Constructing a Reality (1973), Interpretation, p.38
 
 ## Explicación
 

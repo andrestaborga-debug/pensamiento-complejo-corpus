@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Alfred North Whitehead
 obra: Process and Reality
 tradicion: proceso
-tradicion_label: "Metafísica del proceso"
+tradicion_label: Metafísica del proceso
 tema: Proceso y relación
-fuente: "Whitehead, Process and Reality (1929, ed. corr. 1978), <a class="chapter-link" href="Biblioteca/Alfred%20North%20Whitehead%20-%20Process%20and%20Reality%20(1929%2C%20ed.%20corr.%201978).pdf#page=49">Part I, Cap. II — The Categoreal Scheme, Categoría de Explicación (i)</a>"
-chip: "Whitehead"
+fuente: "Whitehead, Process and Reality (1929, ed. corr. 1978), Part I, Cap. II — The Categoreal Scheme, Categoría de Explicación (i)"
+chip: Whitehead
 tags:
   - tipo/concepto
   - tradicion/proceso
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Alfred North Whitehead]]
 - Obra: [[Process and Reality]]
-- Fuente: Whitehead, Process and Reality (1929, ed. corr. 1978), <a class="chapter-link" href="Biblioteca/Alfred%20North%20Whitehead%20-%20Process%20and%20Reality%20(1929%2C%20ed.%20corr.%201978).pdf#page=49">Part I, Cap. II — The Categoreal Scheme, Categoría de Explicación (i)</a>
+- Fuente: Whitehead, Process and Reality (1929, ed. corr. 1978), Part I, Cap. II — The Categoreal Scheme, Categoría de Explicación (i)
 
 ## Explicación
 

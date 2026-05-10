@@ -1,11 +1,11 @@
 ---
 tipo: concepto
-autor_origen: Humberto Maturana &amp; Francisco Varela
+autor_origen: "Humberto Maturana & Francisco Varela"
 obra: El árbol del conocimiento
 tradicion: autopoiesis
-tradicion_label: "Autopoiesis"
+tradicion_label: Autopoiesis
 tema: Acoplamiento y cognición
-fuente: "Maturana &amp; Varela, El árbol del conocimiento (1984), <a class="chapter-link" href="Biblioteca/Maturana,%20Varela%20-%20El%20Arbol%20del%20Conocimiento%20(1984).pdf#page=61">Cap. III — Historia: reproducción y herencia</a>"
+fuente: "Maturana & Varela, El árbol del conocimiento (1984), Cap. III — Historia: reproducción y herencia"
 chip: "Maturana & Varela"
 tags:
   - tipo/concepto
@@ -19,9 +19,9 @@ tags:
 
 ## Origen
 
-- Autor: [[Humberto Maturana &amp; Francisco Varela]]
+- Autor: [[Humberto Maturana & Francisco Varela]]
 - Obra: [[El árbol del conocimiento]]
-- Fuente: Maturana &amp; Varela, El árbol del conocimiento (1984), <a class="chapter-link" href="Biblioteca/Maturana,%20Varela%20-%20El%20Arbol%20del%20Conocimiento%20(1984).pdf#page=61">Cap. III — Historia: reproducción y herencia</a>
+- Fuente: Maturana & Varela, El árbol del conocimiento (1984), Cap. III — Historia: reproducción y herencia
 
 ## Explicación
 

@@ -1,12 +1,12 @@
 ---
 tipo: concepto
 autor_origen: Arnold Zuboff
-obra: One Self: The Logic of Experience
+obra: "One Self: The Logic of Experience"
 tradicion: panpsiquismo
-tradicion_label: "Panpsiquismo &amp; identidad"
+tradicion_label: "Panpsiquismo & identidad"
 tema: Consciencia y experiencia
-fuente: "Arnold Zuboff, One Self: The Logic of Experience (1990, Inquiry 33: 39-68), <a class="chapter-link" href="Biblioteca/Arnold%20Zuboff%20-%20One%20Self%2C%20The%20Logic%20of%20Experience%20(1990).pdf#page=1">Apertura</a>"
-chip: "Zuboff"
+fuente: "Arnold Zuboff, One Self: The Logic of Experience (1990, Inquiry 33: 39-68), Apertura"
+chip: Zuboff
 tags:
   - tipo/concepto
   - tradicion/panpsiquismo
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Arnold Zuboff]]
 - Obra: [[One Self: The Logic of Experience]]
-- Fuente: Arnold Zuboff, One Self: The Logic of Experience (1990, Inquiry 33: 39-68), <a class="chapter-link" href="Biblioteca/Arnold%20Zuboff%20-%20One%20Self%2C%20The%20Logic%20of%20Experience%20(1990).pdf#page=1">Apertura</a>
+- Fuente: Arnold Zuboff, One Self: The Logic of Experience (1990, Inquiry 33: 39-68), Apertura
 
 ## Explicación
 

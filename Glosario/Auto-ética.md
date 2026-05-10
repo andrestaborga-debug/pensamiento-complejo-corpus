@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método VI — Ética
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Ética
 volumen: 6
-fuente: "Vol. 6 — Ética"
-chip: "Morin VI"
+fuente: Vol. 6 — Ética
+chip: Morin VI
 tags:
   - tipo/concepto
   - tradicion/morin

@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Karl Friston
 obra: The Free-Energy Principle
 tradicion: predictive
-tradicion_label: "Mente predictiva"
+tradicion_label: Mente predictiva
 tema: Mente predictiva
-fuente: "Karl Friston, The Free-Energy Principle: A Rough Guide to the Brain? (2009, Trends in Cognitive Sciences), <a class="chapter-link" href="Biblioteca/Karl%20Friston%20-%20The%20Free-Energy%20Principle%2C%20A%20Rough%20Guide%20to%20the%20Brain%20(2009).pdf#page=1">p.1 — Introducción</a>"
-chip: "Friston"
+fuente: "Karl Friston, The Free-Energy Principle: A Rough Guide to the Brain? (2009, Trends in Cognitive Sciences), p.1 — Introducción"
+chip: Friston
 tags:
   - tipo/concepto
   - tradicion/predictive
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Karl Friston]]
 - Obra: [[The Free-Energy Principle]]
-- Fuente: Karl Friston, The Free-Energy Principle: A Rough Guide to the Brain? (2009, Trends in Cognitive Sciences), <a class="chapter-link" href="Biblioteca/Karl%20Friston%20-%20The%20Free-Energy%20Principle%2C%20A%20Rough%20Guide%20to%20the%20Brain%20(2009).pdf#page=1">p.1 — Introducción</a>
+- Fuente: Karl Friston, The Free-Energy Principle: A Rough Guide to the Brain? (2009, Trends in Cognitive Sciences), p.1 — Introducción
 
 ## Explicación
 

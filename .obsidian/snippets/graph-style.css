@@ -1,0 +1,90 @@
+/* ============================================================
+   GRAPH VIEW — apariencia personalizada vault Pensamiento Complejo
+   Activar en Settings → Appearance → CSS snippets → toggle ON
+   ============================================================ */
+
+/* --- FONDO DEL GRAFO ---
+   Tono cálido tipo papel (modo claro) y casi negro (modo oscuro). */
+.theme-light .graph-view.color-fill-background {
+  fill: #faf7f2;
+}
+.theme-dark .graph-view.color-fill-background {
+  fill: #14110e;
+}
+
+/* --- ARISTAS (líneas entre notas) ---
+   Más delgadas y suaves; un poco translúcidas para no robar atención. */
+.graph-view.color-line {
+  stroke: var(--text-muted);
+  stroke-opacity: 0.35;
+}
+.graph-view.color-line-highlight {
+  stroke: var(--text-accent);
+  stroke-opacity: 0.85;
+}
+
+/* --- NODOS BASE ---
+   Bordes suaves, transición al hover. */
+.graph-view.color-circle {
+  stroke: rgba(0,0,0,0.15);
+  stroke-width: 0.5px;
+  transition: r 0.18s ease, opacity 0.18s ease;
+}
+
+/* Nodo activo (la nota que estás viendo) */
+.graph-view.color-fill-focused {
+  filter: drop-shadow(0 0 8px var(--text-accent));
+}
+
+/* Nodo no resuelto (wikilinks rotos) — más tenue */
+.graph-view.color-fill-unresolved {
+  fill: var(--text-faint);
+  opacity: 0.4;
+}
+
+/* --- ETIQUETAS DE TEXTO ---
+   Tipografía serif coherente con el corpus humanístico. */
+.graph-view.color-text {
+  font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  font-weight: 500;
+  font-size: 0.95em;
+  letter-spacing: 0.01em;
+}
+
+/* En modo claro, halo claro detrás del texto para que sea legible
+   sobre nodos coloridos. */
+.theme-light .graph-view.color-text {
+  paint-order: stroke fill;
+  stroke: rgba(250, 247, 242, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.theme-dark .graph-view.color-text {
+  paint-order: stroke fill;
+  stroke: rgba(20, 17, 14, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* --- TIRA DE COLOR PARA TIPOS ESPECIALES ---
+   Estos selectores funcionan SOLO si los nodos tienen el grupo asignado
+   (lo logramos con los colorGroups en graph.json).
+   Aquí ajustamos opacidad / tamaño según importancia visual. */
+
+/* Autores: un poco más grandes (son los hubs) */
+.graph-view.color-fill[fill="#d4a017"],
+.graph-view.color-fill[style*="rgb(212, 160, 23)"] {
+  filter: drop-shadow(0 0 4px rgba(212, 160, 23, 0.45));
+}
+
+/* MOCs: anillo blanco distintivo */
+.graph-view.color-fill[fill="#ffffff"] {
+  stroke: var(--text-accent);
+  stroke-width: 1.5px;
+}
+
+/* --- HOVER ---
+   Al pasar el mouse: agranda el nodo y resalta sus aristas. */
+.graph-view.color-circle:hover {
+  cursor: pointer;
+}

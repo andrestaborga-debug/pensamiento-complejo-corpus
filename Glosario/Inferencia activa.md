@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Karl Friston
 obra: The Free-Energy Principle
 tradicion: predictive
-tradicion_label: "Mente predictiva"
+tradicion_label: Mente predictiva
 tema: Mente predictiva
-fuente: "Karl Friston, The Free-Energy Principle (2009), <a class="chapter-link" href="Biblioteca/Karl%20Friston%20-%20The%20Free-Energy%20Principle%2C%20A%20Rough%20Guide%20to%20the%20Brain%20(2009).pdf#page=3">p.3 — Beyond Bayes to active inference</a>"
-chip: "Friston"
+fuente: "Karl Friston, The Free-Energy Principle (2009), p.3 — Beyond Bayes to active inference"
+chip: Friston
 tags:
   - tipo/concepto
   - tradicion/predictive
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Karl Friston]]
 - Obra: [[The Free-Energy Principle]]
-- Fuente: Karl Friston, The Free-Energy Principle (2009), <a class="chapter-link" href="Biblioteca/Karl%20Friston%20-%20The%20Free-Energy%20Principle%2C%20A%20Rough%20Guide%20to%20the%20Brain%20(2009).pdf#page=3">p.3 — Beyond Bayes to active inference</a>
+- Fuente: Karl Friston, The Free-Energy Principle (2009), p.3 — Beyond Bayes to active inference
 
 ## Explicación
 

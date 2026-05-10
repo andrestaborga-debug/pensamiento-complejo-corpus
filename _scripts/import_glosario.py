@@ -5,10 +5,39 @@ Lee 'Glosario - Pensamiento Complejo.html', extrae el array JS DATA,
 y genera una nota markdown por cada entrada en /Glosario/.
 """
 
+import html
 import json
 import re
 import unicodedata
 from pathlib import Path
+
+
+def clean_meta(value):
+    """Limpia un campo de metadatos: decodifica entidades HTML, quita tags HTML
+    y elimina caracteres que rompen YAML. Devuelve string vacío para None."""
+    if value is None:
+        return ""
+    s = str(value)
+    # Decodifica todas las entidades HTML (&amp; → &, &nbsp; → espacio, etc.)
+    s = html.unescape(s)
+    # Elimina cualquier tag HTML residual
+    s = re.sub(r"<[^>]+>", "", s)
+    # Colapsa espacios múltiples
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def yaml_quote(value: str) -> str:
+    """Devuelve un string YAML-safe. Si contiene caracteres especiales, lo cita."""
+    if not value:
+        return '""'
+    # Caracteres que requieren citado en YAML
+    needs_quote = any(c in value for c in ":#&*?|>!%@`,[]{}")
+    if needs_quote or value != value.strip() or value.startswith(("-", "?", ":")):
+        # Escapa comillas dobles
+        escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+        return f'"{escaped}"'
+    return value
 
 # Rutas
 GLOSARIO_HTML = Path(
@@ -44,9 +73,9 @@ def safe_filename(term: str) -> str:
     return out.strip()
 
 
-def html_to_md(html: str) -> str:
+def html_to_md(html_src: str) -> str:
     """Convierte el HTML simple del campo explanation a markdown."""
-    text = html
+    text = html_src
     # párrafos: cada <p>...</p> en una línea
     text = re.sub(r"<p[^>]*>", "", text)
     text = re.sub(r"</p>", "\n\n", text)
@@ -79,6 +108,8 @@ def html_to_md(html: str) -> str:
     text = text.replace("&nbsp;", " ").replace("&mdash;", "—").replace("&ndash;", "–")
     text = text.replace("&hellip;", "…").replace("&rsquo;", "'").replace("&lsquo;", "'")
     text = text.replace("&ldquo;", '"').replace("&rdquo;", '"')
+    # red de seguridad: cualquier otra entidad HTML
+    text = html.unescape(text)
     # múltiples saltos
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
@@ -96,50 +127,52 @@ def slug_to_term_map(entries):
 
 
 def render_note(e, slug_map):
-    term = e["term"]
+    # Limpia entidades HTML y tags residuales en TODOS los campos string
+    term = clean_meta(e["term"])
     title = slug_to_title(e["slug"], term)
     tradicion_raw = e.get("tradition", "")
     tradicion_tag = TRADICION_TAG.get(tradicion_raw, tradicion_raw or "otra")
-    tradicion_label = e.get("tradition_label", "")
-    author = e.get("author", "")
-    work = e.get("work", "")
-    theme = e.get("theme", "")
+    tradicion_label = clean_meta(e.get("tradition_label", ""))
+    author = clean_meta(e.get("author", ""))
+    work = clean_meta(e.get("work", ""))
+    theme = clean_meta(e.get("theme", ""))
     volume = e.get("volume")
-    source = e.get("source", "")
-    chip = e.get("chip_label", "")
-    essence = e.get("essence", "").strip()
+    source = clean_meta(e.get("source", ""))
+    chip = clean_meta(e.get("chip_label", ""))
+    essence = clean_meta(e.get("essence", ""))
     explanation_md = html_to_md(e.get("explanation", ""))
-    quote = e.get("quote", "").strip()
+    quote = clean_meta(e.get("quote", ""))
 
     # refs → wikilinks usando ref_slugs para resolver el term real
     refs = e.get("refs", []) or []
     ref_slugs = e.get("ref_slugs", []) or []
     ref_links = []
     for label, sl in zip(refs, ref_slugs):
-        # si el slug existe en el mapa, usar el term real (mejor wikilink)
+        label = clean_meta(label)
         target = slug_map.get(sl, label)
+        target = clean_meta(target)
         if target == label:
             ref_links.append(f"[[{label}]]")
         else:
             ref_links.append(f"[[{target}|{label}]]")
 
-    # frontmatter
+    # frontmatter (todos los strings citados con yaml_quote para evitar romper YAML)
     fm_lines = [
         "---",
         "tipo: concepto",
-        f"autor_origen: {author}",
-        f"obra: {work}",
+        f"autor_origen: {yaml_quote(author)}",
+        f"obra: {yaml_quote(work)}",
         f"tradicion: {tradicion_tag}",
-        f'tradicion_label: "{tradicion_label}"',
+        f"tradicion_label: {yaml_quote(tradicion_label)}",
     ]
     if theme:
-        fm_lines.append(f"tema: {theme}")
+        fm_lines.append(f"tema: {yaml_quote(theme)}")
     if volume:
         fm_lines.append(f"volumen: {volume}")
     if source:
-        fm_lines.append(f'fuente: "{source}"')
+        fm_lines.append(f"fuente: {yaml_quote(source)}")
     if chip:
-        fm_lines.append(f'chip: "{chip}"')
+        fm_lines.append(f"chip: {yaml_quote(chip)}")
     fm_lines += [
         "tags:",
         "  - tipo/concepto",

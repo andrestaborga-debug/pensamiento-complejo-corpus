@@ -3,11 +3,11 @@ tipo: concepto
 autor_origen: Edgar Morin
 obra: El Método I — La naturaleza de la Naturaleza
 tradicion: morin
-tradicion_label: "Morin · El Método"
+tradicion_label: Morin · El Método
 tema: Principios del pensamiento complejo
 volumen: 1
-fuente: "Vol. 1 — La naturaleza de la Naturaleza"
-chip: "Morin I"
+fuente: Vol. 1 — La naturaleza de la Naturaleza
+chip: Morin I
 tags:
   - tipo/concepto
   - tradicion/morin

@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Giulio Tononi
 obra: An Information Integration Theory of Consciousness
 tradicion: iit
-tradicion_label: "Información integrada (IIT)"
+tradicion_label: Información integrada (IIT)
 tema: Consciencia y experiencia
-fuente: "Giulio Tononi, An Information Integration Theory of Consciousness (2004, BMC Neuroscience 5:42), <a class="chapter-link" href="Biblioteca/Giulio%20Tononi%20-%20An%20Information%20Integration%20Theory%20of%20Consciousness%20(2004%2C%20paper).pdf#page=1">Abstract</a>"
-chip: "Tononi"
+fuente: "Giulio Tononi, An Information Integration Theory of Consciousness (2004, BMC Neuroscience 5:42), Abstract"
+chip: Tononi
 tags:
   - tipo/concepto
   - tradicion/iit
@@ -15,13 +15,13 @@ tags:
 
 # Información integrada (Φ)
 
-> Cantidad que mide cuánta información un sistema genera por encima de sus partes. Para Tononi, es la consciencia: donde hay Φ &gt; 0, hay un cuanto de experiencia.
+> Cantidad que mide cuánta información un sistema genera por encima de sus partes. Para Tononi, es la consciencia: donde hay Φ > 0, hay un cuanto de experiencia.
 
 ## Origen
 
 - Autor: [[Giulio Tononi]]
 - Obra: [[An Information Integration Theory of Consciousness]]
-- Fuente: Giulio Tononi, An Information Integration Theory of Consciousness (2004, BMC Neuroscience 5:42), <a class="chapter-link" href="Biblioteca/Giulio%20Tononi%20-%20An%20Information%20Integration%20Theory%20of%20Consciousness%20(2004%2C%20paper).pdf#page=1">Abstract</a>
+- Fuente: Giulio Tononi, An Information Integration Theory of Consciousness (2004, BMC Neuroscience 5:42), Abstract
 
 ## Explicación
 

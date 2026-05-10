@@ -1,12 +1,12 @@
 ---
 tipo: concepto
 autor_origen: Andy Clark
-obra: Whatever Next?
+obra: "Whatever Next?"
 tradicion: predictive
-tradicion_label: "Mente predictiva"
+tradicion_label: Mente predictiva
 tema: Mente predictiva
-fuente: "Andy Clark, Whatever Next? (2013, BBS), <a class="chapter-link" href="Biblioteca/Andy%20Clark%20-%20Whatever%20Next%2C%20Predictive%20Brains%20and%20Situated%20Agents%20(2013%2C%20BBS).pdf#page=3">§1.2 — Hierarchical predictive coding</a>"
-chip: "Clark"
+fuente: "Andy Clark, Whatever Next? (2013, BBS), §1.2 — Hierarchical predictive coding"
+chip: Clark
 tags:
   - tipo/concepto
   - tradicion/predictive
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Andy Clark]]
 - Obra: [[Whatever Next?]]
-- Fuente: Andy Clark, Whatever Next? (2013, BBS), <a class="chapter-link" href="Biblioteca/Andy%20Clark%20-%20Whatever%20Next%2C%20Predictive%20Brains%20and%20Situated%20Agents%20(2013%2C%20BBS).pdf#page=3">§1.2 — Hierarchical predictive coding</a>
+- Fuente: Andy Clark, Whatever Next? (2013, BBS), §1.2 — Hierarchical predictive coding
 
 ## Explicación
 

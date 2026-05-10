@@ -3,10 +3,10 @@ tipo: concepto
 autor_origen: Maurice Merleau-Ponty
 obra: Fenomenología de la percepción
 tradicion: embodied
-tradicion_label: "Cognición encarnada"
+tradicion_label: Cognición encarnada
 tema: Cognición encarnada
-fuente: "Merleau-Ponty, Fenomenología de la percepción (1945), <a class="chapter-link" href="Biblioteca/Merleau-Ponty%2C%20Maurice%20-%20Fenomenolog%C3%ADa%20de%20la%20percepci%C3%B3n.pdf#page=382">Tercera Parte, Cap. I (El Cogito)</a>"
-chip: "Merleau-Ponty"
+fuente: "Merleau-Ponty, Fenomenología de la percepción (1945), Tercera Parte, Cap. I (El Cogito)"
+chip: Merleau-Ponty
 tags:
   - tipo/concepto
   - tradicion/embodied
@@ -21,7 +21,7 @@ tags:
 
 - Autor: [[Maurice Merleau-Ponty]]
 - Obra: [[Fenomenología de la percepción]]
-- Fuente: Merleau-Ponty, Fenomenología de la percepción (1945), <a class="chapter-link" href="Biblioteca/Merleau-Ponty%2C%20Maurice%20-%20Fenomenolog%C3%ADa%20de%20la%20percepci%C3%B3n.pdf#page=382">Tercera Parte, Cap. I (El Cogito)</a>
+- Fuente: Merleau-Ponty, Fenomenología de la percepción (1945), Tercera Parte, Cap. I (El Cogito)
 
 ## Explicación
 
