@@ -269,6 +269,91 @@ def build_visualization_data(entries):
                 "essence": clean_text(e.get("essence", "")),
             })
 
+    # 6) Network — grafo concepto-concepto vía refs
+    network_nodes = []
+    network_links = []
+    in_deg = defaultdict(int)
+    out_deg = defaultdict(int)
+    valid_slugs = set(slug_to_term.keys())
+    for e in entries:
+        for r in (e.get("ref_slugs") or []):
+            if r in valid_slugs:
+                in_deg[r] += 1
+                out_deg[e["slug"]] += 1
+    for e in entries:
+        slug = e["slug"]
+        network_nodes.append({
+            "id": slug,
+            "name": clean_text(e["term"]),
+            "tradition": e.get("tradition", ""),
+            "author": clean_text(e.get("author", "")),
+            "essence": clean_text(e.get("essence", "")),
+            "indegree": in_deg.get(slug, 0),
+            "outdegree": out_deg.get(slug, 0),
+        })
+    seen_pairs = set()
+    for e in entries:
+        src = e["slug"]
+        for r in (e.get("ref_slugs") or []):
+            if r in valid_slugs and r != src:
+                key = tuple(sorted([src, r]))
+                if key in seen_pairs:
+                    continue
+                seen_pairs.add(key)
+                network_links.append({"source": src, "target": r})
+    network = {"nodes": network_nodes, "links": network_links}
+
+    # 7) Chord de conceptos — top N más conectados
+    TOP_N = 28
+    deg_total = {s: in_deg.get(s, 0) + out_deg.get(s, 0) for s in valid_slugs}
+    top_slugs = sorted(deg_total.keys(), key=lambda s: -deg_total[s])[:TOP_N]
+    top_idx = {s: i for i, s in enumerate(top_slugs)}
+    nC = len(top_slugs)
+    cmat = [[0] * nC for _ in range(nC)]
+    for e in entries:
+        src = e["slug"]
+        if src not in top_idx:
+            continue
+        for r in (e.get("ref_slugs") or []):
+            if r in top_idx and r != src:
+                cmat[top_idx[src]][top_idx[r]] += 1
+    concept_chord = {
+        "concepts": [slug_to_term[s] for s in top_slugs],
+        "tradition": [slug_to_tradition[s] for s in top_slugs],
+        "matrix": cmat,
+    }
+
+    # 8) Heatmap concepto × concepto, ordenado por tradición → autor → término
+    sorted_entries = sorted(
+        entries,
+        key=lambda e: (
+            list(TRADICIONES.keys()).index(e.get("tradition", "social"))
+                if e.get("tradition", "") in TRADICIONES else 99,
+            clean_text(e.get("author", "")),
+            clean_text(e["term"])
+        )
+    )
+    hm_slugs = [e["slug"] for e in sorted_entries]
+    hm_idx = {s: i for i, s in enumerate(hm_slugs)}
+    nH = len(hm_slugs)
+    hmat = [[0] * nH for _ in range(nH)]
+    for e in entries:
+        src = e["slug"]
+        if src not in hm_idx:
+            continue
+        for r in (e.get("ref_slugs") or []):
+            if r in hm_idx and r != src:
+                hmat[hm_idx[src]][hm_idx[r]] = 1
+                hmat[hm_idx[r]][hm_idx[src]] = 1  # simétrico para legibilidad
+    heatmap = {
+        "labels": [clean_text(slug_to_term[s]) for s in hm_slugs],
+        "tradition": [slug_to_tradition[s] for s in hm_slugs],
+        "matrix": hmat,
+    }
+
+    # 9) Dendrograma radial — reusa la jerarquía del sunburst
+    # (La data ya está en sunburst_root; D3 hace el layout)
+
     # Conteos por tradición
     by_tradicion = defaultdict(int)
     for e in entries:
@@ -280,6 +365,9 @@ def build_visualization_data(entries):
         "sunburst": sunburst_root,
         "sankey": sankey,
         "bubble": bubble,
+        "network": network,
+        "concept_chord": concept_chord,
+        "heatmap": heatmap,
         "tradiciones": TRADICIONES,
         "counts": dict(by_tradicion),
     }
@@ -469,6 +557,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bubble-circle { stroke: var(--bg); stroke-width: 1.2; cursor: pointer; transition: opacity 0.15s; }
   .bubble-circle:hover { opacity: 0.85; }
   .bubble-label { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 10px; fill: #fff; pointer-events: none; text-anchor: middle; }
+  /* Network */
+  .net-node { stroke: var(--bg); stroke-width: 1.2; cursor: grab; transition: opacity 0.15s; }
+  .net-node:active { cursor: grabbing; }
+  .net-node.dim { opacity: 0.18; }
+  .net-link { stroke: var(--ink-soft); stroke-opacity: 0.18; stroke-width: 0.8px; }
+  .net-link.dim { stroke-opacity: 0.05; }
+  .net-link.bright { stroke-opacity: 0.7; }
+  .net-label { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 9px; fill: var(--ink); pointer-events: none; }
+  /* Heatmap */
+  .heat-cell { shape-rendering: crispEdges; }
+  .heat-divider { stroke: var(--ink); stroke-width: 0.5; opacity: 0.4; }
+  .heat-tlabel { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 9px; fill: var(--ink-soft); }
+  /* Dendrogram */
+  .dend-link { fill: none; stroke: var(--ink-soft); stroke-opacity: 0.35; stroke-width: 1; }
+  .dend-node circle { stroke: var(--bg); stroke-width: 1; }
+  .dend-label { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 9px; fill: var(--ink); }
   /* Footer */
   footer {
     max-width: 1280px;
@@ -490,18 +594,76 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </header>
 
 <main>
-  <section>
-    <h2>Cronología de las ideas</h2>
-    <p class="desc">Cada punto es un concepto del glosario, ubicado por <strong>año</strong> de la obra que lo introduce y agrupado por <strong>tradición</strong>. Pasa el cursor para detalle. Clic en una etiqueta de la leyenda para filtrar.</p>
-    <div id="legend-timeline" class="legend"></div>
-    <div id="timeline"></div>
-  </section>
+  <nav class="toc">
+    <h3>Visualizaciones</h3>
+    <a href="#timeline-section">1 · Cronología</a>
+    <a href="#chord-section">2 · Diálogo entre autores</a>
+    <a href="#sunburst-section">3 · Jerarquía del corpus</a>
+    <a href="#sankey-section">4 · Flujo entre tradiciones</a>
+    <a href="#bubble-section">5 · Conceptos más citados</a>
+    <a href="#network-section">6 · Red de conceptos</a>
+    <a href="#concept-chord-section">7 · Diálogo entre conceptos</a>
+    <a href="#heatmap-section">8 · Matriz de co-referencias</a>
+    <a href="#dendrogram-section">9 · Dendrograma radial</a>
+  </nav>
 
-  <section>
-    <h2>Diálogo entre autores</h2>
-    <p class="desc">Cada arco es un autor. Las cintas conectan autores que comparten conceptos en sus refs cruzadas — es decir, citan o son citados por la misma idea. Más cinta = más diálogo conceptual.</p>
-    <div id="chord"></div>
-  </section>
+  <div class="content">
+    <section id="timeline-section">
+      <h2>1 · Cronología de las ideas</h2>
+      <p class="desc">Cada punto es un concepto del glosario, ubicado por <strong>año</strong> de la obra que lo introduce y agrupado por <strong>tradición</strong>. Pasa el cursor para detalle. Clic en una etiqueta de la leyenda para filtrar.</p>
+      <div id="legend-timeline" class="legend"></div>
+      <div id="timeline"></div>
+    </section>
+
+    <section id="chord-section">
+      <h2>2 · Diálogo entre autores</h2>
+      <p class="desc">Cada arco es un autor. Las cintas conectan autores que <strong>comparten conceptos</strong> en sus refs cruzadas. Más cinta = más diálogo conceptual.</p>
+      <div id="chord"></div>
+    </section>
+
+    <section id="sunburst-section">
+      <h2>3 · Jerarquía del corpus</h2>
+      <p class="desc">Anillos concéntricos: <strong>tradición → autor → concepto</strong>. El tamaño de cada porción es proporcional al número de conceptos. Pasa el cursor para detalle.</p>
+      <div id="sunburst"></div>
+    </section>
+
+    <section id="sankey-section">
+      <h2>4 · Flujo de refs entre tradiciones</h2>
+      <p class="desc">Cómo circula el discurso. Cada cinta indica que un concepto de la tradición de la <strong>izquierda</strong> referencia (vía <code>refs</code>) un concepto de la tradición de la <strong>derecha</strong>. Más grosor = más densidad de citaciones cruzadas.</p>
+      <div id="sankey"></div>
+    </section>
+
+    <section id="bubble-section">
+      <h2>5 · Conceptos más citados</h2>
+      <p class="desc">Burbujas dimensionadas por número de <strong>refs entrantes</strong> — los puentes intelectuales que más conceptos otros señalan como base. Color por tradición.</p>
+      <div id="bubble"></div>
+    </section>
+
+    <section id="network-section">
+      <h2>6 · Red de conceptos</h2>
+      <p class="desc">Grafo concepto-concepto: cada nodo es un concepto del glosario, cada arista es un ref cruzado. Tamaño por # de menciones, color por tradición. <strong>Arrastra los nodos</strong>, <strong>scroll para zoom</strong>, <strong>busca</strong> con el campo abajo.</p>
+      <input type="text" id="network-search" placeholder="Buscar concepto…" style="margin-bottom: 12px; padding: 6px 12px; font-family: inherit; font-size: 0.92em; width: 240px; border: 1px solid var(--rule); border-radius: 14px;">
+      <div id="network"></div>
+    </section>
+
+    <section id="concept-chord-section">
+      <h2>7 · Diálogo entre conceptos (top 28)</h2>
+      <p class="desc">Como el chord de autores, pero entre los <strong>28 conceptos más conectados</strong>. Cintas = co-referencias. Útil para ver qué ideas se citan más entre sí — los <em>conceptos bisagra</em> del corpus.</p>
+      <div id="concept-chord"></div>
+    </section>
+
+    <section id="heatmap-section">
+      <h2>8 · Matriz de co-referencias</h2>
+      <p class="desc">Cuadrícula concepto×concepto (91×91). Los conceptos están <strong>ordenados por tradición</strong> — los cuadrados densos cerca de la diagonal son comunidades intra-tradición; los puntos lejos de la diagonal son <strong>puentes inter-tradición</strong>.</p>
+      <div id="heatmap"></div>
+    </section>
+
+    <section id="dendrogram-section">
+      <h2>9 · Dendrograma radial</h2>
+      <p class="desc">Misma jerarquía que el sunburst pero como árbol radial. Útil para presentar el corpus en una imagen única: el centro es el corpus, las ramas son tradiciones, las hojas son conceptos.</p>
+      <div id="dendrogram"></div>
+    </section>
+  </div>
 </main>
 
 <footer>
@@ -703,6 +865,438 @@ g.append("g").selectAll("path")
     showTip(`<strong>${src} → ${tgt}</strong><span class="meta">${v} concepto${v > 1 ? "s" : ""} compartido${v > 1 ? "s" : ""}</span>`, ev);
   })
   .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+/* ============================================================
+   Sunburst — tradición → autor → concepto
+   ============================================================ */
+const SB_SIZE = 720;
+const sbSvg = d3.select("#sunburst").append("svg")
+  .attr("viewBox", `0 0 ${SB_SIZE} ${SB_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("max-width", "780px")
+  .style("margin", "0 auto");
+
+const sbG = sbSvg.append("g").attr("transform", `translate(${SB_SIZE/2}, ${SB_SIZE/2})`);
+const sbRadius = SB_SIZE / 2 - 4;
+
+const sbRoot = d3.hierarchy(DATA.sunburst).sum(d => d.value || 0);
+d3.partition().size([2 * Math.PI, sbRadius])(sbRoot);
+
+const sbArc = d3.arc()
+  .startAngle(d => d.x0)
+  .endAngle(d => d.x1)
+  .padAngle(0.003)
+  .padRadius(sbRadius / 2)
+  .innerRadius(d => d.y0)
+  .outerRadius(d => d.y1 - 1);
+
+function sbColor(d) {
+  let n = d;
+  while (n.depth > 1) n = n.parent;
+  const trad = n.data.tradition;
+  const base = TRADICIONES[trad]?.color || "#888";
+  // Más profundo = más claro (mezclando con bg)
+  const c = d3.color(base);
+  if (!c) return base;
+  if (d.depth === 1) return c.formatHex();
+  if (d.depth === 2) { c.opacity = 1; return c.brighter(0.3).formatHex(); }
+  return c.brighter(0.7).formatHex();
+}
+
+sbG.selectAll("path")
+  .data(sbRoot.descendants().filter(d => d.depth > 0))
+  .enter().append("path")
+  .attr("class", "sun-arc")
+  .attr("d", sbArc)
+  .attr("fill", sbColor)
+  .on("mouseenter", (ev, d) => {
+    const path = d.ancestors().map(a => a.data.name).reverse().slice(1).join(" → ");
+    let extra = "";
+    if (d.depth === 3) extra = `<div class="essence">${d.data.essence || ""}</div>`;
+    if (d.depth === 1) extra = `<span class="meta">${d.value} conceptos</span>`;
+    showTip(`<strong>${d.data.name}</strong><span class="meta">${path}</span>${extra}`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+// Etiquetas en el primer anillo (tradiciones) si caben
+sbG.selectAll("text.sb-tradicion")
+  .data(sbRoot.descendants().filter(d => d.depth === 1 && (d.x1 - d.x0) > 0.18))
+  .enter().append("text")
+  .attr("class", "sun-label")
+  .attr("transform", d => {
+    const a = (d.x0 + d.x1) / 2 - Math.PI / 2;
+    const r = (d.y0 + d.y1) / 2;
+    const rotate = a * 180 / Math.PI;
+    const flip = (rotate > 90 || rotate < -90) ? 180 : 0;
+    return `rotate(${rotate}) translate(${r},0) rotate(${flip})`;
+  })
+  .attr("text-anchor", "middle")
+  .attr("dy", "0.35em")
+  .style("fill", "#fff")
+  .style("font-weight", "600")
+  .text(d => d.data.name.length > 22 ? d.data.name.slice(0, 20) + "…" : d.data.name);
+
+/* ============================================================
+   Sankey — flujo entre tradiciones
+   ============================================================ */
+const SK_W = 1180, SK_H = 460;
+const skSvg = d3.select("#sankey").append("svg")
+  .attr("viewBox", `0 0 ${SK_W} ${SK_H}`)
+  .attr("preserveAspectRatio", "xMidYMid meet");
+
+const sankeyData = {
+  nodes: DATA.sankey.nodes.map(d => ({...d})),
+  links: DATA.sankey.links.map(d => ({...d}))
+};
+
+const sankeyLayout = d3.sankey()
+  .nodeWidth(16)
+  .nodePadding(12)
+  .nodeSort(null)
+  .extent([[180, 24], [SK_W - 180, SK_H - 24]]);
+
+const sk = sankeyLayout(sankeyData);
+
+skSvg.append("g").selectAll("rect")
+  .data(sk.nodes).enter().append("rect")
+  .attr("class", "sankey-node")
+  .attr("x", d => d.x0).attr("y", d => d.y0)
+  .attr("width", d => d.x1 - d.x0)
+  .attr("height", d => d.y1 - d.y0)
+  .attr("fill", d => TRADICIONES[d.tradition]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    const total = d.side === "src"
+      ? d.sourceLinks.reduce((a, l) => a + l.value, 0)
+      : d.targetLinks.reduce((a, l) => a + l.value, 0);
+    const dir = d.side === "src" ? "→ refs salientes" : "← refs entrantes";
+    showTip(`<strong>${d.name}</strong><span class="meta">${dir}: ${total}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+skSvg.append("g")
+  .attr("fill", "none")
+  .selectAll("path")
+  .data(sk.links).enter().append("path")
+  .attr("class", "sankey-link")
+  .attr("d", d3.sankeyLinkHorizontal())
+  .attr("stroke", d => TRADICIONES[d.source.tradition]?.color || "#888")
+  .attr("stroke-width", d => Math.max(1, d.width))
+  .on("mouseenter", (ev, d) => {
+    showTip(`<strong>${d.source.name} → ${d.target.name}</strong><span class="meta">${d.value} ref${d.value > 1 ? "s" : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+skSvg.append("g").selectAll("text")
+  .data(sk.nodes).enter().append("text")
+  .attr("class", "sankey-label")
+  .attr("x", d => d.side === "src" ? d.x0 - 8 : d.x1 + 8)
+  .attr("y", d => (d.y0 + d.y1) / 2)
+  .attr("dy", "0.35em")
+  .attr("text-anchor", d => d.side === "src" ? "end" : "start")
+  .text(d => d.name);
+
+/* ============================================================
+   Bubble — conceptos más citados
+   ============================================================ */
+const BB_SIZE = 760;
+const bbSvg = d3.select("#bubble").append("svg")
+  .attr("viewBox", `0 0 ${BB_SIZE} ${BB_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("max-width", "820px")
+  .style("margin", "0 auto");
+
+const bbRoot = d3.hierarchy({children: DATA.bubble}).sum(d => d.value || 0);
+d3.pack().size([BB_SIZE, BB_SIZE]).padding(3)(bbRoot);
+
+const bbNode = bbSvg.append("g").selectAll("g")
+  .data(bbRoot.leaves()).enter().append("g")
+  .attr("transform", d => `translate(${d.x},${d.y})`);
+
+bbNode.append("circle")
+  .attr("class", "bubble-circle")
+  .attr("r", d => d.r)
+  .attr("fill", d => TRADICIONES[d.data.tradition]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    showTip(`<strong>${d.data.name}</strong><span class="meta">${d.data.author} · ${TRADICIONES[d.data.tradition]?.label || d.data.tradition}</span><div class="essence">${d.data.essence}</div><span class="meta" style="margin-top:4px;display:block;">Citado por ${d.value} concepto${d.value > 1 ? "s" : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+bbNode.filter(d => d.r > 22).append("text")
+  .attr("class", "bubble-label")
+  .attr("dy", "0.35em")
+  .text(d => {
+    const max = Math.floor(d.r / 4);
+    return d.data.name.length > max ? d.data.name.slice(0, max - 1) + "…" : d.data.name;
+  });
+
+/* ============================================================
+   6 · Red force-directed de conceptos
+   ============================================================ */
+const NET_W = 1180, NET_H = 720;
+const netSvg = d3.select("#network").append("svg")
+  .attr("viewBox", `0 0 ${NET_W} ${NET_H}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("background", "#fdfbf6")
+  .style("border-radius", "4px");
+
+const netZoom = netSvg.append("g");
+
+const nodes = DATA.network.nodes.map(d => ({...d}));
+const links = DATA.network.links.map(d => ({...d}));
+
+const radiusScale = d3.scaleSqrt()
+  .domain([0, d3.max(nodes, d => d.indegree) || 1])
+  .range([3, 16]);
+
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d => d.id).distance(40).strength(0.45))
+  .force("charge", d3.forceManyBody().strength(-110))
+  .force("center", d3.forceCenter(NET_W/2, NET_H/2))
+  .force("collide", d3.forceCollide().radius(d => radiusScale(d.indegree) + 2));
+
+const linkSel = netZoom.append("g").selectAll("line")
+  .data(links).enter().append("line")
+  .attr("class", "net-link");
+
+const nodeSel = netZoom.append("g").selectAll("circle")
+  .data(nodes).enter().append("circle")
+  .attr("class", "net-node")
+  .attr("r", d => radiusScale(d.indegree))
+  .attr("fill", d => TRADICIONES[d.tradition]?.color || "#888")
+  .call(d3.drag()
+    .on("start", (ev, d) => { if (!ev.active) sim.alphaTarget(0.2).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag", (ev, d) => { d.fx = ev.x; d.fy = ev.y; })
+    .on("end", (ev, d) => { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }))
+  .on("mouseenter", (ev, d) => {
+    showTip(`<strong>${d.name}</strong><span class="meta">${d.author} · ${TRADICIONES[d.tradition]?.label || d.tradition}</span><span class="meta">${d.indegree} entrantes · ${d.outdegree} salientes</span><div class="essence">${d.essence}</div>`, ev);
+    // resaltar vecinos
+    const neighbors = new Set([d.id]);
+    links.forEach(l => {
+      if (l.source.id === d.id) neighbors.add(l.target.id);
+      if (l.target.id === d.id) neighbors.add(l.source.id);
+    });
+    nodeSel.classed("dim", n => !neighbors.has(n.id));
+    linkSel.classed("dim", l => l.source.id !== d.id && l.target.id !== d.id);
+    linkSel.classed("bright", l => l.source.id === d.id || l.target.id === d.id);
+  })
+  .on("mousemove", moveTip)
+  .on("mouseleave", () => {
+    hideTip();
+    nodeSel.classed("dim", false);
+    linkSel.classed("dim", false).classed("bright", false);
+  });
+
+sim.on("tick", () => {
+  linkSel
+    .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+  nodeSel.attr("cx", d => d.x).attr("cy", d => d.y);
+});
+
+// Zoom
+netSvg.call(d3.zoom().scaleExtent([0.4, 4]).on("zoom", (ev) => {
+  netZoom.attr("transform", ev.transform);
+}));
+
+// Búsqueda
+d3.select("#network-search").on("input", function () {
+  const q = this.value.toLowerCase().trim();
+  if (!q) {
+    nodeSel.classed("dim", false);
+    linkSel.classed("dim", false);
+    return;
+  }
+  const matched = new Set(nodes.filter(n => n.name.toLowerCase().includes(q)).map(n => n.id));
+  nodeSel.classed("dim", n => !matched.has(n.id));
+  linkSel.classed("dim", true);
+});
+
+/* ============================================================
+   7 · Chord de conceptos (top 28)
+   ============================================================ */
+const CC_SIZE = 760, CC_MARGIN = 160;
+const CC_RADIUS = (CC_SIZE - CC_MARGIN * 2) / 2;
+const ccInnerR = CC_RADIUS - 12;
+const ccOuterR = CC_RADIUS;
+
+const ccSvg = d3.select("#concept-chord").append("svg")
+  .attr("viewBox", `0 0 ${CC_SIZE} ${CC_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("max-width", "820px").style("margin", "0 auto");
+
+const ccG = ccSvg.append("g").attr("transform", `translate(${CC_SIZE/2}, ${CC_SIZE/2})`);
+
+const ccChord = d3.chord().padAngle(0.025).sortSubgroups(d3.descending);
+const ccChords = ccChord(DATA.concept_chord.matrix);
+const ccArc = d3.arc().innerRadius(ccInnerR).outerRadius(ccOuterR);
+const ccRibbon = d3.ribbon().radius(ccInnerR);
+
+const ccGroups = ccG.append("g").selectAll("g")
+  .data(ccChords.groups).enter().append("g");
+
+ccGroups.append("path").attr("class", "chord-arc")
+  .attr("d", ccArc)
+  .attr("fill", d => TRADICIONES[DATA.concept_chord.tradition[d.index]]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    const c = DATA.concept_chord.concepts[d.index];
+    const t = TRADICIONES[DATA.concept_chord.tradition[d.index]];
+    showTip(`<strong>${c}</strong><span class="meta">${t ? t.label : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+ccGroups.append("text")
+  .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", "0.35em")
+  .style("font-family", "-apple-system, sans-serif")
+  .style("font-size", "10px")
+  .attr("transform", d =>
+    `rotate(${(d.angle * 180 / Math.PI - 90)}) translate(${ccOuterR + 6}) ${d.angle > Math.PI ? "rotate(180)" : ""}`)
+  .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+  .text(d => DATA.concept_chord.concepts[d.index]);
+
+ccG.append("g").selectAll("path")
+  .data(ccChords).enter().append("path")
+  .attr("class", "chord-ribbon")
+  .attr("d", ccRibbon)
+  .attr("fill", d => TRADICIONES[DATA.concept_chord.tradition[d.source.index]]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    const a = DATA.concept_chord.concepts[d.source.index];
+    const b = DATA.concept_chord.concepts[d.target.index];
+    const v = DATA.concept_chord.matrix[d.source.index][d.target.index];
+    showTip(`<strong>${a} ↔ ${b}</strong><span class="meta">${v} co-ref${v > 1 ? "s" : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+/* ============================================================
+   8 · Heatmap concepto × concepto
+   ============================================================ */
+const HM_SIZE = 880, HM_MARGIN = 8;
+const N = DATA.heatmap.labels.length;
+const cellSize = (HM_SIZE - HM_MARGIN * 2) / N;
+
+const hmSvg = d3.select("#heatmap").append("svg")
+  .attr("viewBox", `0 0 ${HM_SIZE} ${HM_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("background", "#fdfbf6")
+  .style("border-radius", "4px");
+
+const hmG = hmSvg.append("g").attr("transform", `translate(${HM_MARGIN},${HM_MARGIN})`);
+
+// Celdas — solo dibuja las que tienen ref (1)
+const cells = [];
+for (let i = 0; i < N; i++) {
+  for (let j = 0; j < N; j++) {
+    if (DATA.heatmap.matrix[i][j]) cells.push({i, j});
+  }
+}
+hmG.selectAll("rect.heat-cell").data(cells).enter().append("rect")
+  .attr("class", "heat-cell")
+  .attr("x", d => d.j * cellSize)
+  .attr("y", d => d.i * cellSize)
+  .attr("width", cellSize).attr("height", cellSize)
+  .attr("fill", d => TRADICIONES[DATA.heatmap.tradition[d.i]]?.color || "#888")
+  .attr("opacity", 0.85)
+  .on("mouseenter", (ev, d) => {
+    const a = DATA.heatmap.labels[d.i];
+    const b = DATA.heatmap.labels[d.j];
+    showTip(`<strong>${a}</strong><span class="meta">↔ ${b}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+// Divisores entre tradiciones
+const divisorPositions = [];
+for (let i = 1; i < N; i++) {
+  if (DATA.heatmap.tradition[i] !== DATA.heatmap.tradition[i-1]) {
+    divisorPositions.push(i);
+  }
+}
+divisorPositions.forEach(p => {
+  hmG.append("line").attr("class", "heat-divider")
+    .attr("x1", 0).attr("x2", N * cellSize)
+    .attr("y1", p * cellSize).attr("y2", p * cellSize);
+  hmG.append("line").attr("class", "heat-divider")
+    .attr("y1", 0).attr("y2", N * cellSize)
+    .attr("x1", p * cellSize).attr("x2", p * cellSize);
+});
+
+// Etiquetas de tradición — un label por bloque
+const tradStartIdx = {};
+DATA.heatmap.tradition.forEach((t, i) => {
+  if (!(t in tradStartIdx)) tradStartIdx[t] = i;
+});
+Object.entries(tradStartIdx).forEach(([trad, startIdx]) => {
+  let endIdx = startIdx;
+  while (endIdx < N && DATA.heatmap.tradition[endIdx] === trad) endIdx++;
+  const center = ((startIdx + endIdx) / 2) * cellSize;
+  hmG.append("text")
+    .attr("class", "heat-tlabel")
+    .attr("x", -4).attr("y", center).attr("dy", "0.32em")
+    .attr("text-anchor", "end")
+    .style("font-weight", "600")
+    .style("fill", TRADICIONES[trad]?.color || "#888")
+    .text((TRADICIONES[trad]?.label || trad).split(" ")[0]);
+});
+
+/* ============================================================
+   9 · Dendrograma radial
+   ============================================================ */
+const DD_SIZE = 880;
+const ddSvg = d3.select("#dendrogram").append("svg")
+  .attr("viewBox", `0 0 ${DD_SIZE} ${DD_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("max-width", "920px").style("margin", "0 auto");
+
+const ddG = ddSvg.append("g").attr("transform", `translate(${DD_SIZE/2}, ${DD_SIZE/2})`);
+
+const ddRoot = d3.hierarchy(DATA.sunburst);
+const ddRadius = DD_SIZE / 2 - 80;
+
+d3.cluster().size([2 * Math.PI, ddRadius])(ddRoot);
+
+function radial(angle, radius) {
+  return [Math.cos(angle - Math.PI/2) * radius, Math.sin(angle - Math.PI/2) * radius];
+}
+
+ddG.append("g")
+  .attr("fill", "none")
+  .selectAll("path")
+  .data(ddRoot.links())
+  .enter().append("path")
+  .attr("class", "dend-link")
+  .attr("d", d3.linkRadial().angle(d => d.x).radius(d => d.y));
+
+const ddNode = ddG.append("g").selectAll("g")
+  .data(ddRoot.descendants())
+  .enter().append("g")
+  .attr("class", "dend-node")
+  .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`);
+
+ddNode.append("circle")
+  .attr("r", d => d.children ? 3 : 4)
+  .attr("fill", d => {
+    if (d.depth === 0) return "#1b1b1b";
+    let n = d;
+    while (n.depth > 1) n = n.parent;
+    return TRADICIONES[n.data.tradition]?.color || "#888";
+  })
+  .style("cursor", d => d.children ? "default" : "pointer")
+  .on("mouseenter", (ev, d) => {
+    if (d.depth === 0) return;
+    const path = d.ancestors().map(a => a.data.name).reverse().slice(1).join(" → ");
+    let extra = "";
+    if (d.depth === 3) extra = `<div class="essence">${d.data.essence || ""}</div>`;
+    showTip(`<strong>${d.data.name}</strong><span class="meta">${path}</span>${extra}`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+// Etiquetas solo en el nivel 1 (tradiciones) y hojas con espacio
+ddNode.filter(d => d.depth === 3).append("text")
+  .attr("class", "dend-label")
+  .attr("dy", "0.32em")
+  .attr("x", d => d.x < Math.PI ? 7 : -7)
+  .attr("text-anchor", d => d.x < Math.PI ? "start" : "end")
+  .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
+  .text(d => d.data.name.length > 22 ? d.data.name.slice(0,20)+"…" : d.data.name);
 
 </script>
 </body>
