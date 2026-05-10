@@ -71,3 +71,6 @@ Para ver las 91, abre [[📊 Dashboard del vault]].
 5. **Plantillas dinámicas**: `Ctrl+P` → "Templater: Open Insert Template modal".
 
 > Tip: empieza por [[🧭 Mapa de tradiciones]] o [[📊 Dashboard del vault]] para ver la totalidad. Para entrar en profundidad, abre cualquier entrada del Glosario y sigue los `[[Conceptos relacionados]]` al final.
+
+
+Sauna
