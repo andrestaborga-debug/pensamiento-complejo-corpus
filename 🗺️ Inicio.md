@@ -9,9 +9,9 @@ Este es el **mapa raíz**. El vault tiene **dos capas**: el demo curado (autores
 
 ## Tipos de nota y carpetas
 
-- **Autores/** → 4 notas biográficas mínimas
-- **Obras/** → 4 libros con metadatos
-- **Conceptos/** → 5 conceptos clave del demo original (no duplicados con el glosario)
+- **Autores/** → 4 notas biográficas mínimas curadas a mano
+- **Obras/** → 3 libros con metadatos
+- **Conceptos/** → 2 conceptos del demo original (Bucle recursivo, Autoorganización) — los demás se importaron del glosario
 - **Glosario/** → **91 entradas** importadas masivamente (el corpus principal)
 - **MOCs/** → mapas temáticos
 - **_templates/** → plantillas estáticas y Templater
@@ -35,17 +35,16 @@ Este es el **mapa raíz**. El vault tiene **dos capas**: el demo curado (autores
 
 - [[El Método I - La naturaleza de la Naturaleza]]
 - [[El árbol del conocimiento]]
-- [[La nueva alianza]]
 - [[At Home in the Universe]]
+
+> *La nueva alianza* (Prigogine & Stengers) aparece en el Glosario como concepto.
 
 ## Conceptos curados (originales)
 
-- [[Principio dialógico]]
-- [[Principio hologramático]]
 - [[Bucle recursivo]]
 - [[Autoorganización]]
 
-> Para los demás conceptos (Autopoiesis, Complejidad, Deriva natural, Estructura disipativa…) los `[[wikilinks]]` resuelven a las versiones del glosario, que tienen citas y refs cruzadas más completas.
+> Los demás conceptos (Principio dialógico, Principio hologramático, Sistema abierto, Autopoiesis, Complejidad, Deriva natural, Estructura disipativa…) viven en el [[#Glosario importado — atajos|glosario importado]] con citas y refs cruzadas más completas.
 
 ## Glosario importado — atajos
 
