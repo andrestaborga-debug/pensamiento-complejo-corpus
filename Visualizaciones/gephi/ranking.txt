@@ -1,0 +1,177 @@
+
+================================================================
+  BETWEENNESS CENTRALITY (puentes intelectuales)
+================================================================
+ 1. Auto-eco-organización                        0.2622  morin
+ 2. Sujeto                                       0.2080  morin
+ 3. Reforma del pensamiento                      0.1035  morin
+ 4. Filosofía del organismo                      0.0958  proceso
+ 5. Autopoiesis                                  0.0931  autopoiesis
+ 6. Antropo-ética                                0.0759  morin
+ 7. La nueva alianza                             0.0680  termodinamica
+ 8. Cogito computante                            0.0657  morin
+ 9. Energía libre variacional                    0.0634  predictive
+10. Principio de recursividad organizacional     0.0567  morin
+11. Acoplamiento estructural                     0.0547  autopoiesis
+12. Conocimiento del conocimiento                0.0527  morin
+
+================================================================
+  EIGENVECTOR CENTRALITY (importancia por prestigio)
+================================================================
+ 1. Auto-eco-organización                        0.2763  morin
+ 2. Sistema abierto                              0.2646  morin
+ 3. Organización                                 0.2495  morin
+ 4. Máquina viviente                             0.2141  morin
+ 5. Emergencia                                   0.1956  morin
+ 6. Reforma del pensamiento                      0.1881  morin
+ 7. Sujeto                                       0.1788  morin
+ 8. Conocimiento del conocimiento                0.1762  morin
+ 9. Antropo-ética                                0.1696  morin
+10. Tierra-Patria                                0.1694  morin
+11. Bucle tetralógico                            0.1689  morin
+12. Homo complexus                               0.1565  morin
+
+================================================================
+  CLOSENESS CENTRALITY (que tan central es cada concepto)
+================================================================
+ 1. Auto-eco-organización                        0.4265  morin
+ 2. Sujeto                                       0.4091  morin
+ 3. Autopoiesis                                  0.3659  autopoiesis
+ 4. Filosofía del organismo                      0.3629  proceso
+ 5. Principio de recursividad organizacional     0.3529  morin
+ 6. Antropo-ética                                0.3516  morin
+ 7. Organización                                 0.3516  morin
+ 8. Cogito computante                            0.3448  morin
+ 9. Energía libre variacional                    0.3422  predictive
+10. Trinidad cognitiva (cerebro-mente-cultura)     0.3371  morin
+11. Estructura disipativa                        0.3371  termodinamica
+12. Acoplamiento estructural                     0.3358  autopoiesis
+
+================================================================
+  DEGREE (cantidad bruta de conexiones)
+================================================================
+ 1. Auto-eco-organización                            19  morin
+ 2. Reforma del pensamiento                          15  morin
+ 3. Sujeto                                           15  morin
+ 4. Autopoiesis                                      14  autopoiesis
+ 5. Antropo-ética                                    11  morin
+ 6. Comprensión                                      11  morin
+ 7. Pensamiento complejo                             11  morin
+ 8. Sistema abierto                                  11  morin
+ 9. Conocimiento del conocimiento                    10  morin
+10. Organización                                     10  morin
+11. Acoplamiento estructural                         10  autopoiesis
+12. Cogito computante                                 9  morin
+
+================================================================
+  COMUNIDADES (Louvain, modularidad = 0.599)
+================================================================
+
+Comunidad 1 (10 nodos):
+  - Antropo-ética
+  - Auto-ética
+  - Comprensión
+  - Ecología de la acción
+  - Homo complexus
+  - Homo sapiens/demens
+  - Regeneración ética
+  - Socio-ética
+  - Tierra-Patria
+  - Trinidad humana (individuo-sociedad-especie)
+
+Comunidad 2 (11 nodos):
+  - Auto-eco-organización
+  - Bucle tetralógico
+  - Causalidad circular
+  - Emergencia
+  - Orden / Desorden
+  - Organización
+  - Principio de recursividad organizacional
+  - Principio dialógico
+  - Principio hologramático
+  - Reliance
+  - Sistema abierto
+
+Comunidad 3 (12 nodos):
+  - Acción encarnada
+  - Cogito computante
+  - Cogito tácito
+  - Computación viviente
+  - Cuerpo propio
+  - Enacción
+  - Esquema corporal
+  - Intencionalidad operante
+  - Movimiento generador del espacio
+  - Máquina viviente
+  - Sujeto
+  - Trinidad cognitiva (cerebro-mente-cultura)
+
+Comunidad 4 (14 nodos):
+  - Bien pensar
+  - Ceguera del conocimiento
+  - Complejidad
+  - Conocimiento del conocimiento
+  - Error e ilusión
+  - Idea (como ser viviente)
+  - Incertidumbre
+  - Mito y pensamiento simbólico
+  - Método
+  - Noosfera
+  - Paradigma
+  - Paradigma de simplificación
+  - Pensamiento complejo
+  - Reforma del pensamiento
+
+Comunidad 5 (5 nodos):
+  - Auto-organización (Kauffman)
+  - Borde del caos
+  - Conjuntos autocatalíticos
+  - Orden gratis
+  - Redes booleanas
+
+Comunidad 6 (14 nodos):
+  - Acoplamiento estructural
+  - Autopoiesis
+  - Cerebro predictivo
+  - Clausura operacional
+  - Codificación indiferenciada
+  - Computar la realidad
+  - Doble clausura
+  - El ambiente como invención
+  - Energía libre variacional
+  - Error de predicción
+  - Imperativo ético constructivista
+  - Inferencia activa
+  - Procesamiento jerárquico predictivo
+  - Todo hacer es conocer
+
+Comunidad 7 (14 nodos):
+  - Camino medio
+  - Complejo principal
+  - Concrescencia
+  - Cosmopsicismo
+  - Creatividad
+  - Filosofía del organismo
+  - Hacer camino al andar
+  - Información integrada (Φ)
+  - Ocasión actual
+  - Panpsiquismo
+  - Prehensión
+  - Problema de la combinación
+  - Sin yo (Selfless mind)
+  - Universalismo del yo (open individualism)
+
+Comunidad 8 (6 nodos):
+  - Deriva natural
+  - Estructura disipativa
+  - La nueva alianza
+  - Lejos del equilibrio
+  - Orden por fluctuaciones
+  - Tiempo irreversible (flecha del tiempo)
+
+Comunidad 9 (5 nodos):
+  - Ciencias sociales de nuevo tipo
+  - Diálogo de saberes
+  - Epistemología hermenéutica de segundo orden
+  - Pensamiento «de la Complejidad»
+  - Transdisciplinariedad

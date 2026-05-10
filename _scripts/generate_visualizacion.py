@@ -605,6 +605,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <a href="#concept-chord-section">7 · Diálogo entre conceptos</a>
     <a href="#heatmap-section">8 · Matriz de co-referencias</a>
     <a href="#dendrogram-section">9 · Dendrograma radial</a>
+    <a href="#metrics-section">10 · Análisis de centralidad</a>
   </nav>
 
   <div class="content">
@@ -662,6 +663,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <h2>9 · Dendrograma radial</h2>
       <p class="desc">Misma jerarquía que el sunburst pero como árbol radial. Útil para presentar el corpus en una imagen única: el centro es el corpus, las ramas son tradiciones, las hojas son conceptos.</p>
       <div id="dendrogram"></div>
+    </section>
+
+    <section id="metrics-section">
+      <h2>10 · Análisis de centralidad (NetworkX)</h2>
+      <p class="desc">Rankings calculados con algoritmos de teoría de redes. <strong>Betweenness</strong> identifica los conceptos puente; <strong>eigenvector</strong> los conectados a otros importantes; <strong>closeness</strong> los más accesibles desde todo el corpus. <strong>Modularity</strong> = <span id="metric-modularity"></span> con <span id="metric-n-communities"></span> comunidades algorítmicas.</p>
+      <div id="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 18px;"></div>
     </section>
   </div>
 </main>

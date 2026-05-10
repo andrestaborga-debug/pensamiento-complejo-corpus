@@ -1,0 +1,1869 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-05-10">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="tradition" type="string" />
+      <attribute id="1" title="tradition_label" type="string" />
+      <attribute id="2" title="author" type="string" />
+      <attribute id="3" title="essence" type="string" />
+      <attribute id="4" title="degree" type="long" />
+      <attribute id="5" title="weighted_degree" type="double" />
+      <attribute id="6" title="betweenness" type="double" />
+      <attribute id="7" title="closeness" type="double" />
+      <attribute id="8" title="eigenvector" type="double" />
+      <attribute id="9" title="pagerank" type="double" />
+      <attribute id="10" title="community" type="long" />
+    </attributes>
+    <nodes>
+      <node id="antropo-etica" label="Antropo-ética">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="25.172559348157385" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ética que reconoce la responsabilidad del ser humano hacia sí mismo, hacia los otros y hacia la vida toda." />
+          <attvalue for="4" value="11" />
+          <attvalue for="5" value="15.0" />
+          <attvalue for="6" value="0.07586279674078693" />
+          <attvalue for="7" value="0.3515625" />
+          <attvalue for="8" value="0.1696193627995355" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="auto-eco-organizacion" label="Auto-eco-organización">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="62.445798241069056" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Proceso por el cual un sistema se autogenera mientras está inseparablemente acoplado a su entorno, transformándolo y siendo transformado." />
+          <attvalue for="4" value="19" />
+          <attvalue for="5" value="23.0" />
+          <attvalue for="6" value="0.26222899120534526" />
+          <attvalue for="7" value="0.4265402843601896" />
+          <attvalue for="8" value="0.2762543526268351" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="auto-etica" label="Auto-ética">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="17.659955759160315" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ética de la auto-realización: responsabilidad de cada individuo hacia su propio desarrollo integral y dignidad." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.03829977879580157" />
+          <attvalue for="7" value="0.33088235294117646" />
+          <attvalue for="8" value="0.09951363703056176" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="bien-pensar" label="Bien pensar">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.433357084601852" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ejercicio permanente del pensamiento reflexivo, integrador y ético que anticipa consecuencias y permanece abierto a la complejidad." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.012166785423009259" />
+          <attvalue for="7" value="0.2795031055900621" />
+          <attvalue for="8" value="0.08487594486788665" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="bucle-tetralogico" label="Bucle tetralógico">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.875705947972676" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Dinámica donde caos, orden, interacción e organización se retroalimentan generando sistemas vivos e impredecibles." />
+          <attvalue for="4" value="8" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.014378529739863385" />
+          <attvalue for="7" value="0.2931596091205212" />
+          <attvalue for="8" value="0.1688800392962594" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="causalidad-circular" label="Causalidad circular">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.05271188791788" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Lógica donde los efectos retroactúan sobre las causas, generando bucles autorrreguladores y transformativos." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.0002635594395894021" />
+          <attvalue for="7" value="0.234375" />
+          <attvalue for="8" value="0.1423806410979568" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="ceguera-del-conocimiento" label="Ceguera del conocimiento">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="11.04738124962844" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Incapacidad constitutiva de la mente para ver lo que la estructura de nuestro pensamiento oculta sistemáticamente." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.005236906248142204" />
+          <attvalue for="7" value="0.2694610778443114" />
+          <attvalue for="8" value="0.1122135240438606" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="cogito-computante" label="Cogito computante">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="23.14304321583342" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Capacidad de pensar reflexivamente en términos de información, procesos y retroalimentación, transformando la filosofía cartesiana." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.0657152160791671" />
+          <attvalue for="7" value="0.3448275862068966" />
+          <attvalue for="8" value="0.10291918329046561" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="complejidad" label="Complejidad">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.54876715738139" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Entretejimiento de orden, desorden e interacciones que impide reducir un fenómeno a sus partes." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.002743835786906947" />
+          <attvalue for="7" value="0.26627218934911245" />
+          <attvalue for="8" value="0.12563590750122683" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="comprension" label="Comprensión">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="19.445941413445272" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Inteligencia empática que integra el conocimiento intelectual con la empatía y el reconocimiento del otro en su dignidad." />
+          <attvalue for="4" value="11" />
+          <attvalue for="5" value="14.0" />
+          <attvalue for="6" value="0.04722970706722636" />
+          <attvalue for="7" value="0.29900332225913623" />
+          <attvalue for="8" value="0.1535640965789698" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="computacion-viviente" label="Computación viviente">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.019975031210986" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Procesamiento de información e integración de estímulos que caracteriza todo ser vivo, no solo organismos cerebrales." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="9.987515605493134e-05" />
+          <attvalue for="7" value="0.27607361963190186" />
+          <attvalue for="8" value="0.11404466839236262" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="conocimiento-del-conocimiento" label="Conocimiento del conocimiento">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="20.54680656096166" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Reflexión epistemológica que examina cómo conocemos, incluyendo los límites, sesgos e ilusiones del conocimiento mismo." />
+          <attvalue for="4" value="10" />
+          <attvalue for="5" value="15.0" />
+          <attvalue for="6" value="0.052734032804808297" />
+          <attvalue for="7" value="0.3125" />
+          <attvalue for="8" value="0.17621728417605428" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="ecologia-de-la-accion" label="Ecología de la acción">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.933869293419855" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Reconocimiento que toda acción, una vez lanzada, entra en red de consecuencias impredecibles que pueden contravenir la intención." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.004669346467099275" />
+          <attvalue for="7" value="0.2857142857142857" />
+          <attvalue for="8" value="0.09978550809891588" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="emergencia" label="Emergencia">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="13.142402833341597" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Aparición de propiedades nuevas del sistema que no existían en las partes consideradas aisladamente." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="14.0" />
+          <attvalue for="6" value="0.015712014166707984" />
+          <attvalue for="7" value="0.27692307692307694" />
+          <attvalue for="8" value="0.195618645417063" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="error-e-ilusion" label="Error e ilusión">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="11.655904082209435" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Constitutivos inevitables del conocimiento que deben ser reconocidos como tales para que el pensamiento no quede cautivo." />
+          <attvalue for="4" value="8" />
+          <attvalue for="5" value="12.0" />
+          <attvalue for="6" value="0.008279520411047181" />
+          <attvalue for="7" value="0.26706231454005935" />
+          <attvalue for="8" value="0.1542457465041164" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="homo-complexus" label="Homo complexus">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.403672792084336" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Humanidad entendida como síntesis viviente de dimensiones contradictorias: animal-racional, individual-social, consciente-inconsciente." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="14.0" />
+          <attvalue for="6" value="0.012018363960421677" />
+          <attvalue for="7" value="0.2903225806451613" />
+          <attvalue for="8" value="0.15647377385492386" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="homo-sapiens-demens" label="Homo sapiens/demens">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.199750312109863" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ser humano caracterizado por la inseparabilidad radical entre razón (sapiens) e irracionalidad (demens), sin que una supere a la otra." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.0009987515605493131" />
+          <attvalue for="7" value="0.24861878453038674" />
+          <attvalue for="8" value="0.09532001027108851" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="idea-como-ser-viviente" label="Idea (como ser viviente)">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.251631708560547" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Las ideas no son esencias atemporales sino organismos vivos que nacen, se reproducen, mutan, compiten y mueren." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.0012581585428027373" />
+          <attvalue for="7" value="0.2535211267605634" />
+          <attvalue for="8" value="0.06264299668855482" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="incertidumbre" label="Incertidumbre">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.397840700991175" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Realidad irreducible: el futuro es abierto, el conocimiento es parcial, ningún sistema es completamente predecible." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.0019892035049558724" />
+          <attvalue for="7" value="0.2647058823529412" />
+          <attvalue for="8" value="0.12509835937277305" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="maquina-viviente" label="Máquina viviente">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.771041707620597" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Paradoja: ser vivo que no es máquina mecánica pero sí es productor de orden, información y propósito." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="12.0" />
+          <attvalue for="6" value="0.0038552085381029855" />
+          <attvalue for="7" value="0.3125" />
+          <attvalue for="8" value="0.21405644381159722" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="metodo" label="Método">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.806479274644069" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Vía de pensamiento que respeta la singularidad de lo que estudia sin pretender leyes universales que ignoren el contexto." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.014032396373220343" />
+          <attvalue for="7" value="0.27522935779816515" />
+          <attvalue for="8" value="0.12361186659867628" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="mito-y-pensamiento-simbolico" label="Mito y pensamiento simbólico">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.583981740844486" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Narrativas que organizan el sentido profundo de una cultura y la cual la razón pura no puede penetrar ni reemplazar." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.002919908704222429" />
+          <attvalue for="7" value="0.25069637883008355" />
+          <attvalue for="8" value="0.05808974663929181" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="noosfera" label="Noosfera">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.592336779602697" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Esfera de ideas, símbolos y significados que emerge de la actividad mental colectiva y se vuelve autónoma respecto a los individuos." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.0029616838980134857" />
+          <attvalue for="7" value="0.27522935779816515" />
+          <attvalue for="8" value="0.0568065624578723" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="orden---desorden" label="Orden / Desorden">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="11.765156340802385" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Pareja irreducible que, en diálogo, es fuente de toda organización y creatividad." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.008825781704011926" />
+          <attvalue for="7" value="0.2803738317757009" />
+          <attvalue for="8" value="0.12809080564803185" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="organizacion" label="Organización">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="18.57580295952509" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Disposición de partes que genera emergencias irreducibles y se autorreplica manteniendo identidad en el cambio." />
+          <attvalue for="4" value="10" />
+          <attvalue for="5" value="15.0" />
+          <attvalue for="6" value="0.042879014797625466" />
+          <attvalue for="7" value="0.3515625" />
+          <attvalue for="8" value="0.2495122738426142" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="paradigma" label="Paradigma">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.037305876257188" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Matriz invisible de conceptos que organiza el pensamiento de una época y determina qué preguntas se hacen y qué respuestas son válidas." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.010186529381285935" />
+          <attvalue for="7" value="0.26548672566371684" />
+          <attvalue for="8" value="0.06542274798609012" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="paradigma-de-simplificacion" label="Paradigma de simplificación">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="14.647938591318187" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Lógica que reduce la realidad a principios simples, separando lo que está inseparablemente unido." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.02323969295659094" />
+          <attvalue for="7" value="0.27692307692307694" />
+          <attvalue for="8" value="0.09468338863310462" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="pensamiento-complejo" label="Pensamiento complejo">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="15.4168763804146" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Tejido de saberes que reconoce la entrelazón inseparable entre orden, desorden y organización." />
+          <attvalue for="4" value="11" />
+          <attvalue for="5" value="15.0" />
+          <attvalue for="6" value="0.027084381902073004" />
+          <attvalue for="7" value="0.28391167192429023" />
+          <attvalue for="8" value="0.150638846147715" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="principio-de-recursividad-organizacional" label="Principio de recursividad organizacional">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="21.349031374295997" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Bucle en el que el producto retroactúa sobre el productor, y el sistema regenera las condiciones de su propia existencia." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.05674515687147998" />
+          <attvalue for="7" value="0.35294117647058826" />
+          <attvalue for="8" value="0.13222036999397763" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="principio-dialogico" label="Principio dialógico">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="14.989714612237542" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Articulación de contrarios que no se resuelven en síntesis sino que permanecen activos, generativos, irreconciliables." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.02494857306118771" />
+          <attvalue for="7" value="0.3050847457627119" />
+          <attvalue for="8" value="0.12676221445050873" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="principio-hologramatico" label="Principio hologramático">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="14.842056354944656" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Lógica donde la parte contiene el todo y el todo se halla en cada parte, sin que esto sea reducción o redundancia." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.024210281774723275" />
+          <attvalue for="7" value="0.3010033444816054" />
+          <attvalue for="8" value="0.12740632672215463" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="reforma-del-pensamiento" label="Reforma del pensamiento">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="30.701746867201816" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Transformación radical en la forma de conocer que reintegra lo que el paradigma cartesiano ha dividido." />
+          <attvalue for="4" value="15" />
+          <attvalue for="5" value="20.0" />
+          <attvalue for="6" value="0.10350873433600907" />
+          <attvalue for="7" value="0.3191489361702128" />
+          <attvalue for="8" value="0.1880801470911276" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="3" />
+        </attvalues>
+      </node>
+      <node id="regeneracion-etica" label="Regeneración ética">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="12.787002987873223" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Proceso permanente de renovación moral mediante reflexión, autocrítica y disposición a transformar la conducta y las estructuras." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.013935014939366117" />
+          <attvalue for="7" value="0.28938906752411575" />
+          <attvalue for="8" value="0.09098839716643559" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="reliance" label="Reliance">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="16.778483494995942" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Dependencia recíproca e inseparable entre los seres vivos y su entorno, constitutiva de toda existencia." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.03389241747497971" />
+          <attvalue for="7" value="0.3157894736842105" />
+          <attvalue for="8" value="0.15066508911685192" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="sistema-abierto" label="Sistema abierto">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="17.026858971772434" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Organización que se autogenera manteniendo intercambio permanente con su entorno, del cual no puede escindirse." />
+          <attvalue for="4" value="11" />
+          <attvalue for="5" value="16.0" />
+          <attvalue for="6" value="0.03513429485886218" />
+          <attvalue for="7" value="0.3202846975088968" />
+          <attvalue for="8" value="0.26458839694002995" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="1" />
+        </attvalues>
+      </node>
+      <node id="socio-etica" label="Socio-ética">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="10.779172554453453" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ética de la solidaridad: reconocimiento de la dignidad de todos, compromiso con justicia y transformación social." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.003895862772267267" />
+          <attvalue for="7" value="0.27439024390243905" />
+          <attvalue for="8" value="0.10091844436212273" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="sujeto" label="Sujeto">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="51.595020119739296" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Ser vivo que se autoproduce en relación con su medio, con capacidad de reflexión y autonomía relativa, no reducible a objeto." />
+          <attvalue for="4" value="15" />
+          <attvalue for="5" value="18.0" />
+          <attvalue for="6" value="0.20797510059869648" />
+          <attvalue for="7" value="0.4090909090909091" />
+          <attvalue for="8" value="0.17882718423524496" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="tierra-patria" label="Tierra-Patria">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="14.848011628690191" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Reconocimiento de que todos los humanos comparten un destino común en un planeta único, base de una solidaridad global." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="14.0" />
+          <attvalue for="6" value="0.024240058143450958" />
+          <attvalue for="7" value="0.2980132450331126" />
+          <attvalue for="8" value="0.1694077001223226" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="trinidad-cognitiva-cerebro-mente-cultura" label="Trinidad cognitiva (cerebro-mente-cultura)">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="17.61567600260062" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Triangulación inseparable donde el cerebro produce la mente, la mente externaliza en cultura, la cultura moldea el cerebro." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.0380783800130031" />
+          <attvalue for="7" value="0.33707865168539325" />
+          <attvalue for="8" value="0.10541624564422632" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="trinidad-humana-individuo-sociedad-especie" label="Trinidad humana (individuo-sociedad-especie)">
+        <viz:color r="122" g="46" b="46" a="1.0" />
+        <viz:size value="13.889260209815397" />
+        <attvalues>
+          <attvalue for="0" value="morin" />
+          <attvalue for="1" value="Pensamiento complejo (Morin)" />
+          <attvalue for="2" value="Edgar Morin" />
+          <attvalue for="3" value="Articulación de tres dimensiones donde cada una depende y se realiza en las otras dos sin subordinación jerárquica." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.019446301049076988" />
+          <attvalue for="7" value="0.28938906752411575" />
+          <attvalue for="8" value="0.11398215256208527" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="0" />
+        </attvalues>
+      </node>
+      <node id="autopoiesis" label="Autopoiesis">
+        <viz:color r="74" g="107" b="60" a="1.0" />
+        <viz:size value="28.616038859080017" />
+        <attvalues>
+          <attvalue for="0" value="autopoiesis" />
+          <attvalue for="1" value="Autopoiesis" />
+          <attvalue for="2" value="Humberto Maturana &amp; Francisco Varela" />
+          <attvalue for="3" value="El proceso por el cual un sistema vivo produce continuamente los componentes que lo constituyen como tal sistema, manteniéndose como unidad autónoma." />
+          <attvalue for="4" value="14" />
+          <attvalue for="5" value="16.0" />
+          <attvalue for="6" value="0.09308019429540008" />
+          <attvalue for="7" value="0.36585365853658536" />
+          <attvalue for="8" value="0.12045832322340427" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="clausura-operacional" label="Clausura operacional">
+        <viz:color r="74" g="107" b="60" a="1.0" />
+        <viz:size value="17.382216677163395" />
+        <attvalues>
+          <attvalue for="0" value="autopoiesis" />
+          <attvalue for="1" value="Autopoiesis" />
+          <attvalue for="2" value="Humberto Maturana &amp; Francisco Varela" />
+          <attvalue for="3" value="Propiedad de un sistema cuyas operaciones se cierran sobre sí mismas: cada cambio del sistema genera otros cambios dentro del mismo sistema, no acciones sobre algo externo." />
+          <attvalue for="4" value="8" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.03691108338581697" />
+          <attvalue for="7" value="0.33210332103321033" />
+          <attvalue for="8" value="0.06973305430488135" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="acoplamiento-estructural" label="Acoplamiento estructural">
+        <viz:color r="74" g="107" b="60" a="1.0" />
+        <viz:size value="20.930603438695073" />
+        <attvalues>
+          <attvalue for="0" value="autopoiesis" />
+          <attvalue for="1" value="Autopoiesis" />
+          <attvalue for="2" value="Humberto Maturana &amp; Francisco Varela" />
+          <attvalue for="3" value="Historia de cambios estructurales recíprocos entre dos sistemas autopoiéticos —o entre un sistema y su medio— que se mantienen sin desintegrarse." />
+          <attvalue for="4" value="10" />
+          <attvalue for="5" value="13.0" />
+          <attvalue for="6" value="0.05465301719347537" />
+          <attvalue for="7" value="0.3358208955223881" />
+          <attvalue for="8" value="0.08403817113361348" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="deriva-natural" label="Deriva natural">
+        <viz:color r="74" g="107" b="60" a="1.0" />
+        <viz:size value="12.216749886996638" />
+        <attvalues>
+          <attvalue for="0" value="autopoiesis" />
+          <attvalue for="1" value="Autopoiesis" />
+          <attvalue for="2" value="Humberto Maturana &amp; Francisco Varela" />
+          <attvalue for="3" value="La evolución como deriva sin meta: los linajes de seres vivos se transforman siguiendo los caminos que su acoplamiento estructural permite, no los que la «selección» optimiza." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.011083749434983185" />
+          <attvalue for="7" value="0.29508196721311475" />
+          <attvalue for="8" value="0.031917800971599825" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+      <node id="todo-hacer-es-conocer" label="Todo hacer es conocer">
+        <viz:color r="74" g="107" b="60" a="1.0" />
+        <viz:size value="10.304429901367552" />
+        <attvalues>
+          <attvalue for="0" value="autopoiesis" />
+          <attvalue for="1" value="Autopoiesis" />
+          <attvalue for="2" value="Humberto Maturana &amp; Francisco Varela" />
+          <attvalue for="3" value="El acto de vivir es ya un acto de conocer: no hay distancia entre la actividad biológica y la cognitiva en un ser vivo." />
+          <attvalue for="4" value="3" />
+          <attvalue for="5" value="4.0" />
+          <attvalue for="6" value="0.0015221495068377645" />
+          <attvalue for="7" value="0.30405405405405406" />
+          <attvalue for="8" value="0.03506238730171855" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="enaccion" label="Enacción">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="13.187875028697222" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Francisco Varela, Evan Thompson &amp; Eleanor Rosch" />
+          <attvalue for="3" value="Aproximación a la cognición que reemplaza la metáfora representacionista por la idea de que conocer es enactuar — hacer emerger — un mundo en la acción del organismo." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.015939375143486114" />
+          <attvalue for="7" value="0.3157894736842105" />
+          <attvalue for="8" value="0.03847109873634815" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="accion-encarnada" label="Acción encarnada">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="15.383236383170363" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Francisco Varela, Evan Thompson &amp; Eleanor Rosch" />
+          <attvalue for="3" value="El estudio de la cognición no como recuperación de un mundo dado ni como proyección de uno interno, sino como acción de un cuerpo concreto en una historia concreta." />
+          <attvalue for="4" value="8" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.026916181915851815" />
+          <attvalue for="7" value="0.3157894736842105" />
+          <attvalue for="8" value="0.038068638107975374" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="sin-yo" label="Sin yo (Selfless mind)">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="18.839088885134274" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Francisco Varela, Evan Thompson &amp; Eleanor Rosch" />
+          <attvalue for="3" value="La tesis de que la mente no es propiedad de un yo unitario, sino una sociedad heterogénea de procesos sin centro — articulada con la idea budista de no-yo (anātman)." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.04419544442567136" />
+          <attvalue for="7" value="0.3284671532846715" />
+          <attvalue for="8" value="0.03884824177930793" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="camino-medio" label="Camino medio">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="11.653594371814243" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Francisco Varela, Evan Thompson &amp; Eleanor Rosch" />
+          <attvalue for="3" value="Vía intermedia entre objetivismo (creer en un fundamento absoluto) y nihilismo (negar todo fundamento): aprender a vivir sin fundamento sin que eso implique disolución." />
+          <attvalue for="4" value="3" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.00826797185907122" />
+          <attvalue for="7" value="0.26785714285714285" />
+          <attvalue for="8" value="0.03174130620373951" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="hacer-camino-al-andar" label="Hacer camino al andar">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="14.24334654517514" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Francisco Varela, Evan Thompson &amp; Eleanor Rosch" />
+          <attvalue for="3" value="Imagen para la cognición encarnada: no hay un camino dado que se recorre, sino un caminar que va trazando su camino a medida que avanza, condicionado por lo ya andado pero sin meta prefijada." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.021216732725875702" />
+          <attvalue for="7" value="0.33088235294117646" />
+          <attvalue for="8" value="0.04429595484241127" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="cuerpo-propio" label="Cuerpo propio">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="12.272611901208583" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Maurice Merleau-Ponty" />
+          <attvalue for="3" value="Mi cuerpo no es un objeto entre objetos sino el sujeto mismo de la percepción: el medio a través del cual hay un mundo para mí." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.011363059506042914" />
+          <attvalue for="7" value="0.30303030303030304" />
+          <attvalue for="8" value="0.03133187978669848" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="esquema-corporal" label="Esquema corporal">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="10.495211070057028" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Maurice Merleau-Ponty" />
+          <attvalue for="3" value="Sistema dinámico mediante el cual mi cuerpo se me presenta no como suma de partes sino como postura unificada en vista de una tarea actual o posible." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.0024760553502851438" />
+          <attvalue for="7" value="0.2702702702702703" />
+          <attvalue for="8" value="0.017556116718857075" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="intencionalidad-operante" label="Intencionalidad operante">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="10.359786828148744" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Maurice Merleau-Ponty" />
+          <attvalue for="3" value="Forma pre-reflexiva de la intencionalidad: la unidad ya tejida del mundo y la vida que opera por debajo del juicio explícito, en deseos, evaluaciones, paisajes." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.001798934140743721" />
+          <attvalue for="7" value="0.3" />
+          <attvalue for="8" value="0.02985142486654344" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="cogito-tacito" label="Cogito tácito">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="10.369809965315584" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Maurice Merleau-Ponty" />
+          <attvalue for="3" value="Presencia de sí a sí mismo anterior al lenguaje y a toda formulación: la subjetividad como vivencia silenciosa, no como pensamiento explícito." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.0018490498265779163" />
+          <attvalue for="7" value="0.3082191780821918" />
+          <attvalue for="8" value="0.02685715466367593" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="movimiento-generador-del-espacio" label="Movimiento generador del espacio">
+        <viz:color r="107" g="74" b="60" a="1.0" />
+        <viz:size value="10.288302063780085" />
+        <attvalues>
+          <attvalue for="0" value="embodied" />
+          <attvalue for="1" value="Cognicion encarnada" />
+          <attvalue for="2" value="Maurice Merleau-Ponty" />
+          <attvalue for="3" value="El cuerpo no se desplaza dentro de un espacio pre-dado: el cuerpo en movimiento intencional es lo que genera el espacio mismo en que las cosas se sitúan." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="4.0" />
+          <attvalue for="6" value="0.0014415103189004234" />
+          <attvalue for="7" value="0.2616279069767442" />
+          <attvalue for="8" value="0.011234536238161966" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="2" />
+        </attvalues>
+      </node>
+      <node id="cerebro-predictivo" label="Cerebro predictivo">
+        <viz:color r="107" g="60" b="91" a="1.0" />
+        <viz:size value="10.009987515605493" />
+        <attvalues>
+          <attvalue for="0" value="predictive" />
+          <attvalue for="1" value="Mente predictiva" />
+          <attvalue for="2" value="Andy Clark" />
+          <attvalue for="3" value="Tesis según la cual el cerebro no procesa información sensorial bottom-up: anticipa la entrada con expectativas top-down y solo procesa el error de predicción que queda." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="4.993757802746567e-05" />
+          <attvalue for="7" value="0.2356020942408377" />
+          <attvalue for="8" value="0.025366709592769637" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="error-de-prediccion" label="Error de predicción">
+        <viz:color r="107" g="60" b="91" a="1.0" />
+        <viz:size value="10.0" />
+        <attvalues>
+          <attvalue for="0" value="predictive" />
+          <attvalue for="1" value="Mente predictiva" />
+          <attvalue for="2" value="Andy Clark" />
+          <attvalue for="3" value="Diferencia entre la entrada sensorial predicha por el cerebro y la efectivamente recibida. Es la única información que asciende por la jerarquía cortical: «sorpresa» que el sistema busca cancelar." />
+          <attvalue for="4" value="3" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.0" />
+          <attvalue for="7" value="0.2564102564102564" />
+          <attvalue for="8" value="0.012800584482913078" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="procesamiento-jerarquico-predictivo" label="Procesamiento jerárquico predictivo">
+        <viz:color r="107" g="60" b="91" a="1.0" />
+        <viz:size value="10.0" />
+        <attvalues>
+          <attvalue for="0" value="predictive" />
+          <attvalue for="1" value="Mente predictiva" />
+          <attvalue for="2" value="Andy Clark" />
+          <attvalue for="3" value="Arquitectura cortical donde cada nivel predice las entradas del nivel inferior y le envía sus predicciones top-down; el inferior solo le devuelve el error de predicción." />
+          <attvalue for="4" value="3" />
+          <attvalue for="5" value="5.0" />
+          <attvalue for="6" value="0.0" />
+          <attvalue for="7" value="0.2564102564102564" />
+          <attvalue for="8" value="0.012800584482913078" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="energia-libre-variacional" label="Energía libre variacional">
+        <viz:color r="107" g="60" b="91" a="1.0" />
+        <viz:size value="22.675858687590342" />
+        <attvalues>
+          <attvalue for="0" value="predictive" />
+          <attvalue for="1" value="Mente predictiva" />
+          <attvalue for="2" value="Karl Friston" />
+          <attvalue for="3" value="Cantidad termodinámico-informacional que un sistema autoorganizado debe minimizar para resistir la dispersión hacia el equilibrio. Cota superior de la sorpresa." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.06337929343795172" />
+          <attvalue for="7" value="0.34220532319391633" />
+          <attvalue for="8" value="0.06657831473273108" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="inferencia-activa" label="Inferencia activa">
+        <viz:color r="107" g="60" b="91" a="1.0" />
+        <viz:size value="11.278562885304458" />
+        <attvalues>
+          <attvalue for="0" value="predictive" />
+          <attvalue for="1" value="Mente predictiva" />
+          <attvalue for="2" value="Karl Friston" />
+          <attvalue for="3" value="Acción concebida como minimización de la sorpresa: actúo sobre el ambiente para que las sensaciones que recibo coincidan con las que predigo." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.006392814426522293" />
+          <attvalue for="7" value="0.2903225806451613" />
+          <attvalue for="8" value="0.03472265016717002" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="ocasion-actual" label="Ocasión actual">
+        <viz:color r="60" g="107" b="91" a="1.0" />
+        <viz:size value="12.01194116569634" />
+        <attvalues>
+          <attvalue for="0" value="proceso" />
+          <attvalue for="1" value="Filosofia del proceso (Whitehead)" />
+          <attvalue for="2" value="Alfred North Whitehead" />
+          <attvalue for="3" value="Unidad última de la realidad: no una cosa que dura sino un evento que se concreta. Las ocasiones actuales son los átomos del proceso, las únicas realidades finales." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.0100597058284817" />
+          <attvalue for="7" value="0.30927835051546393" />
+          <attvalue for="8" value="0.07052816433366889" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="prehension" label="Prehensión">
+        <viz:color r="60" g="107" b="91" a="1.0" />
+        <viz:size value="12.96232883498801" />
+        <attvalues>
+          <attvalue for="0" value="proceso" />
+          <attvalue for="1" value="Filosofia del proceso (Whitehead)" />
+          <attvalue for="2" value="Alfred North Whitehead" />
+          <attvalue for="3" value="Acto por el cual una ocasión actual «toma en cuenta» otras ocasiones e incorpora sus formas, integrándolas como datos de su propio devenir. Operación constitutiva del proceso." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.014811644174940053" />
+          <attvalue for="7" value="0.26865671641791045" />
+          <attvalue for="8" value="0.04452059028065818" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="concrescencia" label="Concrescencia">
+        <viz:color r="60" g="107" b="91" a="1.0" />
+        <viz:size value="11.191778833880619" />
+        <attvalues>
+          <attvalue for="0" value="proceso" />
+          <attvalue for="1" value="Filosofia del proceso (Whitehead)" />
+          <attvalue for="2" value="Alfred North Whitehead" />
+          <attvalue for="3" value="Proceso por el cual los muchos se hacen uno: las múltiples potencialidades del universo confluyen en la unidad concreta de una nueva ocasión actual." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.005958894169403092" />
+          <attvalue for="7" value="0.24390243902439024" />
+          <attvalue for="8" value="0.05350768831831588" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="creatividad" label="Creatividad">
+        <viz:color r="60" g="107" b="91" a="1.0" />
+        <viz:size value="13.251162568311603" />
+        <attvalues>
+          <attvalue for="0" value="proceso" />
+          <attvalue for="1" value="Filosofia del proceso (Whitehead)" />
+          <attvalue for="2" value="Alfred North Whitehead" />
+          <attvalue for="3" value="Categoría de lo Último: el principio dinámico por el que los muchos se hacen uno y el uno se acrecienta en uno. No es una entidad: es la condición ontológica del devenir." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.016255812841558012" />
+          <attvalue for="7" value="0.32727272727272727" />
+          <attvalue for="8" value="0.07605195718147936" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="filosofia-del-organismo" label="Filosofía del organismo">
+        <viz:color r="60" g="107" b="91" a="1.0" />
+        <viz:size value="29.160996147893332" />
+        <attvalues>
+          <attvalue for="0" value="proceso" />
+          <attvalue for="1" value="Filosofia del proceso (Whitehead)" />
+          <attvalue for="2" value="Alfred North Whitehead" />
+          <attvalue for="3" value="Nombre del sistema metafísico whiteheadiano: ontología en la que los entes últimos no son sustancias inertes sino organismos —procesos relacionales que se constituyen por sus relaciones con el universo entero." />
+          <attvalue for="4" value="9" />
+          <attvalue for="5" value="11.0" />
+          <attvalue for="6" value="0.09580498073946665" />
+          <attvalue for="7" value="0.3629032258064516" />
+          <attvalue for="8" value="0.07484875307821753" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="informacion-integrada" label="Información integrada (Φ)">
+        <viz:color r="91" g="60" b="107" a="1.0" />
+        <viz:size value="16.484712823838066" />
+        <attvalues>
+          <attvalue for="0" value="iit" />
+          <attvalue for="1" value="Informacion integrada (IIT)" />
+          <attvalue for="2" value="Giulio Tononi" />
+          <attvalue for="3" value="Cantidad que mide cuánta información un sistema genera por encima de sus partes. Para Tononi, es la consciencia: donde hay Φ &gt; 0, hay un cuanto de experiencia." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.03242356411919033" />
+          <attvalue for="7" value="0.28753993610223644" />
+          <attvalue for="8" value="0.019569316707344343" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="complejo-principal" label="Complejo principal">
+        <viz:color r="91" g="60" b="107" a="1.0" />
+        <viz:size value="10.292134831460674" />
+        <attvalues>
+          <attvalue for="0" value="iit" />
+          <attvalue for="1" value="Informacion integrada (IIT)" />
+          <attvalue for="2" value="Giulio Tononi" />
+          <attvalue for="3" value="Subsistema con el valor máximo de Φ que no está incluido en otro mayor con Φ todavía más alto. Para la IIT, es la unidad concreta de la consciencia." />
+          <attvalue for="4" value="3" />
+          <attvalue for="5" value="4.0" />
+          <attvalue for="6" value="0.0014606741573033705" />
+          <attvalue for="7" value="0.2727272727272727" />
+          <attvalue for="8" value="0.013302425478542301" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="universalismo-del-yo" label="Universalismo del yo (open individualism)">
+        <viz:color r="107" g="91" b="60" a="1.0" />
+        <viz:size value="13.166498226423322" />
+        <attvalues>
+          <attvalue for="0" value="panpsiquismo" />
+          <attvalue for="1" value="Panpsiquismo" />
+          <attvalue for="2" value="Arnold Zuboff" />
+          <attvalue for="3" value="Tesis de que las fronteras aparentes entre los sujetos son ilusorias: la identidad personal se conserva a través de cualquier variación o multiplicación de cuerpo y mente. Hay un solo Yo que vive todas las experiencias." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.015832491132116603" />
+          <attvalue for="7" value="0.2727272727272727" />
+          <attvalue for="8" value="0.01982581764581126" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="panpsiquismo" label="Panpsiquismo">
+        <viz:color r="107" g="91" b="60" a="1.0" />
+        <viz:size value="10.224302954640033" />
+        <attvalues>
+          <attvalue for="0" value="panpsiquismo" />
+          <attvalue for="1" value="Panpsiquismo" />
+          <attvalue for="2" value="William Seager (ed.)" />
+          <attvalue for="3" value="Tesis según la cual la consciencia es una propiedad fundamental y ubicua del mundo —no algo que emerge tarde de procesos no-conscientes, sino algo presente desde el nivel básico de la realidad." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.0011215147732001663" />
+          <attvalue for="7" value="0.22332506203473945" />
+          <attvalue for="8" value="0.015245099994168032" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="problema-de-la-combinacion" label="Problema de la combinación">
+        <viz:color r="107" g="91" b="60" a="1.0" />
+        <viz:size value="10.652819596419508" />
+        <attvalues>
+          <attvalue for="0" value="panpsiquismo" />
+          <attvalue for="1" value="Panpsiquismo" />
+          <attvalue for="2" value="William Seager (ed.)" />
+          <attvalue for="3" value="Si la consciencia es fundamental en sus constituyentes básicos, ¿cómo se combinan esas micro-consciencias para formar las macro-consciencias unificadas que conocemos? Es el desafío central que enfrenta cualquier panpsiquismo." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.003264097982097541" />
+          <attvalue for="7" value="0.24861878453038674" />
+          <attvalue for="8" value="0.008870714543203697" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="cosmopsicismo" label="Cosmopsicismo">
+        <viz:color r="107" g="91" b="60" a="1.0" />
+        <viz:size value="10.340328557557022" />
+        <attvalues>
+          <attvalue for="0" value="panpsiquismo" />
+          <attvalue for="1" value="Panpsiquismo" />
+          <attvalue for="2" value="William Seager (ed.)" />
+          <attvalue for="3" value="Variante del panpsiquismo según la cual la consciencia fundamental no está en las partículas mínimas (panpsiquismo «de abajo») sino en el universo como un todo, del que las consciencias individuales son particularizaciones." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.0017016427877851097" />
+          <attvalue for="7" value="0.27439024390243905" />
+          <attvalue for="8" value="0.014575851272956295" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="6" />
+        </attvalues>
+      </node>
+      <node id="pensamiento-de-la-complejidad" label="Pensamiento «de la Complejidad»">
+        <viz:color r="139" g="107" b="58" a="1.0" />
+        <viz:size value="16.163011900178674" />
+        <attvalues>
+          <attvalue for="0" value="social" />
+          <attvalue for="1" value="Complejidad social" />
+          <attvalue for="2" value="Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz" />
+          <attvalue for="3" value="Programa intelectual contemporáneo que reta el ideal clásico de racionalidad simplificadora y propone una racionalidad de la complejidad: pensar interacciones, redes, emergencia y devenir antes que objetos aislados." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.030815059500893367" />
+          <attvalue for="7" value="0.30612244897959184" />
+          <attvalue for="8" value="0.059317737509228516" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="8" />
+        </attvalues>
+      </node>
+      <node id="ciencias-sociales-de-nuevo-tipo" label="Ciencias sociales de nuevo tipo">
+        <viz:color r="139" g="107" b="58" a="1.0" />
+        <viz:size value="11.731179993131965" />
+        <attvalues>
+          <attvalue for="0" value="social" />
+          <attvalue for="1" value="Complejidad social" />
+          <attvalue for="2" value="Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz" />
+          <attvalue for="3" value="Programa de reorganización epistemológica de las ciencias sociales latinoamericanas: recuperar el pathos crítico abandonado y construirlas desde el ideal complejo de racionalidad." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.008655899965659825" />
+          <attvalue for="7" value="0.26548672566371684" />
+          <attvalue for="8" value="0.06275104411500473" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="8" />
+        </attvalues>
+      </node>
+      <node id="epistemologia-hermeneutica-segundo-orden" label="Epistemología hermenéutica de segundo orden">
+        <viz:color r="139" g="107" b="58" a="1.0" />
+        <viz:size value="15.281037306593596" />
+        <attvalues>
+          <attvalue for="0" value="social" />
+          <attvalue for="1" value="Complejidad social" />
+          <attvalue for="2" value="Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz" />
+          <attvalue for="3" value="Tercer tratamiento de la relación sujeto-objeto, posterior al objetivante y al fenomenológico: en lugar de desconectar uno de los polos, asume la mutua constitución de sujeto y objeto en una historia de prácticas." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="4.0" />
+          <attvalue for="6" value="0.026405186532967986" />
+          <attvalue for="7" value="0.32967032967032966" />
+          <attvalue for="8" value="0.02998240111705565" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="8" />
+        </attvalues>
+      </node>
+      <node id="dialogo-de-saberes" label="Diálogo de saberes">
+        <viz:color r="139" g="107" b="58" a="1.0" />
+        <viz:size value="10.522230244195434" />
+        <attvalues>
+          <attvalue for="0" value="social" />
+          <attvalue for="1" value="Complejidad social" />
+          <attvalue for="2" value="Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz" />
+          <attvalue for="3" value="Sustituir el «centrismo» eurocéntrico (y norteamericano) por un diálogo recíproco entre tradiciones de conocimiento: aprender del otro, reconocer que el otro tiene algo que enseñarnos." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.002611151220977174" />
+          <attvalue for="7" value="0.2564102564102564" />
+          <attvalue for="8" value="0.05089656082682863" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="8" />
+        </attvalues>
+      </node>
+      <node id="transdisciplinariedad" label="Transdisciplinariedad">
+        <viz:color r="139" g="107" b="58" a="1.0" />
+        <viz:size value="10.40982862331177" />
+        <attvalues>
+          <attvalue for="0" value="social" />
+          <attvalue for="1" value="Complejidad social" />
+          <attvalue for="2" value="Pedro Luis Sotolongo Codina &amp; Carlos Jesús Delgado Díaz" />
+          <attvalue for="3" value="No es la eliminación de las disciplinas sino su trascendencia: corpus de saber que cruzan los límites disciplinarios sin renunciar a sus aportes, articulándolos en torno a problemas que ninguna disciplina sola puede abordar." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.002049143116558847" />
+          <attvalue for="7" value="0.25280898876404495" />
+          <attvalue for="8" value="0.0613254718980946" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="8" />
+        </attvalues>
+      </node>
+      <node id="ambiente-como-invencion" label="El ambiente como invención">
+        <viz:color r="60" g="91" b="107" a="1.0" />
+        <viz:size value="11.337884822903549" />
+        <attvalues>
+          <attvalue for="0" value="cybernetics" />
+          <attvalue for="1" value="Cibernetica 2do orden" />
+          <attvalue for="2" value="Heinz von Foerster" />
+          <attvalue for="3" value="Tesis fundadora de la cibernética de segundo orden: el entorno tal como lo experimentamos no es algo dado «allá afuera» sino algo que cada organismo cognoscente construye —inventa— en el acto mismo de percibir." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.006689424114517746" />
+          <attvalue for="7" value="0.30927835051546393" />
+          <attvalue for="8" value="0.04702261432460244" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="codificacion-indiferenciada" label="Codificación indiferenciada">
+        <viz:color r="60" g="91" b="107" a="1.0" />
+        <viz:size value="11.282664711010858" />
+        <attvalues>
+          <attvalue for="0" value="cybernetics" />
+          <attvalue for="1" value="Cibernetica 2do orden" />
+          <attvalue for="2" value="Heinz von Foerster" />
+          <attvalue for="3" value="Las células nerviosas no codifican la naturaleza física del estímulo que las gatilla, solo su cantidad. La cualidad —color, sonido, calor— no viene del mundo: emerge de la organización del sistema nervioso." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.006413323555054287" />
+          <attvalue for="7" value="0.26785714285714285" />
+          <attvalue for="8" value="0.02416017019977881" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="computar-la-realidad" label="Computar la realidad">
+        <viz:color r="60" g="91" b="107" a="1.0" />
+        <viz:size value="14.261172437918415" />
+        <attvalues>
+          <attvalue for="0" value="cybernetics" />
+          <attvalue for="1" value="Cibernetica 2do orden" />
+          <attvalue for="2" value="Heinz von Foerster" />
+          <attvalue for="3" value="«Cognición» = computar descripciones de una realidad. Computar (com-putare: contemplar juntos) refiere cualquier operación que transforme, ordene o relacione entidades, no solo cálculo numérico." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.021305862189592076" />
+          <attvalue for="7" value="0.3" />
+          <attvalue for="8" value="0.029403565993856542" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="doble-clausura" label="Doble clausura">
+        <viz:color r="60" g="91" b="107" a="1.0" />
+        <viz:size value="13.920011544598458" />
+        <attvalues>
+          <attvalue for="0" value="cybernetics" />
+          <attvalue for="1" value="Cibernetica 2do orden" />
+          <attvalue for="2" value="Heinz von Foerster" />
+          <attvalue for="3" value="El sistema nervioso opera recursivamente sobre sí mismo en dos sentidos: actúa sobre lo que «ve» (clausura sensoriomotriz) y sobre sus propios operadores (clausura modulatoria, vía sistema endocrino)." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.019600057722992285" />
+          <attvalue for="7" value="0.31802120141342755" />
+          <attvalue for="8" value="0.04319419501520321" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="imperativo-etico-constructivista" label="Imperativo ético constructivista">
+        <viz:color r="60" g="91" b="107" a="1.0" />
+        <viz:size value="13.33025848271497" />
+        <attvalues>
+          <attvalue for="0" value="cybernetics" />
+          <attvalue for="1" value="Cibernetica 2do orden" />
+          <attvalue for="2" value="Heinz von Foerster" />
+          <attvalue for="3" value="«Actúa siempre de modo de aumentar el número de opciones.» Si yo invento el mundo en que vivo y los otros también lo hacen, la ética debe orientar la acción hacia preservar y multiplicar las posibilidades del otro y las propias." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.016651292413574856" />
+          <attvalue for="7" value="0.3125" />
+          <attvalue for="8" value="0.056154502487236996" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="5" />
+        </attvalues>
+      </node>
+      <node id="auto-organizacion-kauffman" label="Auto-organización (Kauffman)">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="13.01337461262555" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Stuart Kauffman" />
+          <attvalue for="3" value="Fuente de orden biológica anterior y complementaria a la selección natural: las leyes de la complejidad hacen que ciertos órdenes emerjan espontáneamente en sistemas suficientemente diversos, sin necesidad de explicación adaptativa." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.015066873063127744" />
+          <attvalue for="7" value="0.3237410071942446" />
+          <attvalue for="8" value="0.07896101865441192" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="4" />
+        </attvalues>
+      </node>
+      <node id="orden-gratis" label="Orden gratis">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="10.0" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Stuart Kauffman" />
+          <attvalue for="3" value="El orden biológico no es solo lo que la selección natural ha cincelado a fuerza de mutaciones favorables: hay un orden que emerge espontáneamente de las dinámicas de redes complejas, sin costo selectivo." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.0" />
+          <attvalue for="7" value="0.30201342281879195" />
+          <attvalue for="8" value="0.06664065775289414" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="4" />
+        </attvalues>
+      </node>
+      <node id="conjuntos-autocataliticos" label="Conjuntos autocatalíticos">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="11.617513364704376" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Stuart Kauffman" />
+          <attvalue for="3" value="Conjunto de moléculas que catalizan colectivamente la red de reacciones que las produce. Para Kauffman, es el origen químico de la vida: cierre catalítico colectivo, no replicación de una molécula maestra." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.008087566823521878" />
+          <attvalue for="7" value="0.29508196721311475" />
+          <attvalue for="8" value="0.046354871906155504" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="4" />
+        </attvalues>
+      </node>
+      <node id="borde-del-caos" label="Borde del caos">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="11.362694667216767" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Stuart Kauffman" />
+          <attvalue for="3" value="Régimen de transición entre orden rígido y caos donde el comportamiento complejo prospera: los sistemas adaptativos tienden a sintonizarse en este borde porque allí pueden explorar y persistir a la vez." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="8.0" />
+          <attvalue for="6" value="0.006813473336083831" />
+          <attvalue for="7" value="0.3103448275862069" />
+          <attvalue for="8" value="0.07242669218145684" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="4" />
+        </attvalues>
+      </node>
+      <node id="redes-booleanas" label="Redes booleanas">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="10.084200305174088" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Stuart Kauffman" />
+          <attvalue for="3" value="Modelo formal de muchos elementos binarios (on/off) con conexiones aleatorias y reglas lógicas. Permite explorar matemáticamente cómo se comportan grandes redes interactuantes y muestra que el orden emerge espontáneamente con baja conectividad (K=2)." />
+          <attvalue for="4" value="4" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.0004210015258704397" />
+          <attvalue for="7" value="0.2535211267605634" />
+          <attvalue for="8" value="0.03613670177792737" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="4" />
+        </attvalues>
+      </node>
+      <node id="estructura-disipativa" label="Estructura disipativa">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="14.820007817694531" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Ilya Prigogine &amp; Isabelle Stengers" />
+          <attvalue for="3" value="Forma de organización supramolecular que emerge en sistemas alejados del equilibrio: la disipación de materia y energía, que clásicamente significaba pérdida y desorden, se convierte en fuente de orden." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="10.0" />
+          <attvalue for="6" value="0.02410003908847266" />
+          <attvalue for="7" value="0.33707865168539325" />
+          <attvalue for="8" value="0.07787012965876655" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+      <node id="lejos-del-equilibrio" label="Lejos del equilibrio">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="15.255652467666268" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Ilya Prigogine &amp; Isabelle Stengers" />
+          <attvalue for="3" value="Régimen termodinámico en que el flujo de materia y energía a través del sistema es lo bastante intenso como para mantener al sistema en estados altamente improbables. Solo en este régimen pueden emerger estructuras disipativas." />
+          <attvalue for="4" value="7" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.02627826233833134" />
+          <attvalue for="7" value="0.3358208955223881" />
+          <attvalue for="8" value="0.09354961930286167" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+      <node id="tiempo-irreversible" label="Tiempo irreversible (flecha del tiempo)">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="10.745153722681813" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Ilya Prigogine &amp; Isabelle Stengers" />
+          <attvalue for="3" value="El tiempo no es solo coordenada reversible de la mecánica clásica: es productor, irreversible, generador. El universo es histórico — la ciencia debe pensar el tiempo como creación, no como ilusión." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="9.0" />
+          <attvalue for="6" value="0.003725768613409063" />
+          <attvalue for="7" value="0.28125" />
+          <attvalue for="8" value="0.05326327326183708" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+      <node id="orden-por-fluctuaciones" label="Orden por fluctuaciones">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="11.463262496970362" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Ilya Prigogine &amp; Isabelle Stengers" />
+          <attvalue for="3" value="Mecanismo por el cual una pequeña fluctuación local, en lugar de promediarse y desaparecer, es amplificada por la dinámica del sistema y produce una nueva estructura macroscópica: la novedad nace del ruido." />
+          <attvalue for="4" value="6" />
+          <attvalue for="5" value="7.0" />
+          <attvalue for="6" value="0.00731631248485181" />
+          <attvalue for="7" value="0.2803738317757009" />
+          <attvalue for="8" value="0.054291661807243145" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+      <node id="la-nueva-alianza" label="La nueva alianza">
+        <viz:color r="184" g="133" b="31" a="1.0" />
+        <viz:size value="23.591735755207885" />
+        <attvalues>
+          <attvalue for="0" value="termodinamica" />
+          <attvalue for="1" value="Termodinamica del no-equilibrio" />
+          <attvalue for="2" value="Ilya Prigogine &amp; Isabelle Stengers" />
+          <attvalue for="3" value="Tesis cultural-filosófica del libro: el descubrimiento del tiempo y de la auto-organización por la propia ciencia natural reabre el diálogo, roto desde Galileo, entre las ciencias y la condición humana." />
+          <attvalue for="4" value="5" />
+          <attvalue for="5" value="6.0" />
+          <attvalue for="6" value="0.06795867877603942" />
+          <attvalue for="7" value="0.3225806451612903" />
+          <attvalue for="8" value="0.0453804818694456" />
+          <attvalue for="9" value="0.0" />
+          <attvalue for="10" value="7" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="antropo-etica" target="tierra-patria" id="0" weight="2" />
+      <edge source="antropo-etica" target="comprension" id="1" weight="2" />
+      <edge source="antropo-etica" target="homo-complexus" id="2" weight="1" />
+      <edge source="antropo-etica" target="auto-etica" id="3" weight="2" />
+      <edge source="antropo-etica" target="socio-etica" id="4" weight="2" />
+      <edge source="antropo-etica" target="ecologia-de-la-accion" id="5" weight="1" />
+      <edge source="antropo-etica" target="regeneracion-etica" id="6" weight="1" />
+      <edge source="antropo-etica" target="reliance" id="7" weight="1" />
+      <edge source="antropo-etica" target="sujeto" id="8" weight="1" />
+      <edge source="antropo-etica" target="trinidad-humana-individuo-sociedad-especie" id="9" weight="1" />
+      <edge source="antropo-etica" target="imperativo-etico-constructivista" id="10" weight="1" />
+      <edge source="auto-eco-organizacion" target="sistema-abierto" id="11" weight="2" />
+      <edge source="auto-eco-organizacion" target="maquina-viviente" id="12" weight="2" />
+      <edge source="auto-eco-organizacion" target="organizacion" id="13" weight="1" />
+      <edge source="auto-eco-organizacion" target="reliance" id="14" weight="2" />
+      <edge source="auto-eco-organizacion" target="tierra-patria" id="15" weight="2" />
+      <edge source="auto-eco-organizacion" target="principio-de-recursividad-organizacional" id="16" weight="1" />
+      <edge source="auto-eco-organizacion" target="sujeto" id="17" weight="1" />
+      <edge source="auto-eco-organizacion" target="autopoiesis" id="18" weight="1" />
+      <edge source="auto-eco-organizacion" target="acoplamiento-estructural" id="19" weight="1" />
+      <edge source="auto-eco-organizacion" target="hacer-camino-al-andar" id="20" weight="1" />
+      <edge source="auto-eco-organizacion" target="energia-libre-variacional" id="21" weight="1" />
+      <edge source="auto-eco-organizacion" target="ocasion-actual" id="22" weight="1" />
+      <edge source="auto-eco-organizacion" target="creatividad" id="23" weight="1" />
+      <edge source="auto-eco-organizacion" target="filosofia-del-organismo" id="24" weight="1" />
+      <edge source="auto-eco-organizacion" target="auto-organizacion-kauffman" id="25" weight="1" />
+      <edge source="auto-eco-organizacion" target="orden-gratis" id="26" weight="1" />
+      <edge source="auto-eco-organizacion" target="borde-del-caos" id="27" weight="1" />
+      <edge source="auto-eco-organizacion" target="estructura-disipativa" id="28" weight="1" />
+      <edge source="auto-eco-organizacion" target="lejos-del-equilibrio" id="29" weight="1" />
+      <edge source="auto-etica" target="sujeto" id="30" weight="1" />
+      <edge source="auto-etica" target="homo-complexus" id="31" weight="1" />
+      <edge source="auto-etica" target="comprension" id="32" weight="1" />
+      <edge source="auto-etica" target="regeneracion-etica" id="33" weight="2" />
+      <edge source="auto-etica" target="socio-etica" id="34" weight="1" />
+      <edge source="bien-pensar" target="pensamiento-complejo" id="35" weight="1" />
+      <edge source="bien-pensar" target="reforma-del-pensamiento" id="36" weight="2" />
+      <edge source="bien-pensar" target="conocimiento-del-conocimiento" id="37" weight="1" />
+      <edge source="bien-pensar" target="comprension" id="38" weight="1" />
+      <edge source="bien-pensar" target="regeneracion-etica" id="39" weight="1" />
+      <edge source="bucle-tetralogico" target="orden---desorden" id="40" weight="2" />
+      <edge source="bucle-tetralogico" target="organizacion" id="41" weight="2" />
+      <edge source="bucle-tetralogico" target="emergencia" id="42" weight="2" />
+      <edge source="bucle-tetralogico" target="principio-de-recursividad-organizacional" id="43" weight="1" />
+      <edge source="bucle-tetralogico" target="sistema-abierto" id="44" weight="1" />
+      <edge source="bucle-tetralogico" target="causalidad-circular" id="45" weight="1" />
+      <edge source="bucle-tetralogico" target="principio-hologramatico" id="46" weight="1" />
+      <edge source="bucle-tetralogico" target="borde-del-caos" id="47" weight="1" />
+      <edge source="causalidad-circular" target="principio-de-recursividad-organizacional" id="48" weight="2" />
+      <edge source="causalidad-circular" target="sistema-abierto" id="49" weight="2" />
+      <edge source="causalidad-circular" target="organizacion" id="50" weight="2" />
+      <edge source="causalidad-circular" target="orden---desorden" id="51" weight="1" />
+      <edge source="ceguera-del-conocimiento" target="error-e-ilusion" id="52" weight="2" />
+      <edge source="ceguera-del-conocimiento" target="conocimiento-del-conocimiento" id="53" weight="2" />
+      <edge source="ceguera-del-conocimiento" target="incertidumbre" id="54" weight="2" />
+      <edge source="ceguera-del-conocimiento" target="reforma-del-pensamiento" id="55" weight="1" />
+      <edge source="ceguera-del-conocimiento" target="comprension" id="56" weight="1" />
+      <edge source="cogito-computante" target="computacion-viviente" id="57" weight="2" />
+      <edge source="cogito-computante" target="trinidad-cognitiva-cerebro-mente-cultura" id="58" weight="2" />
+      <edge source="cogito-computante" target="conocimiento-del-conocimiento" id="59" weight="1" />
+      <edge source="cogito-computante" target="maquina-viviente" id="60" weight="1" />
+      <edge source="cogito-computante" target="sujeto" id="61" weight="1" />
+      <edge source="cogito-computante" target="todo-hacer-es-conocer" id="62" weight="1" />
+      <edge source="cogito-computante" target="enaccion" id="63" weight="1" />
+      <edge source="cogito-computante" target="accion-encarnada" id="64" weight="1" />
+      <edge source="cogito-computante" target="computar-la-realidad" id="65" weight="1" />
+      <edge source="complejidad" target="pensamiento-complejo" id="66" weight="2" />
+      <edge source="complejidad" target="sistema-abierto" id="67" weight="1" />
+      <edge source="complejidad" target="emergencia" id="68" weight="2" />
+      <edge source="complejidad" target="orden---desorden" id="69" weight="2" />
+      <edge source="complejidad" target="paradigma-de-simplificacion" id="70" weight="2" />
+      <edge source="comprension" target="conocimiento-del-conocimiento" id="71" weight="1" />
+      <edge source="comprension" target="error-e-ilusion" id="72" weight="1" />
+      <edge source="comprension" target="homo-complexus" id="73" weight="2" />
+      <edge source="comprension" target="regeneracion-etica" id="74" weight="2" />
+      <edge source="comprension" target="ecologia-de-la-accion" id="75" weight="1" />
+      <edge source="comprension" target="homo-sapiens-demens" id="76" weight="1" />
+      <edge source="comprension" target="mito-y-pensamiento-simbolico" id="77" weight="1" />
+      <edge source="computacion-viviente" target="maquina-viviente" id="78" weight="2" />
+      <edge source="computacion-viviente" target="sujeto" id="79" weight="2" />
+      <edge source="computacion-viviente" target="conocimiento-del-conocimiento" id="80" weight="1" />
+      <edge source="computacion-viviente" target="trinidad-cognitiva-cerebro-mente-cultura" id="81" weight="1" />
+      <edge source="conocimiento-del-conocimiento" target="error-e-ilusion" id="82" weight="2" />
+      <edge source="conocimiento-del-conocimiento" target="incertidumbre" id="83" weight="2" />
+      <edge source="conocimiento-del-conocimiento" target="reforma-del-pensamiento" id="84" weight="2" />
+      <edge source="conocimiento-del-conocimiento" target="metodo" id="85" weight="2" />
+      <edge source="conocimiento-del-conocimiento" target="trinidad-cognitiva-cerebro-mente-cultura" id="86" weight="1" />
+      <edge source="ecologia-de-la-accion" target="incertidumbre" id="87" weight="2" />
+      <edge source="ecologia-de-la-accion" target="socio-etica" id="88" weight="2" />
+      <edge source="ecologia-de-la-accion" target="tierra-patria" id="89" weight="2" />
+      <edge source="emergencia" target="organizacion" id="90" weight="2" />
+      <edge source="emergencia" target="sistema-abierto" id="91" weight="2" />
+      <edge source="emergencia" target="principio-hologramatico" id="92" weight="2" />
+      <edge source="emergencia" target="orden---desorden" id="93" weight="1" />
+      <edge source="emergencia" target="concrescencia" id="94" weight="1" />
+      <edge source="emergencia" target="creatividad" id="95" weight="1" />
+      <edge source="emergencia" target="orden-por-fluctuaciones" id="96" weight="1" />
+      <edge source="error-e-ilusion" target="incertidumbre" id="97" weight="2" />
+      <edge source="error-e-ilusion" target="reforma-del-pensamiento" id="98" weight="2" />
+      <edge source="error-e-ilusion" target="metodo" id="99" weight="1" />
+      <edge source="error-e-ilusion" target="pensamiento-complejo" id="100" weight="1" />
+      <edge source="error-e-ilusion" target="regeneracion-etica" id="101" weight="1" />
+      <edge source="homo-complexus" target="homo-sapiens-demens" id="102" weight="2" />
+      <edge source="homo-complexus" target="trinidad-humana-individuo-sociedad-especie" id="103" weight="2" />
+      <edge source="homo-complexus" target="sujeto" id="104" weight="2" />
+      <edge source="homo-complexus" target="trinidad-cognitiva-cerebro-mente-cultura" id="105" weight="2" />
+      <edge source="homo-complexus" target="noosfera" id="106" weight="1" />
+      <edge source="homo-complexus" target="principio-dialogico" id="107" weight="1" />
+      <edge source="homo-sapiens-demens" target="trinidad-humana-individuo-sociedad-especie" id="108" weight="2" />
+      <edge source="homo-sapiens-demens" target="principio-dialogico" id="109" weight="2" />
+      <edge source="homo-sapiens-demens" target="mito-y-pensamiento-simbolico" id="110" weight="2" />
+      <edge source="idea-como-ser-viviente" target="noosfera" id="111" weight="2" />
+      <edge source="idea-como-ser-viviente" target="paradigma" id="112" weight="2" />
+      <edge source="idea-como-ser-viviente" target="mito-y-pensamiento-simbolico" id="113" weight="2" />
+      <edge source="idea-como-ser-viviente" target="pensamiento-complejo" id="114" weight="1" />
+      <edge source="idea-como-ser-viviente" target="reforma-del-pensamiento" id="115" weight="1" />
+      <edge source="incertidumbre" target="reforma-del-pensamiento" id="116" weight="1" />
+      <edge source="incertidumbre" target="metodo" id="117" weight="1" />
+      <edge source="maquina-viviente" target="organizacion" id="118" weight="2" />
+      <edge source="maquina-viviente" target="sistema-abierto" id="119" weight="2" />
+      <edge source="maquina-viviente" target="sujeto" id="120" weight="2" />
+      <edge source="maquina-viviente" target="autopoiesis" id="121" weight="1" />
+      <edge source="metodo" target="pensamiento-complejo" id="122" weight="1" />
+      <edge source="metodo" target="principio-dialogico" id="123" weight="1" />
+      <edge source="metodo" target="reforma-del-pensamiento" id="124" weight="2" />
+      <edge source="metodo" target="paradigma-de-simplificacion" id="125" weight="1" />
+      <edge source="mito-y-pensamiento-simbolico" target="noosfera" id="126" weight="2" />
+      <edge source="mito-y-pensamiento-simbolico" target="paradigma" id="127" weight="1" />
+      <edge source="noosfera" target="paradigma" id="128" weight="2" />
+      <edge source="noosfera" target="trinidad-cognitiva-cerebro-mente-cultura" id="129" weight="1" />
+      <edge source="orden---desorden" target="organizacion" id="130" weight="1" />
+      <edge source="orden---desorden" target="principio-dialogico" id="131" weight="2" />
+      <edge source="organizacion" target="sistema-abierto" id="132" weight="2" />
+      <edge source="organizacion" target="principio-de-recursividad-organizacional" id="133" weight="1" />
+      <edge source="organizacion" target="principio-hologramatico" id="134" weight="1" />
+      <edge source="organizacion" target="reliance" id="135" weight="1" />
+      <edge source="paradigma" target="pensamiento-complejo" id="136" weight="1" />
+      <edge source="paradigma" target="paradigma-de-simplificacion" id="137" weight="1" />
+      <edge source="paradigma" target="reforma-del-pensamiento" id="138" weight="1" />
+      <edge source="paradigma-de-simplificacion" target="pensamiento-complejo" id="139" weight="2" />
+      <edge source="paradigma-de-simplificacion" target="reforma-del-pensamiento" id="140" weight="1" />
+      <edge source="paradigma-de-simplificacion" target="principio-hologramatico" id="141" weight="1" />
+      <edge source="pensamiento-complejo" target="reforma-del-pensamiento" id="142" weight="2" />
+      <edge source="pensamiento-complejo" target="principio-dialogico" id="143" weight="2" />
+      <edge source="pensamiento-complejo" target="pensamiento-de-la-complejidad" id="144" weight="1" />
+      <edge source="pensamiento-complejo" target="transdisciplinariedad" id="145" weight="1" />
+      <edge source="principio-de-recursividad-organizacional" target="sistema-abierto" id="146" weight="1" />
+      <edge source="principio-de-recursividad-organizacional" target="principio-dialogico" id="147" weight="1" />
+      <edge source="principio-de-recursividad-organizacional" target="trinidad-cognitiva-cerebro-mente-cultura" id="148" weight="1" />
+      <edge source="principio-dialogico" target="principio-hologramatico" id="149" weight="2" />
+      <edge source="principio-hologramatico" target="sistema-abierto" id="150" weight="1" />
+      <edge source="reforma-del-pensamiento" target="camino-medio" id="151" weight="1" />
+      <edge source="reforma-del-pensamiento" target="pensamiento-de-la-complejidad" id="152" weight="1" />
+      <edge source="reforma-del-pensamiento" target="ciencias-sociales-de-nuevo-tipo" id="153" weight="1" />
+      <edge source="reforma-del-pensamiento" target="transdisciplinariedad" id="154" weight="1" />
+      <edge source="reforma-del-pensamiento" target="la-nueva-alianza" id="155" weight="1" />
+      <edge source="regeneracion-etica" target="socio-etica" id="156" weight="1" />
+      <edge source="reliance" target="tierra-patria" id="157" weight="2" />
+      <edge source="reliance" target="sistema-abierto" id="158" weight="1" />
+      <edge source="reliance" target="dialogo-de-saberes" id="159" weight="1" />
+      <edge source="reliance" target="imperativo-etico-constructivista" id="160" weight="1" />
+      <edge source="sistema-abierto" target="lejos-del-equilibrio" id="161" weight="1" />
+      <edge source="socio-etica" target="trinidad-humana-individuo-sociedad-especie" id="162" weight="2" />
+      <edge source="socio-etica" target="tierra-patria" id="163" weight="1" />
+      <edge source="sujeto" target="trinidad-cognitiva-cerebro-mente-cultura" id="164" weight="1" />
+      <edge source="sujeto" target="clausura-operacional" id="165" weight="1" />
+      <edge source="sujeto" target="sin-yo" id="166" weight="1" />
+      <edge source="sujeto" target="cuerpo-propio" id="167" weight="1" />
+      <edge source="sujeto" target="intencionalidad-operante" id="168" weight="1" />
+      <edge source="sujeto" target="cogito-tacito" id="169" weight="1" />
+      <edge source="sujeto" target="epistemologia-hermeneutica-segundo-orden" id="170" weight="1" />
+      <edge source="sujeto" target="ambiente-como-invencion" id="171" weight="1" />
+      <edge source="tierra-patria" target="trinidad-humana-individuo-sociedad-especie" id="172" weight="2" />
+      <edge source="tierra-patria" target="ciencias-sociales-de-nuevo-tipo" id="173" weight="1" />
+      <edge source="tierra-patria" target="dialogo-de-saberes" id="174" weight="1" />
+      <edge source="tierra-patria" target="imperativo-etico-constructivista" id="175" weight="1" />
+      <edge source="trinidad-humana-individuo-sociedad-especie" target="sin-yo" id="176" weight="1" />
+      <edge source="trinidad-humana-individuo-sociedad-especie" target="universalismo-del-yo" id="177" weight="1" />
+      <edge source="autopoiesis" target="clausura-operacional" id="178" weight="2" />
+      <edge source="autopoiesis" target="acoplamiento-estructural" id="179" weight="2" />
+      <edge source="autopoiesis" target="deriva-natural" id="180" weight="1" />
+      <edge source="autopoiesis" target="todo-hacer-es-conocer" id="181" weight="1" />
+      <edge source="autopoiesis" target="enaccion" id="182" weight="1" />
+      <edge source="autopoiesis" target="accion-encarnada" id="183" weight="1" />
+      <edge source="autopoiesis" target="energia-libre-variacional" id="184" weight="1" />
+      <edge source="autopoiesis" target="filosofia-del-organismo" id="185" weight="1" />
+      <edge source="autopoiesis" target="doble-clausura" id="186" weight="1" />
+      <edge source="autopoiesis" target="auto-organizacion-kauffman" id="187" weight="1" />
+      <edge source="autopoiesis" target="conjuntos-autocataliticos" id="188" weight="1" />
+      <edge source="autopoiesis" target="lejos-del-equilibrio" id="189" weight="1" />
+      <edge source="clausura-operacional" target="acoplamiento-estructural" id="190" weight="2" />
+      <edge source="clausura-operacional" target="epistemologia-hermeneutica-segundo-orden" id="191" weight="1" />
+      <edge source="clausura-operacional" target="ambiente-como-invencion" id="192" weight="1" />
+      <edge source="clausura-operacional" target="codificacion-indiferenciada" id="193" weight="1" />
+      <edge source="clausura-operacional" target="doble-clausura" id="194" weight="1" />
+      <edge source="clausura-operacional" target="conjuntos-autocataliticos" id="195" weight="1" />
+      <edge source="acoplamiento-estructural" target="todo-hacer-es-conocer" id="196" weight="2" />
+      <edge source="acoplamiento-estructural" target="deriva-natural" id="197" weight="1" />
+      <edge source="acoplamiento-estructural" target="enaccion" id="198" weight="1" />
+      <edge source="acoplamiento-estructural" target="hacer-camino-al-andar" id="199" weight="1" />
+      <edge source="acoplamiento-estructural" target="esquema-corporal" id="200" weight="1" />
+      <edge source="acoplamiento-estructural" target="inferencia-activa" id="201" weight="1" />
+      <edge source="acoplamiento-estructural" target="prehension" id="202" weight="1" />
+      <edge source="deriva-natural" target="hacer-camino-al-andar" id="203" weight="1" />
+      <edge source="deriva-natural" target="tiempo-irreversible" id="204" weight="1" />
+      <edge source="deriva-natural" target="orden-por-fluctuaciones" id="205" weight="1" />
+      <edge source="enaccion" target="accion-encarnada" id="206" weight="2" />
+      <edge source="enaccion" target="movimiento-generador-del-espacio" id="207" weight="1" />
+      <edge source="enaccion" target="inferencia-activa" id="208" weight="1" />
+      <edge source="accion-encarnada" target="cuerpo-propio" id="209" weight="1" />
+      <edge source="accion-encarnada" target="esquema-corporal" id="210" weight="1" />
+      <edge source="accion-encarnada" target="intencionalidad-operante" id="211" weight="1" />
+      <edge source="accion-encarnada" target="movimiento-generador-del-espacio" id="212" weight="1" />
+      <edge source="accion-encarnada" target="inferencia-activa" id="213" weight="1" />
+      <edge source="sin-yo" target="camino-medio" id="214" weight="2" />
+      <edge source="sin-yo" target="hacer-camino-al-andar" id="215" weight="1" />
+      <edge source="sin-yo" target="complejo-principal" id="216" weight="1" />
+      <edge source="sin-yo" target="universalismo-del-yo" id="217" weight="1" />
+      <edge source="camino-medio" target="hacer-camino-al-andar" id="218" weight="2" />
+      <edge source="cuerpo-propio" target="esquema-corporal" id="219" weight="2" />
+      <edge source="cuerpo-propio" target="intencionalidad-operante" id="220" weight="2" />
+      <edge source="cuerpo-propio" target="cogito-tacito" id="221" weight="1" />
+      <edge source="cuerpo-propio" target="movimiento-generador-del-espacio" id="222" weight="1" />
+      <edge source="esquema-corporal" target="movimiento-generador-del-espacio" id="223" weight="1" />
+      <edge source="intencionalidad-operante" target="cogito-tacito" id="224" weight="2" />
+      <edge source="cogito-tacito" target="epistemologia-hermeneutica-segundo-orden" id="225" weight="1" />
+      <edge source="cerebro-predictivo" target="error-de-prediccion" id="226" weight="2" />
+      <edge source="cerebro-predictivo" target="inferencia-activa" id="227" weight="2" />
+      <edge source="cerebro-predictivo" target="energia-libre-variacional" id="228" weight="2" />
+      <edge source="cerebro-predictivo" target="procesamiento-jerarquico-predictivo" id="229" weight="2" />
+      <edge source="cerebro-predictivo" target="computar-la-realidad" id="230" weight="1" />
+      <edge source="error-de-prediccion" target="procesamiento-jerarquico-predictivo" id="231" weight="2" />
+      <edge source="error-de-prediccion" target="energia-libre-variacional" id="232" weight="1" />
+      <edge source="procesamiento-jerarquico-predictivo" target="energia-libre-variacional" id="233" weight="1" />
+      <edge source="energia-libre-variacional" target="inferencia-activa" id="234" weight="2" />
+      <edge source="energia-libre-variacional" target="computar-la-realidad" id="235" weight="1" />
+      <edge source="energia-libre-variacional" target="estructura-disipativa" id="236" weight="1" />
+      <edge source="energia-libre-variacional" target="lejos-del-equilibrio" id="237" weight="1" />
+      <edge source="inferencia-activa" target="doble-clausura" id="238" weight="1" />
+      <edge source="ocasion-actual" target="prehension" id="239" weight="2" />
+      <edge source="ocasion-actual" target="concrescencia" id="240" weight="2" />
+      <edge source="ocasion-actual" target="creatividad" id="241" weight="2" />
+      <edge source="ocasion-actual" target="filosofia-del-organismo" id="242" weight="2" />
+      <edge source="ocasion-actual" target="complejo-principal" id="243" weight="1" />
+      <edge source="prehension" target="concrescencia" id="244" weight="2" />
+      <edge source="prehension" target="filosofia-del-organismo" id="245" weight="2" />
+      <edge source="prehension" target="panpsiquismo" id="246" weight="1" />
+      <edge source="concrescencia" target="creatividad" id="247" weight="2" />
+      <edge source="concrescencia" target="informacion-integrada" id="248" weight="1" />
+      <edge source="creatividad" target="filosofia-del-organismo" id="249" weight="1" />
+      <edge source="creatividad" target="orden-por-fluctuaciones" id="250" weight="1" />
+      <edge source="filosofia-del-organismo" target="informacion-integrada" id="251" weight="1" />
+      <edge source="filosofia-del-organismo" target="cosmopsicismo" id="252" weight="1" />
+      <edge source="filosofia-del-organismo" target="tiempo-irreversible" id="253" weight="1" />
+      <edge source="filosofia-del-organismo" target="la-nueva-alianza" id="254" weight="1" />
+      <edge source="informacion-integrada" target="complejo-principal" id="255" weight="2" />
+      <edge source="informacion-integrada" target="panpsiquismo" id="256" weight="2" />
+      <edge source="informacion-integrada" target="problema-de-la-combinacion" id="257" weight="1" />
+      <edge source="informacion-integrada" target="codificacion-indiferenciada" id="258" weight="1" />
+      <edge source="universalismo-del-yo" target="cosmopsicismo" id="259" weight="2" />
+      <edge source="universalismo-del-yo" target="panpsiquismo" id="260" weight="2" />
+      <edge source="universalismo-del-yo" target="problema-de-la-combinacion" id="261" weight="1" />
+      <edge source="panpsiquismo" target="cosmopsicismo" id="262" weight="2" />
+      <edge source="panpsiquismo" target="problema-de-la-combinacion" id="263" weight="2" />
+      <edge source="problema-de-la-combinacion" target="cosmopsicismo" id="264" weight="2" />
+      <edge source="pensamiento-de-la-complejidad" target="ciencias-sociales-de-nuevo-tipo" id="265" weight="2" />
+      <edge source="pensamiento-de-la-complejidad" target="transdisciplinariedad" id="266" weight="2" />
+      <edge source="pensamiento-de-la-complejidad" target="epistemologia-hermeneutica-segundo-orden" id="267" weight="1" />
+      <edge source="pensamiento-de-la-complejidad" target="la-nueva-alianza" id="268" weight="1" />
+      <edge source="ciencias-sociales-de-nuevo-tipo" target="dialogo-de-saberes" id="269" weight="2" />
+      <edge source="ciencias-sociales-de-nuevo-tipo" target="transdisciplinariedad" id="270" weight="2" />
+      <edge source="dialogo-de-saberes" target="transdisciplinariedad" id="271" weight="2" />
+      <edge source="ambiente-como-invencion" target="codificacion-indiferenciada" id="272" weight="2" />
+      <edge source="ambiente-como-invencion" target="doble-clausura" id="273" weight="2" />
+      <edge source="ambiente-como-invencion" target="imperativo-etico-constructivista" id="274" weight="2" />
+      <edge source="ambiente-como-invencion" target="computar-la-realidad" id="275" weight="1" />
+      <edge source="codificacion-indiferenciada" target="doble-clausura" id="276" weight="2" />
+      <edge source="computar-la-realidad" target="doble-clausura" id="277" weight="2" />
+      <edge source="doble-clausura" target="imperativo-etico-constructivista" id="278" weight="1" />
+      <edge source="auto-organizacion-kauffman" target="orden-gratis" id="279" weight="2" />
+      <edge source="auto-organizacion-kauffman" target="conjuntos-autocataliticos" id="280" weight="2" />
+      <edge source="auto-organizacion-kauffman" target="borde-del-caos" id="281" weight="2" />
+      <edge source="auto-organizacion-kauffman" target="redes-booleanas" id="282" weight="1" />
+      <edge source="auto-organizacion-kauffman" target="estructura-disipativa" id="283" weight="1" />
+      <edge source="orden-gratis" target="conjuntos-autocataliticos" id="284" weight="2" />
+      <edge source="orden-gratis" target="redes-booleanas" id="285" weight="2" />
+      <edge source="orden-gratis" target="borde-del-caos" id="286" weight="2" />
+      <edge source="conjuntos-autocataliticos" target="redes-booleanas" id="287" weight="1" />
+      <edge source="borde-del-caos" target="redes-booleanas" id="288" weight="2" />
+      <edge source="estructura-disipativa" target="lejos-del-equilibrio" id="289" weight="2" />
+      <edge source="estructura-disipativa" target="orden-por-fluctuaciones" id="290" weight="2" />
+      <edge source="estructura-disipativa" target="tiempo-irreversible" id="291" weight="2" />
+      <edge source="estructura-disipativa" target="la-nueva-alianza" id="292" weight="1" />
+      <edge source="lejos-del-equilibrio" target="tiempo-irreversible" id="293" weight="2" />
+      <edge source="lejos-del-equilibrio" target="orden-por-fluctuaciones" id="294" weight="1" />
+      <edge source="tiempo-irreversible" target="la-nueva-alianza" id="295" weight="2" />
+      <edge source="tiempo-irreversible" target="orden-por-fluctuaciones" id="296" weight="1" />
+    </edges>
+  </graph>
+</gexf>

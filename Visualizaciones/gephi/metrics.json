@@ -1,0 +1,470 @@
+{
+  "modularity": 0.599076789084047,
+  "n_communities": 9,
+  "rankings": {
+    "betweenness": [
+      [
+        "Auto-eco-organización",
+        0.26222899120534526,
+        "morin"
+      ],
+      [
+        "Sujeto",
+        0.20797510059869648,
+        "morin"
+      ],
+      [
+        "Reforma del pensamiento",
+        0.10350873433600907,
+        "morin"
+      ],
+      [
+        "Filosofía del organismo",
+        0.09580498073946665,
+        "proceso"
+      ],
+      [
+        "Autopoiesis",
+        0.09308019429540008,
+        "autopoiesis"
+      ],
+      [
+        "Antropo-ética",
+        0.07586279674078693,
+        "morin"
+      ],
+      [
+        "La nueva alianza",
+        0.06795867877603942,
+        "termodinamica"
+      ],
+      [
+        "Cogito computante",
+        0.0657152160791671,
+        "morin"
+      ],
+      [
+        "Energía libre variacional",
+        0.06337929343795172,
+        "predictive"
+      ],
+      [
+        "Principio de recursividad organizacional",
+        0.05674515687147998,
+        "morin"
+      ],
+      [
+        "Acoplamiento estructural",
+        0.05465301719347537,
+        "autopoiesis"
+      ],
+      [
+        "Conocimiento del conocimiento",
+        0.052734032804808297,
+        "morin"
+      ],
+      [
+        "Comprensión",
+        0.04722970706722636,
+        "morin"
+      ],
+      [
+        "Sin yo (Selfless mind)",
+        0.04419544442567136,
+        "embodied"
+      ],
+      [
+        "Organización",
+        0.042879014797625466,
+        "morin"
+      ]
+    ],
+    "eigenvector": [
+      [
+        "Auto-eco-organización",
+        0.2762543526268351,
+        "morin"
+      ],
+      [
+        "Sistema abierto",
+        0.26458839694002995,
+        "morin"
+      ],
+      [
+        "Organización",
+        0.2495122738426142,
+        "morin"
+      ],
+      [
+        "Máquina viviente",
+        0.21405644381159722,
+        "morin"
+      ],
+      [
+        "Emergencia",
+        0.195618645417063,
+        "morin"
+      ],
+      [
+        "Reforma del pensamiento",
+        0.1880801470911276,
+        "morin"
+      ],
+      [
+        "Sujeto",
+        0.17882718423524496,
+        "morin"
+      ],
+      [
+        "Conocimiento del conocimiento",
+        0.17621728417605428,
+        "morin"
+      ],
+      [
+        "Antropo-ética",
+        0.1696193627995355,
+        "morin"
+      ],
+      [
+        "Tierra-Patria",
+        0.1694077001223226,
+        "morin"
+      ],
+      [
+        "Bucle tetralógico",
+        0.1688800392962594,
+        "morin"
+      ],
+      [
+        "Homo complexus",
+        0.15647377385492386,
+        "morin"
+      ],
+      [
+        "Error e ilusión",
+        0.1542457465041164,
+        "morin"
+      ],
+      [
+        "Comprensión",
+        0.1535640965789698,
+        "morin"
+      ],
+      [
+        "Reliance",
+        0.15066508911685192,
+        "morin"
+      ]
+    ],
+    "closeness": [
+      [
+        "Auto-eco-organización",
+        0.4265402843601896,
+        "morin"
+      ],
+      [
+        "Sujeto",
+        0.4090909090909091,
+        "morin"
+      ],
+      [
+        "Autopoiesis",
+        0.36585365853658536,
+        "autopoiesis"
+      ],
+      [
+        "Filosofía del organismo",
+        0.3629032258064516,
+        "proceso"
+      ],
+      [
+        "Principio de recursividad organizacional",
+        0.35294117647058826,
+        "morin"
+      ],
+      [
+        "Antropo-ética",
+        0.3515625,
+        "morin"
+      ],
+      [
+        "Organización",
+        0.3515625,
+        "morin"
+      ],
+      [
+        "Cogito computante",
+        0.3448275862068966,
+        "morin"
+      ],
+      [
+        "Energía libre variacional",
+        0.34220532319391633,
+        "predictive"
+      ],
+      [
+        "Trinidad cognitiva (cerebro-mente-cultura)",
+        0.33707865168539325,
+        "morin"
+      ],
+      [
+        "Estructura disipativa",
+        0.33707865168539325,
+        "termodinamica"
+      ],
+      [
+        "Acoplamiento estructural",
+        0.3358208955223881,
+        "autopoiesis"
+      ],
+      [
+        "Lejos del equilibrio",
+        0.3358208955223881,
+        "termodinamica"
+      ],
+      [
+        "Clausura operacional",
+        0.33210332103321033,
+        "autopoiesis"
+      ],
+      [
+        "Auto-ética",
+        0.33088235294117646,
+        "morin"
+      ]
+    ],
+    "degree": [
+      [
+        "Auto-eco-organización",
+        19,
+        "morin"
+      ],
+      [
+        "Reforma del pensamiento",
+        15,
+        "morin"
+      ],
+      [
+        "Sujeto",
+        15,
+        "morin"
+      ],
+      [
+        "Autopoiesis",
+        14,
+        "autopoiesis"
+      ],
+      [
+        "Antropo-ética",
+        11,
+        "morin"
+      ],
+      [
+        "Comprensión",
+        11,
+        "morin"
+      ],
+      [
+        "Pensamiento complejo",
+        11,
+        "morin"
+      ],
+      [
+        "Sistema abierto",
+        11,
+        "morin"
+      ],
+      [
+        "Conocimiento del conocimiento",
+        10,
+        "morin"
+      ],
+      [
+        "Organización",
+        10,
+        "morin"
+      ],
+      [
+        "Acoplamiento estructural",
+        10,
+        "autopoiesis"
+      ],
+      [
+        "Cogito computante",
+        9,
+        "morin"
+      ],
+      [
+        "Emergencia",
+        9,
+        "morin"
+      ],
+      [
+        "Homo complexus",
+        9,
+        "morin"
+      ],
+      [
+        "Tierra-Patria",
+        9,
+        "morin"
+      ]
+    ]
+  },
+  "communities": [
+    {
+      "id": 0,
+      "size": 10,
+      "members": [
+        "Antropo-ética",
+        "Auto-ética",
+        "Comprensión",
+        "Ecología de la acción",
+        "Homo complexus",
+        "Homo sapiens/demens",
+        "Regeneración ética",
+        "Socio-ética",
+        "Tierra-Patria",
+        "Trinidad humana (individuo-sociedad-especie)"
+      ],
+      "dominant_tradition": "morin"
+    },
+    {
+      "id": 1,
+      "size": 11,
+      "members": [
+        "Auto-eco-organización",
+        "Bucle tetralógico",
+        "Causalidad circular",
+        "Emergencia",
+        "Orden / Desorden",
+        "Organización",
+        "Principio de recursividad organizacional",
+        "Principio dialógico",
+        "Principio hologramático",
+        "Reliance",
+        "Sistema abierto"
+      ],
+      "dominant_tradition": "morin"
+    },
+    {
+      "id": 2,
+      "size": 12,
+      "members": [
+        "Acción encarnada",
+        "Cogito computante",
+        "Cogito tácito",
+        "Computación viviente",
+        "Cuerpo propio",
+        "Enacción",
+        "Esquema corporal",
+        "Intencionalidad operante",
+        "Movimiento generador del espacio",
+        "Máquina viviente",
+        "Sujeto",
+        "Trinidad cognitiva (cerebro-mente-cultura)"
+      ],
+      "dominant_tradition": "embodied"
+    },
+    {
+      "id": 3,
+      "size": 14,
+      "members": [
+        "Bien pensar",
+        "Ceguera del conocimiento",
+        "Complejidad",
+        "Conocimiento del conocimiento",
+        "Error e ilusión",
+        "Idea (como ser viviente)",
+        "Incertidumbre",
+        "Mito y pensamiento simbólico",
+        "Método",
+        "Noosfera",
+        "Paradigma",
+        "Paradigma de simplificación",
+        "Pensamiento complejo",
+        "Reforma del pensamiento"
+      ],
+      "dominant_tradition": "morin"
+    },
+    {
+      "id": 4,
+      "size": 5,
+      "members": [
+        "Auto-organización (Kauffman)",
+        "Borde del caos",
+        "Conjuntos autocatalíticos",
+        "Orden gratis",
+        "Redes booleanas"
+      ],
+      "dominant_tradition": "termodinamica"
+    },
+    {
+      "id": 5,
+      "size": 14,
+      "members": [
+        "Acoplamiento estructural",
+        "Autopoiesis",
+        "Cerebro predictivo",
+        "Clausura operacional",
+        "Codificación indiferenciada",
+        "Computar la realidad",
+        "Doble clausura",
+        "El ambiente como invención",
+        "Energía libre variacional",
+        "Error de predicción",
+        "Imperativo ético constructivista",
+        "Inferencia activa",
+        "Procesamiento jerárquico predictivo",
+        "Todo hacer es conocer"
+      ],
+      "dominant_tradition": "predictive"
+    },
+    {
+      "id": 6,
+      "size": 14,
+      "members": [
+        "Camino medio",
+        "Complejo principal",
+        "Concrescencia",
+        "Cosmopsicismo",
+        "Creatividad",
+        "Filosofía del organismo",
+        "Hacer camino al andar",
+        "Información integrada (Φ)",
+        "Ocasión actual",
+        "Panpsiquismo",
+        "Prehensión",
+        "Problema de la combinación",
+        "Sin yo (Selfless mind)",
+        "Universalismo del yo (open individualism)"
+      ],
+      "dominant_tradition": "proceso"
+    },
+    {
+      "id": 7,
+      "size": 6,
+      "members": [
+        "Deriva natural",
+        "Estructura disipativa",
+        "La nueva alianza",
+        "Lejos del equilibrio",
+        "Orden por fluctuaciones",
+        "Tiempo irreversible (flecha del tiempo)"
+      ],
+      "dominant_tradition": "termodinamica"
+    },
+    {
+      "id": 8,
+      "size": 5,
+      "members": [
+        "Ciencias sociales de nuevo tipo",
+        "Diálogo de saberes",
+        "Epistemología hermenéutica de segundo orden",
+        "Pensamiento «de la Complejidad»",
+        "Transdisciplinariedad"
+      ],
+      "dominant_tradition": "social"
+    }
+  ]
+}
