@@ -1,0 +1,47 @@
+# --- Obsidian: estado efímero ---
+
+# Estado de la ventana / paneles abiertos / scroll position — cambia constantemente
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspaces.json
+
+# Caché de búsqueda y otros derivados
+.obsidian/cache
+.obsidian/types.json
+
+# --- Obsidian: papelera local ---
+.trash/
+
+# --- Sistema operativo ---
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- OneDrive ---
+# Lock files de OneDrive durante sync
+*.tmp
+~$*
+
+# --- Editores ---
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Python (scripts del vault) ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# --- Logs ---
+*.log

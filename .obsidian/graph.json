@@ -1,0 +1,114 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#tradicion/morin",
+      "color": {
+        "a": 1,
+        "rgb": 8007214
+      }
+    },
+    {
+      "query": "tag:#tradicion/autopoiesis",
+      "color": {
+        "a": 1,
+        "rgb": 4877116
+      }
+    },
+    {
+      "query": "tag:#tradicion/cibernetica",
+      "color": {
+        "a": 1,
+        "rgb": 3955563
+      }
+    },
+    {
+      "query": "tag:#tradicion/embodied",
+      "color": {
+        "a": 1,
+        "rgb": 7031356
+      }
+    },
+    {
+      "query": "tag:#tradicion/predictive",
+      "color": {
+        "a": 1,
+        "rgb": 7027803
+      }
+    },
+    {
+      "query": "tag:#tradicion/iit",
+      "color": {
+        "a": 1,
+        "rgb": 5979243
+      }
+    },
+    {
+      "query": "tag:#tradicion/panpsiquismo",
+      "color": {
+        "a": 1,
+        "rgb": 7035708
+      }
+    },
+    {
+      "query": "tag:#tradicion/termodinamica",
+      "color": {
+        "a": 1,
+        "rgb": 12092703
+      }
+    },
+    {
+      "query": "tag:#tradicion/proceso",
+      "color": {
+        "a": 1,
+        "rgb": 3959643
+      }
+    },
+    {
+      "query": "tag:#tradicion/social",
+      "color": {
+        "a": 1,
+        "rgb": 9136954
+      }
+    },
+    {
+      "query": "tag:#tipo/autor",
+      "color": {
+        "a": 1,
+        "rgb": 13934615
+      }
+    },
+    {
+      "query": "tag:#tipo/obra",
+      "color": {
+        "a": 1,
+        "rgb": 5934276
+      }
+    },
+    {
+      "query": "tag:#tipo/moc",
+      "color": {
+        "a": 1,
+        "rgb": 16777215
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1,
+  "close": false
+}
