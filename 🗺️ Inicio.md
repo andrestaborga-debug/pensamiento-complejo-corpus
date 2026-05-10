@@ -24,6 +24,10 @@ Este es el **mapa raíz**. El vault tiene **dos capas**: el demo curado (autores
 - [[🔌 Plugins recomendados]] — qué instalar para el siguiente nivel
 - [[🌐 Visualizaciones Mermaid]] — catálogo de diagramas embebidos (timeline, mindmap, flowchart, etc.)
 
+## Visualizaciones HTML (interactivas)
+
+- [`Visualizaciones/corpus.html`](Visualizaciones/corpus.html) — Timeline scatter (91 conceptos × año × tradición) + chord diagram (14 autores conectados por conceptos compartidos). Autocontenido, abre con doble clic en cualquier navegador.
+
 ## Autores curados
 
 - [[Edgar Morin]]

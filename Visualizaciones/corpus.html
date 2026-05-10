@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pensamiento Complejo · Visualización del corpus</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --paper: #ffffff;
+    --ink: #1b1b1b;
+    --ink-soft: #3a3a3a;
+    --muted: #6b6b6b;
+    --accent: #7a2e2e;
+    --accent-soft: #f3e8e8;
+    --rule: #e3ddd0;
+    --gold: #b8851f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 56px 32px 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+    font-size: 2.4em;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05em;
+    max-width: 720px;
+  }
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+  section {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 28px 32px 32px;
+    margin-bottom: 32px;
+  }
+  section h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    color: var(--accent);
+  }
+  section .desc {
+    color: var(--muted);
+    margin: 0 0 24px 0;
+    font-size: 0.96em;
+    max-width: 760px;
+  }
+  /* Leyenda */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 0 0 18px 0;
+  }
+  .legend-item {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    font-size: 0.84em;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .legend-item:hover { background: var(--accent-soft); }
+  .legend-item.dim { opacity: 0.35; }
+  .legend-swatch {
+    width: 11px; height: 11px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-count {
+    color: var(--muted);
+    font-size: 0.92em;
+  }
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 0.86em;
+    line-height: 1.4;
+    max-width: 320px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+    opacity: 0;
+    transition: opacity 0.12s;
+    z-index: 1000;
+    font-family: -apple-system, 'Segoe UI', Inter, sans-serif;
+  }
+  .tooltip strong { color: var(--gold); display: block; margin-bottom: 2px; font-size: 1.05em; }
+  .tooltip .meta { color: rgba(250,247,242,0.72); font-size: 0.92em; }
+  .tooltip .essence { margin-top: 6px; font-style: italic; }
+  /* SVG */
+  svg { display: block; max-width: 100%; height: auto; }
+  .axis text { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .axis line, .axis path { stroke: var(--rule); }
+  .axis-label { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 13px; fill: var(--ink-soft); }
+  .lane-label { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; fill: var(--ink-soft); }
+  .gridline { stroke: var(--rule); stroke-dasharray: 2 3; opacity: 0.5; }
+  /* Chord */
+  .chord-group text { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 11px; fill: var(--ink); }
+  .chord-ribbon { fill-opacity: 0.55; mix-blend-mode: multiply; cursor: pointer; }
+  .chord-ribbon:hover { fill-opacity: 0.9; }
+  .chord-arc { stroke: var(--bg); stroke-width: 1; cursor: pointer; }
+  /* Footer */
+  footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 32px 56px;
+    color: var(--muted);
+    font-size: 0.86em;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pensamiento <em>complejo</em> · visualización del corpus</h1>
+  <p>El corpus contiene 91 conceptos de 13 autores en 10 tradiciones intelectuales — desde Whitehead (1929) hasta el principio de energía libre (2009). Estas dos visualizaciones invitan a leerlo de dos modos: <strong>el tiempo</strong> (cuándo apareció cada idea) y <strong>el diálogo</strong> (qué autores se cruzan vía conceptos compartidos).</p>
+</header>
+
+<main>
+  <section>
+    <h2>Cronología de las ideas</h2>
+    <p class="desc">Cada punto es un concepto del glosario, ubicado por <strong>año</strong> de la obra que lo introduce y agrupado por <strong>tradición</strong>. Pasa el cursor para detalle. Clic en una etiqueta de la leyenda para filtrar.</p>
+    <div id="legend-timeline" class="legend"></div>
+    <div id="timeline"></div>
+  </section>
+
+  <section>
+    <h2>Diálogo entre autores</h2>
+    <p class="desc">Cada arco es un autor. Las cintas conectan autores que comparten conceptos en sus refs cruzadas — es decir, citan o son citados por la misma idea. Más cinta = más diálogo conceptual.</p>
+    <div id="chord"></div>
+  </section>
+</main>
+
+<footer>
+  Generado a partir del Glosario unificado del Pensamiento Complejo · paleta y datos coherentes con el corpus original.<br>
+  Vault Obsidian: <code>Conocimiento/ObsidianDemo</code>
+</footer>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const DATA = {"timeline": [{"term": "Antropo-ética", "slug": "antropo-etica", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Ética que reconoce la responsabilidad del ser humano hacia sí mismo, hacia los otros y hacia la vida toda."}, {"term": "Auto-eco-organización", "slug": "auto-eco-organizacion", "year": 1980, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método II — La vida de la Vida", "essence": "Proceso por el cual un sistema se autogenera mientras está inseparablemente acoplado a su entorno, transformándolo y siendo transformado."}, {"term": "Auto-ética", "slug": "auto-etica", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Ética de la auto-realización: responsabilidad de cada individuo hacia su propio desarrollo integral y dignidad."}, {"term": "Bien pensar", "slug": "bien-pensar", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Ejercicio permanente del pensamiento reflexivo, integrador y ético que anticipa consecuencias y permanece abierto a la complejidad."}, {"term": "Bucle tetralógico", "slug": "bucle-tetralogico", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Dinámica donde caos, orden, interacción e organización se retroalimentan generando sistemas vivos e impredecibles."}, {"term": "Causalidad circular", "slug": "causalidad-circular", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Lógica donde los efectos retroactúan sobre las causas, generando bucles autorrreguladores y transformativos."}, {"term": "Ceguera del conocimiento", "slug": "ceguera-del-conocimiento", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Incapacidad constitutiva de la mente para ver lo que la estructura de nuestro pensamiento oculta sistemáticamente."}, {"term": "Cogito computante", "slug": "cogito-computante", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Capacidad de pensar reflexivamente en términos de información, procesos y retroalimentación, transformando la filosofía cartesiana."}, {"term": "Complejidad", "slug": "complejidad", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Entretejimiento de orden, desorden e interacciones que impide reducir un fenómeno a sus partes."}, {"term": "Comprensión", "slug": "comprension", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Inteligencia empática que integra el conocimiento intelectual con la empatía y el reconocimiento del otro en su dignidad."}, {"term": "Computación viviente", "slug": "computacion-viviente", "year": 1980, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método II — La vida de la Vida", "essence": "Procesamiento de información e integración de estímulos que caracteriza todo ser vivo, no solo organismos cerebrales."}, {"term": "Conocimiento del conocimiento", "slug": "conocimiento-del-conocimiento", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Reflexión epistemológica que examina cómo conocemos, incluyendo los límites, sesgos e ilusiones del conocimiento mismo."}, {"term": "Ecología de la acción", "slug": "ecologia-de-la-accion", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Reconocimiento que toda acción, una vez lanzada, entra en red de consecuencias impredecibles que pueden contravenir la intención."}, {"term": "Emergencia", "slug": "emergencia", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Aparición de propiedades nuevas del sistema que no existían en las partes consideradas aisladamente."}, {"term": "Error e ilusión", "slug": "error-e-ilusion", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Constitutivos inevitables del conocimiento que deben ser reconocidos como tales para que el pensamiento no quede cautivo."}, {"term": "Homo complexus", "slug": "homo-complexus", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Humanidad entendida como síntesis viviente de dimensiones contradictorias: animal-racional, individual-social, consciente-inconsciente."}, {"term": "Homo sapiens/demens", "slug": "homo-sapiens-demens", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Ser humano caracterizado por la inseparabilidad radical entre razón (sapiens) e irracionalidad (demens), sin que una supere a la otra."}, {"term": "Idea (como ser viviente)", "slug": "idea-como-ser-viviente", "year": 1991, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método IV — Las ideas", "essence": "Las ideas no son esencias atemporales sino organismos vivos que nacen, se reproducen, mutan, compiten y mueren."}, {"term": "Incertidumbre", "slug": "incertidumbre", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Realidad irreducible: el futuro es abierto, el conocimiento es parcial, ningún sistema es completamente predecible."}, {"term": "Máquina viviente", "slug": "maquina-viviente", "year": 1980, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método II — La vida de la Vida", "essence": "Paradoja: ser vivo que no es máquina mecánica pero sí es productor de orden, información y propósito."}, {"term": "Método", "slug": "metodo", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Vía de pensamiento que respeta la singularidad de lo que estudia sin pretender leyes universales que ignoren el contexto."}, {"term": "Mito y pensamiento simbólico", "slug": "mito-y-pensamiento-simbolico", "year": 1991, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método IV — Las ideas", "essence": "Narrativas que organizan el sentido profundo de una cultura y la cual la razón pura no puede penetrar ni reemplazar."}, {"term": "Noosfera", "slug": "noosfera", "year": 1991, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método IV — Las ideas", "essence": "Esfera de ideas, símbolos y significados que emerge de la actividad mental colectiva y se vuelve autónoma respecto a los individuos."}, {"term": "Orden / Desorden", "slug": "orden---desorden", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Pareja irreducible que, en diálogo, es fuente de toda organización y creatividad."}, {"term": "Organización", "slug": "organizacion", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Disposición de partes que genera emergencias irreducibles y se autorreplica manteniendo identidad en el cambio."}, {"term": "Paradigma", "slug": "paradigma", "year": 1991, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método IV — Las ideas", "essence": "Matriz invisible de conceptos que organiza el pensamiento de una época y determina qué preguntas se hacen y qué respuestas son válidas."}, {"term": "Paradigma de simplificación", "slug": "paradigma-de-simplificacion", "year": 1991, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método IV — Las ideas", "essence": "Lógica que reduce la realidad a principios simples, separando lo que está inseparablemente unido."}, {"term": "Pensamiento complejo", "slug": "pensamiento-complejo", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Tejido de saberes que reconoce la entrelazón inseparable entre orden, desorden y organización."}, {"term": "Principio de recursividad organizacional", "slug": "principio-de-recursividad-organizacional", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Bucle en el que el producto retroactúa sobre el productor, y el sistema regenera las condiciones de su propia existencia."}, {"term": "Principio dialógico", "slug": "principio-dialogico", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Articulación de contrarios que no se resuelven en síntesis sino que permanecen activos, generativos, irreconciliables."}, {"term": "Principio hologramático", "slug": "principio-hologramatico", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Lógica donde la parte contiene el todo y el todo se halla en cada parte, sin que esto sea reducción o redundancia."}, {"term": "Reforma del pensamiento", "slug": "reforma-del-pensamiento", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Transformación radical en la forma de conocer que reintegra lo que el paradigma cartesiano ha dividido."}, {"term": "Regeneración ética", "slug": "regeneracion-etica", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Proceso permanente de renovación moral mediante reflexión, autocrítica y disposición a transformar la conducta y las estructuras."}, {"term": "Reliance", "slug": "reliance", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Dependencia recíproca e inseparable entre los seres vivos y su entorno, constitutiva de toda existencia."}, {"term": "Sistema abierto", "slug": "sistema-abierto", "year": 1977, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método I — La naturaleza de la Naturaleza", "essence": "Organización que se autogenera manteniendo intercambio permanente con su entorno, del cual no puede escindirse."}, {"term": "Socio-ética", "slug": "socio-etica", "year": 2004, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método VI — Ética", "essence": "Ética de la solidaridad: reconocimiento de la dignidad de todos, compromiso con justicia y transformación social."}, {"term": "Sujeto", "slug": "sujeto", "year": 1980, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método II — La vida de la Vida", "essence": "Ser vivo que se autoproduce en relación con su medio, con capacidad de reflexión y autonomía relativa, no reducible a objeto."}, {"term": "Tierra-Patria", "slug": "tierra-patria", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Reconocimiento de que todos los humanos comparten un destino común en un planeta único, base de una solidaridad global."}, {"term": "Trinidad cognitiva (cerebro-mente-cultura)", "slug": "trinidad-cognitiva-cerebro-mente-cultura", "year": 1986, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método III — El conocimiento del Conocimiento", "essence": "Triangulación inseparable donde el cerebro produce la mente, la mente externaliza en cultura, la cultura moldea el cerebro."}, {"term": "Trinidad humana (individuo-sociedad-especie)", "slug": "trinidad-humana-individuo-sociedad-especie", "year": 2001, "tradition": "morin", "tradition_label": "Pensamiento complejo (Morin)", "author": "Edgar Morin", "work": "El Método V — La humanidad de la Humanidad", "essence": "Articulación de tres dimensiones donde cada una depende y se realiza en las otras dos sin subordinación jerárquica."}, {"term": "Autopoiesis", "slug": "autopoiesis", "year": 1984, "tradition": "autopoiesis", "tradition_label": "Autopoiesis", "author": "Humberto Maturana & Francisco Varela", "work": "El árbol del conocimiento", "essence": "El proceso por el cual un sistema vivo produce continuamente los componentes que lo constituyen como tal sistema, manteniéndose como unidad autónoma."}, {"term": "Clausura operacional", "slug": "clausura-operacional", "year": 1984, "tradition": "autopoiesis", "tradition_label": "Autopoiesis", "author": "Humberto Maturana & Francisco Varela", "work": "El árbol del conocimiento", "essence": "Propiedad de un sistema cuyas operaciones se cierran sobre sí mismas: cada cambio del sistema genera otros cambios dentro del mismo sistema, no acciones sobre algo externo."}, {"term": "Acoplamiento estructural", "slug": "acoplamiento-estructural", "year": 1984, "tradition": "autopoiesis", "tradition_label": "Autopoiesis", "author": "Humberto Maturana & Francisco Varela", "work": "El árbol del conocimiento", "essence": "Historia de cambios estructurales recíprocos entre dos sistemas autopoiéticos —o entre un sistema y su medio— que se mantienen sin desintegrarse."}, {"term": "Deriva natural", "slug": "deriva-natural", "year": 1984, "tradition": "autopoiesis", "tradition_label": "Autopoiesis", "author": "Humberto Maturana & Francisco Varela", "work": "El árbol del conocimiento", "essence": "La evolución como deriva sin meta: los linajes de seres vivos se transforman siguiendo los caminos que su acoplamiento estructural permite, no los que la «selección» optimiza."}, {"term": "Todo hacer es conocer", "slug": "todo-hacer-es-conocer", "year": 1984, "tradition": "autopoiesis", "tradition_label": "Autopoiesis", "author": "Humberto Maturana & Francisco Varela", "work": "El árbol del conocimiento", "essence": "El acto de vivir es ya un acto de conocer: no hay distancia entre la actividad biológica y la cognitiva en un ser vivo."}, {"term": "Enacción", "slug": "enaccion", "year": 1991, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Francisco Varela, Evan Thompson & Eleanor Rosch", "work": "The Embodied Mind", "essence": "Aproximación a la cognición que reemplaza la metáfora representacionista por la idea de que conocer es enactuar — hacer emerger — un mundo en la acción del organismo."}, {"term": "Acción encarnada", "slug": "accion-encarnada", "year": 1991, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Francisco Varela, Evan Thompson & Eleanor Rosch", "work": "The Embodied Mind", "essence": "El estudio de la cognición no como recuperación de un mundo dado ni como proyección de uno interno, sino como acción de un cuerpo concreto en una historia concreta."}, {"term": "Sin yo (Selfless mind)", "slug": "sin-yo", "year": 1991, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Francisco Varela, Evan Thompson & Eleanor Rosch", "work": "The Embodied Mind", "essence": "La tesis de que la mente no es propiedad de un yo unitario, sino una sociedad heterogénea de procesos sin centro — articulada con la idea budista de no-yo (anātman)."}, {"term": "Camino medio", "slug": "camino-medio", "year": 1991, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Francisco Varela, Evan Thompson & Eleanor Rosch", "work": "The Embodied Mind", "essence": "Vía intermedia entre objetivismo (creer en un fundamento absoluto) y nihilismo (negar todo fundamento): aprender a vivir sin fundamento sin que eso implique disolución."}, {"term": "Hacer camino al andar", "slug": "hacer-camino-al-andar", "year": 1991, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Francisco Varela, Evan Thompson & Eleanor Rosch", "work": "The Embodied Mind", "essence": "Imagen para la cognición encarnada: no hay un camino dado que se recorre, sino un caminar que va trazando su camino a medida que avanza, condicionado por lo ya andado pero sin meta prefijada."}, {"term": "Cuerpo propio", "slug": "cuerpo-propio", "year": 1945, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Maurice Merleau-Ponty", "work": "Fenomenología de la percepción", "essence": "Mi cuerpo no es un objeto entre objetos sino el sujeto mismo de la percepción: el medio a través del cual hay un mundo para mí."}, {"term": "Esquema corporal", "slug": "esquema-corporal", "year": 1945, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Maurice Merleau-Ponty", "work": "Fenomenología de la percepción", "essence": "Sistema dinámico mediante el cual mi cuerpo se me presenta no como suma de partes sino como postura unificada en vista de una tarea actual o posible."}, {"term": "Intencionalidad operante", "slug": "intencionalidad-operante", "year": 1945, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Maurice Merleau-Ponty", "work": "Fenomenología de la percepción", "essence": "Forma pre-reflexiva de la intencionalidad: la unidad ya tejida del mundo y la vida que opera por debajo del juicio explícito, en deseos, evaluaciones, paisajes."}, {"term": "Cogito tácito", "slug": "cogito-tacito", "year": 1945, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Maurice Merleau-Ponty", "work": "Fenomenología de la percepción", "essence": "Presencia de sí a sí mismo anterior al lenguaje y a toda formulación: la subjetividad como vivencia silenciosa, no como pensamiento explícito."}, {"term": "Movimiento generador del espacio", "slug": "movimiento-generador-del-espacio", "year": 1945, "tradition": "embodied", "tradition_label": "Cognición encarnada", "author": "Maurice Merleau-Ponty", "work": "Fenomenología de la percepción", "essence": "El cuerpo no se desplaza dentro de un espacio pre-dado: el cuerpo en movimiento intencional es lo que genera el espacio mismo en que las cosas se sitúan."}, {"term": "Cerebro predictivo", "slug": "cerebro-predictivo", "year": 2010, "tradition": "predictive", "tradition_label": "Mente predictiva", "author": "Andy Clark", "work": "Whatever Next?", "essence": "Tesis según la cual el cerebro no procesa información sensorial bottom-up: anticipa la entrada con expectativas top-down y solo procesa el error de predicción que queda."}, {"term": "Error de predicción", "slug": "error-de-prediccion", "year": 2010, "tradition": "predictive", "tradition_label": "Mente predictiva", "author": "Andy Clark", "work": "Whatever Next?", "essence": "Diferencia entre la entrada sensorial predicha por el cerebro y la efectivamente recibida. Es la única información que asciende por la jerarquía cortical: «sorpresa» que el sistema busca cancelar."}, {"term": "Procesamiento jerárquico predictivo", "slug": "procesamiento-jerarquico-predictivo", "year": 2010, "tradition": "predictive", "tradition_label": "Mente predictiva", "author": "Andy Clark", "work": "Whatever Next?", "essence": "Arquitectura cortical donde cada nivel predice las entradas del nivel inferior y le envía sus predicciones top-down; el inferior solo le devuelve el error de predicción."}, {"term": "Energía libre variacional", "slug": "energia-libre-variacional", "year": 2009, "tradition": "predictive", "tradition_label": "Mente predictiva", "author": "Karl Friston", "work": "The Free-Energy Principle", "essence": "Cantidad termodinámico-informacional que un sistema autoorganizado debe minimizar para resistir la dispersión hacia el equilibrio. Cota superior de la sorpresa."}, {"term": "Inferencia activa", "slug": "inferencia-activa", "year": 2009, "tradition": "predictive", "tradition_label": "Mente predictiva", "author": "Karl Friston", "work": "The Free-Energy Principle", "essence": "Acción concebida como minimización de la sorpresa: actúo sobre el ambiente para que las sensaciones que recibo coincidan con las que predigo."}, {"term": "Ocasión actual", "slug": "ocasion-actual", "year": 1929, "tradition": "proceso", "tradition_label": "Filosofía del proceso (Whitehead)", "author": "Alfred North Whitehead", "work": "Process and Reality", "essence": "Unidad última de la realidad: no una cosa que dura sino un evento que se concreta. Las ocasiones actuales son los átomos del proceso, las únicas realidades finales."}, {"term": "Prehensión", "slug": "prehension", "year": 1929, "tradition": "proceso", "tradition_label": "Filosofía del proceso (Whitehead)", "author": "Alfred North Whitehead", "work": "Process and Reality", "essence": "Acto por el cual una ocasión actual «toma en cuenta» otras ocasiones e incorpora sus formas, integrándolas como datos de su propio devenir. Operación constitutiva del proceso."}, {"term": "Concrescencia", "slug": "concrescencia", "year": 1929, "tradition": "proceso", "tradition_label": "Filosofía del proceso (Whitehead)", "author": "Alfred North Whitehead", "work": "Process and Reality", "essence": "Proceso por el cual los muchos se hacen uno: las múltiples potencialidades del universo confluyen en la unidad concreta de una nueva ocasión actual."}, {"term": "Creatividad", "slug": "creatividad", "year": 1929, "tradition": "proceso", "tradition_label": "Filosofía del proceso (Whitehead)", "author": "Alfred North Whitehead", "work": "Process and Reality", "essence": "Categoría de lo Último: el principio dinámico por el que los muchos se hacen uno y el uno se acrecienta en uno. No es una entidad: es la condición ontológica del devenir."}, {"term": "Filosofía del organismo", "slug": "filosofia-del-organismo", "year": 1929, "tradition": "proceso", "tradition_label": "Filosofía del proceso (Whitehead)", "author": "Alfred North Whitehead", "work": "Process and Reality", "essence": "Nombre del sistema metafísico whiteheadiano: ontología en la que los entes últimos no son sustancias inertes sino organismos —procesos relacionales que se constituyen por sus relaciones con el universo entero."}, {"term": "Información integrada (Φ)", "slug": "informacion-integrada", "year": 2004, "tradition": "iit", "tradition_label": "Información integrada (IIT)", "author": "Giulio Tononi", "work": "An Information Integration Theory of Consciousness", "essence": "Cantidad que mide cuánta información un sistema genera por encima de sus partes. Para Tononi, es la consciencia: donde hay Φ > 0, hay un cuanto de experiencia."}, {"term": "Complejo principal", "slug": "complejo-principal", "year": 2004, "tradition": "iit", "tradition_label": "Información integrada (IIT)", "author": "Giulio Tononi", "work": "An Information Integration Theory of Consciousness", "essence": "Subsistema con el valor máximo de Φ que no está incluido en otro mayor con Φ todavía más alto. Para la IIT, es la unidad concreta de la consciencia."}, {"term": "Universalismo del yo (open individualism)", "slug": "universalismo-del-yo", "year": 1990, "tradition": "panpsiquismo", "tradition_label": "Panpsiquismo", "author": "Arnold Zuboff", "work": "One Self: The Logic of Experience", "essence": "Tesis de que las fronteras aparentes entre los sujetos son ilusorias: la identidad personal se conserva a través de cualquier variación o multiplicación de cuerpo y mente. Hay un solo Yo que vive todas las experiencias."}, {"term": "Panpsiquismo", "slug": "panpsiquismo", "year": 2019, "tradition": "panpsiquismo", "tradition_label": "Panpsiquismo", "author": "William Seager (ed.)", "work": "The Routledge Handbook of Panpsychism", "essence": "Tesis según la cual la consciencia es una propiedad fundamental y ubicua del mundo —no algo que emerge tarde de procesos no-conscientes, sino algo presente desde el nivel básico de la realidad."}, {"term": "Problema de la combinación", "slug": "problema-de-la-combinacion", "year": 2019, "tradition": "panpsiquismo", "tradition_label": "Panpsiquismo", "author": "William Seager (ed.)", "work": "The Routledge Handbook of Panpsychism", "essence": "Si la consciencia es fundamental en sus constituyentes básicos, ¿cómo se combinan esas micro-consciencias para formar las macro-consciencias unificadas que conocemos? Es el desafío central que enfrenta cualquier panpsiquismo."}, {"term": "Cosmopsicismo", "slug": "cosmopsicismo", "year": 2019, "tradition": "panpsiquismo", "tradition_label": "Panpsiquismo", "author": "William Seager (ed.)", "work": "The Routledge Handbook of Panpsychism", "essence": "Variante del panpsiquismo según la cual la consciencia fundamental no está en las partículas mínimas (panpsiquismo «de abajo») sino en el universo como un todo, del que las consciencias individuales son particularizaciones."}, {"term": "Pensamiento «de la Complejidad»", "slug": "pensamiento-de-la-complejidad", "year": 2006, "tradition": "social", "tradition_label": "Complejidad social", "author": "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "work": "La revolución contemporánea del saber y la complejidad social", "essence": "Programa intelectual contemporáneo que reta el ideal clásico de racionalidad simplificadora y propone una racionalidad de la complejidad: pensar interacciones, redes, emergencia y devenir antes que objetos aislados."}, {"term": "Ciencias sociales de nuevo tipo", "slug": "ciencias-sociales-de-nuevo-tipo", "year": 2006, "tradition": "social", "tradition_label": "Complejidad social", "author": "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "work": "La revolución contemporánea del saber y la complejidad social", "essence": "Programa de reorganización epistemológica de las ciencias sociales latinoamericanas: recuperar el pathos crítico abandonado y construirlas desde el ideal complejo de racionalidad."}, {"term": "Epistemología hermenéutica de segundo orden", "slug": "epistemologia-hermeneutica-segundo-orden", "year": 2006, "tradition": "social", "tradition_label": "Complejidad social", "author": "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "work": "La revolución contemporánea del saber y la complejidad social", "essence": "Tercer tratamiento de la relación sujeto-objeto, posterior al objetivante y al fenomenológico: en lugar de desconectar uno de los polos, asume la mutua constitución de sujeto y objeto en una historia de prácticas."}, {"term": "Diálogo de saberes", "slug": "dialogo-de-saberes", "year": 2006, "tradition": "social", "tradition_label": "Complejidad social", "author": "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "work": "La revolución contemporánea del saber y la complejidad social", "essence": "Sustituir el «centrismo» eurocéntrico (y norteamericano) por un diálogo recíproco entre tradiciones de conocimiento: aprender del otro, reconocer que el otro tiene algo que enseñarnos."}, {"term": "Transdisciplinariedad", "slug": "transdisciplinariedad", "year": 2006, "tradition": "social", "tradition_label": "Complejidad social", "author": "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "work": "La revolución contemporánea del saber y la complejidad social", "essence": "No es la eliminación de las disciplinas sino su trascendencia: corpus de saber que cruzan los límites disciplinarios sin renunciar a sus aportes, articulándolos en torno a problemas que ninguna disciplina sola puede abordar."}, {"term": "El ambiente como invención", "slug": "ambiente-como-invencion", "year": 1973, "tradition": "cybernetics", "tradition_label": "Cibernética 2do orden", "author": "Heinz von Foerster", "work": "On Constructing a Reality", "essence": "Tesis fundadora de la cibernética de segundo orden: el entorno tal como lo experimentamos no es algo dado «allá afuera» sino algo que cada organismo cognoscente construye —inventa— en el acto mismo de percibir."}, {"term": "Codificación indiferenciada", "slug": "codificacion-indiferenciada", "year": 1973, "tradition": "cybernetics", "tradition_label": "Cibernética 2do orden", "author": "Heinz von Foerster", "work": "On Constructing a Reality", "essence": "Las células nerviosas no codifican la naturaleza física del estímulo que las gatilla, solo su cantidad. La cualidad —color, sonido, calor— no viene del mundo: emerge de la organización del sistema nervioso."}, {"term": "Computar la realidad", "slug": "computar-la-realidad", "year": 1973, "tradition": "cybernetics", "tradition_label": "Cibernética 2do orden", "author": "Heinz von Foerster", "work": "On Constructing a Reality", "essence": "«Cognición» = computar descripciones de una realidad. Computar (com-putare: contemplar juntos) refiere cualquier operación que transforme, ordene o relacione entidades, no solo cálculo numérico."}, {"term": "Doble clausura", "slug": "doble-clausura", "year": 1973, "tradition": "cybernetics", "tradition_label": "Cibernética 2do orden", "author": "Heinz von Foerster", "work": "On Constructing a Reality", "essence": "El sistema nervioso opera recursivamente sobre sí mismo en dos sentidos: actúa sobre lo que «ve» (clausura sensoriomotriz) y sobre sus propios operadores (clausura modulatoria, vía sistema endocrino)."}, {"term": "Imperativo ético constructivista", "slug": "imperativo-etico-constructivista", "year": 1973, "tradition": "cybernetics", "tradition_label": "Cibernética 2do orden", "author": "Heinz von Foerster", "work": "On Constructing a Reality", "essence": "«Actúa siempre de modo de aumentar el número de opciones.» Si yo invento el mundo en que vivo y los otros también lo hacen, la ética debe orientar la acción hacia preservar y multiplicar las posibilidades del otro y las propias."}, {"term": "Auto-organización (Kauffman)", "slug": "auto-organizacion-kauffman", "year": 1995, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Stuart Kauffman", "work": "At Home in the Universe", "essence": "Fuente de orden biológica anterior y complementaria a la selección natural: las leyes de la complejidad hacen que ciertos órdenes emerjan espontáneamente en sistemas suficientemente diversos, sin necesidad de explicación adaptativa."}, {"term": "Orden gratis", "slug": "orden-gratis", "year": 1995, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Stuart Kauffman", "work": "At Home in the Universe", "essence": "El orden biológico no es solo lo que la selección natural ha cincelado a fuerza de mutaciones favorables: hay un orden que emerge espontáneamente de las dinámicas de redes complejas, sin costo selectivo."}, {"term": "Conjuntos autocatalíticos", "slug": "conjuntos-autocataliticos", "year": 1995, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Stuart Kauffman", "work": "At Home in the Universe", "essence": "Conjunto de moléculas que catalizan colectivamente la red de reacciones que las produce. Para Kauffman, es el origen químico de la vida: cierre catalítico colectivo, no replicación de una molécula maestra."}, {"term": "Borde del caos", "slug": "borde-del-caos", "year": 1995, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Stuart Kauffman", "work": "At Home in the Universe", "essence": "Régimen de transición entre orden rígido y caos donde el comportamiento complejo prospera: los sistemas adaptativos tienden a sintonizarse en este borde porque allí pueden explorar y persistir a la vez."}, {"term": "Redes booleanas", "slug": "redes-booleanas", "year": 1995, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Stuart Kauffman", "work": "At Home in the Universe", "essence": "Modelo formal de muchos elementos binarios (on/off) con conexiones aleatorias y reglas lógicas. Permite explorar matemáticamente cómo se comportan grandes redes interactuantes y muestra que el orden emerge espontáneamente con baja conectividad (K=2)."}, {"term": "Estructura disipativa", "slug": "estructura-disipativa", "year": 1979, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Ilya Prigogine & Isabelle Stengers", "work": "La nueva alianza", "essence": "Forma de organización supramolecular que emerge en sistemas alejados del equilibrio: la disipación de materia y energía, que clásicamente significaba pérdida y desorden, se convierte en fuente de orden."}, {"term": "Lejos del equilibrio", "slug": "lejos-del-equilibrio", "year": 1979, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Ilya Prigogine & Isabelle Stengers", "work": "La nueva alianza", "essence": "Régimen termodinámico en que el flujo de materia y energía a través del sistema es lo bastante intenso como para mantener al sistema en estados altamente improbables. Solo en este régimen pueden emerger estructuras disipativas."}, {"term": "Tiempo irreversible (flecha del tiempo)", "slug": "tiempo-irreversible", "year": 1979, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Ilya Prigogine & Isabelle Stengers", "work": "La nueva alianza", "essence": "El tiempo no es solo coordenada reversible de la mecánica clásica: es productor, irreversible, generador. El universo es histórico — la ciencia debe pensar el tiempo como creación, no como ilusión."}, {"term": "Orden por fluctuaciones", "slug": "orden-por-fluctuaciones", "year": 1979, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Ilya Prigogine & Isabelle Stengers", "work": "La nueva alianza", "essence": "Mecanismo por el cual una pequeña fluctuación local, en lugar de promediarse y desaparecer, es amplificada por la dinámica del sistema y produce una nueva estructura macroscópica: la novedad nace del ruido."}, {"term": "La nueva alianza", "slug": "la-nueva-alianza", "year": 1979, "tradition": "termodinamica", "tradition_label": "Termodinámica del no-equilibrio", "author": "Ilya Prigogine & Isabelle Stengers", "work": "La nueva alianza", "essence": "Tesis cultural-filosófica del libro: el descubrimiento del tiempo y de la auto-organización por la propia ciencia natural reabre el diálogo, roto desde Galileo, entre las ciencias y la condición humana."}], "chord": {"authors": ["Alfred North Whitehead", "Andy Clark", "Arnold Zuboff", "Edgar Morin", "Francisco Varela, Evan Thompson & Eleanor Rosch", "Giulio Tononi", "Heinz von Foerster", "Humberto Maturana & Francisco Varela", "Ilya Prigogine & Isabelle Stengers", "Karl Friston", "Maurice Merleau-Ponty", "Pedro Luis Sotolongo Codina & Carlos Jesús Delgado Díaz", "Stuart Kauffman", "William Seager (ed.)"], "author_tradition": ["proceso", "predictive", "panpsiquismo", "morin", "embodied", "iit", "cybernetics", "autopoiesis", "termodinamica", "predictive", "embodied", "social", "termodinamica", "panpsiquismo"], "matrix": [[0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0], [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0], [3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1], [0, 1, 0, 5, 0, 1, 0, 4, 0, 2, 0, 0, 0, 0], [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [3, 0, 0, 5, 0, 0, 0, 3, 0, 2, 0, 1, 1, 0], [0, 2, 0, 1, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 3, 5, 0, 0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 9, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0], [0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0], [2, 0, 3, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0]]}, "tradiciones": {"morin": {"label": "Pensamiento complejo (Morin)", "color": "#7a2e2e"}, "autopoiesis": {"label": "Autopoiesis", "color": "#4a6b3c"}, "cybernetics": {"label": "Cibernética 2do orden", "color": "#3c5b6b"}, "embodied": {"label": "Cognición encarnada", "color": "#6b4a3c"}, "predictive": {"label": "Mente predictiva", "color": "#6b3c5b"}, "iit": {"label": "Información integrada (IIT)", "color": "#5b3c6b"}, "panpsiquismo": {"label": "Panpsiquismo", "color": "#6b5b3c"}, "termodinamica": {"label": "Termodinámica del no-equilibrio", "color": "#b8851f"}, "proceso": {"label": "Filosofía del proceso (Whitehead)", "color": "#3c6b5b"}, "social": {"label": "Complejidad social", "color": "#8b6b3a"}}, "counts": {"morin": 40, "autopoiesis": 5, "embodied": 10, "predictive": 5, "proceso": 5, "iit": 2, "panpsiquismo": 4, "social": 5, "cybernetics": 5, "termodinamica": 10}};
+const TRADICIONES = DATA.tradiciones;
+
+/* ============================================================
+   Tooltip helpers
+   ============================================================ */
+const tip = d3.select("#tooltip");
+function showTip(html, ev) {
+  tip.html(html).style("opacity", 1);
+  moveTip(ev);
+}
+function moveTip(ev) {
+  const pad = 16;
+  tip.style("left", (ev.pageX + pad) + "px")
+     .style("top",  (ev.pageY + pad) + "px");
+}
+function hideTip() { tip.style("opacity", 0); }
+
+/* ============================================================
+   Leyenda con estado de filtro
+   ============================================================ */
+const filterState = new Set(Object.keys(TRADICIONES));
+
+function renderLegend() {
+  const wrap = d3.select("#legend-timeline").html("");
+  Object.entries(TRADICIONES).forEach(([key, t]) => {
+    const count = DATA.counts[key] || 0;
+    const item = wrap.append("div")
+      .attr("class", "legend-item" + (filterState.has(key) ? "" : " dim"))
+      .on("click", function () {
+        if (filterState.has(key)) filterState.delete(key);
+        else filterState.add(key);
+        renderLegend();
+        renderTimeline();
+      });
+    item.append("span").attr("class", "legend-swatch")
+        .style("background", t.color);
+    item.append("span").text(t.label);
+    item.append("span").attr("class", "legend-count").text("(" + count + ")");
+  });
+}
+
+/* ============================================================
+   Timeline scatter
+   ============================================================ */
+const TL_W = 1180, TL_M = {top: 24, right: 32, bottom: 48, left: 220};
+const TL_LANES = Object.keys(TRADICIONES);
+const LANE_H = 38;
+const TL_H = TL_M.top + TL_M.bottom + LANE_H * TL_LANES.length;
+
+const tlSvg = d3.select("#timeline").append("svg")
+  .attr("viewBox", `0 0 ${TL_W} ${TL_H}`)
+  .attr("preserveAspectRatio", "xMidYMid meet");
+
+const yearExtent = d3.extent(DATA.timeline, d => d.year);
+const xScale = d3.scaleLinear()
+  .domain([Math.floor(yearExtent[0] / 10) * 10 - 5, Math.ceil(yearExtent[1] / 10) * 10 + 5])
+  .range([TL_M.left, TL_W - TL_M.right]);
+
+const yScale = d3.scaleBand()
+  .domain(TL_LANES)
+  .range([TL_M.top, TL_H - TL_M.bottom])
+  .padding(0.25);
+
+// Axis X
+const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d")).ticks(10);
+tlSvg.append("g").attr("class", "axis")
+  .attr("transform", `translate(0, ${TL_H - TL_M.bottom})`)
+  .call(xAxis);
+
+// Etiqueta eje X
+tlSvg.append("text").attr("class", "axis-label")
+  .attr("x", (TL_M.left + TL_W - TL_M.right) / 2)
+  .attr("y", TL_H - 12)
+  .attr("text-anchor", "middle")
+  .text("año de la obra que introduce el concepto");
+
+// Carriles
+const lanes = tlSvg.append("g").attr("class", "lanes");
+TL_LANES.forEach(key => {
+  const t = TRADICIONES[key];
+  const y = yScale(key) + yScale.bandwidth() / 2;
+  lanes.append("line").attr("class", "gridline")
+    .attr("x1", TL_M.left).attr("x2", TL_W - TL_M.right)
+    .attr("y1", y).attr("y2", y);
+  lanes.append("text").attr("class", "lane-label")
+    .attr("x", TL_M.left - 12).attr("y", y + 4)
+    .attr("text-anchor", "end")
+    .text(t.label);
+});
+
+const dotsLayer = tlSvg.append("g").attr("class", "dots");
+
+function renderTimeline() {
+  const filtered = DATA.timeline.filter(d => filterState.has(d.tradition));
+
+  // Pequeño jitter horizontal para evitar superposición exacta
+  const grouped = d3.group(filtered, d => `${d.year}__${d.tradition}`);
+  const positioned = [];
+  for (const [key, items] of grouped) {
+    items.forEach((d, i) => {
+      const offset = (i - (items.length - 1) / 2) * 6;
+      positioned.push({...d, x: xScale(d.year) + offset, y: yScale(d.tradition) + yScale.bandwidth() / 2});
+    });
+  }
+
+  const sel = dotsLayer.selectAll("circle").data(positioned, d => d.slug);
+  sel.exit().transition().duration(220).attr("r", 0).remove();
+  sel.enter().append("circle")
+    .attr("r", 0)
+    .attr("cx", d => d.x).attr("cy", d => d.y)
+    .attr("fill", d => TRADICIONES[d.tradition]?.color || "#888")
+    .attr("stroke", "rgba(0,0,0,0.18)")
+    .attr("stroke-width", 0.6)
+    .style("cursor", "pointer")
+    .on("mouseenter", (ev, d) => {
+      const yr = d.year ? `<span class="meta">${d.year} · ${TRADICIONES[d.tradition]?.label}</span>` : "";
+      const auth = d.author ? `<span class="meta">${d.author}${d.work ? " — " + d.work : ""}</span>` : "";
+      showTip(`<strong>${d.term}</strong>${yr}${auth}<div class="essence">${d.essence}</div>`, ev);
+    })
+    .on("mousemove", moveTip).on("mouseleave", hideTip)
+    .merge(sel)
+    .transition().duration(360)
+    .attr("cx", d => d.x).attr("cy", d => d.y)
+    .attr("r", 6.5);
+}
+
+renderLegend();
+renderTimeline();
+
+/* ============================================================
+   Chord diagram (autores)
+   ============================================================ */
+const CH_SIZE = 720, CH_MARGIN = 140;
+const CH_RADIUS = (CH_SIZE - CH_MARGIN * 2) / 2;
+const innerR = CH_RADIUS - 14;
+const outerR = CH_RADIUS;
+
+const chSvg = d3.select("#chord").append("svg")
+  .attr("viewBox", `0 0 ${CH_SIZE} ${CH_SIZE}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("max-width", "780px")
+  .style("margin", "0 auto");
+
+const g = chSvg.append("g").attr("transform", `translate(${CH_SIZE/2}, ${CH_SIZE/2})`);
+
+const matrix = DATA.chord.matrix;
+const authors = DATA.chord.authors;
+const authorTrad = DATA.chord.author_tradition;
+
+const chord = d3.chordDirected().padAngle(0.04).sortSubgroups(d3.descending);
+const chords = chord(matrix);
+
+const arc  = d3.arc().innerRadius(innerR).outerRadius(outerR);
+const ribbon = d3.ribbon().radius(innerR);
+
+// Arcs (autores)
+const groups = g.append("g").selectAll("g")
+  .data(chords.groups).enter().append("g").attr("class", "chord-group");
+
+groups.append("path").attr("class", "chord-arc")
+  .attr("d", arc)
+  .attr("fill", d => TRADICIONES[authorTrad[d.index]]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    const a = authors[d.index];
+    const t = TRADICIONES[authorTrad[d.index]];
+    showTip(`<strong>${a}</strong><span class="meta">${t ? t.label : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+groups.append("text")
+  .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", "0.35em")
+  .attr("transform", d =>
+    `rotate(${(d.angle * 180 / Math.PI - 90)}) translate(${outerR + 8}) ${d.angle > Math.PI ? "rotate(180)" : ""}`)
+  .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+  .text(d => authors[d.index]);
+
+// Ribbons (refs cruzadas autor↔autor)
+g.append("g").selectAll("path")
+  .data(chords).enter().append("path")
+  .attr("class", "chord-ribbon")
+  .attr("d", ribbon)
+  .attr("fill", d => TRADICIONES[authorTrad[d.source.index]]?.color || "#888")
+  .on("mouseenter", (ev, d) => {
+    const src = authors[d.source.index];
+    const tgt = authors[d.target.index];
+    const v = matrix[d.source.index][d.target.index];
+    showTip(`<strong>${src} → ${tgt}</strong><span class="meta">${v} concepto${v > 1 ? "s" : ""} compartido${v > 1 ? "s" : ""}</span>`, ev);
+  })
+  .on("mousemove", moveTip).on("mouseleave", hideTip);
+
+</script>
+</body>
+</html>
