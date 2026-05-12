@@ -372,107 +372,119 @@
   }
   footer a { color: var(--accent); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+  /* Bilingual toggle */
+  .es { display: inline; }
+  .en { display: none; }
+  div.es { display: block; }
+  div.en { display: none; }
+  body.lang-en .es { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en div.en { display: block; }
+  body.lang-en div.es { display: none; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Pensamiento <em>complejo</em> · visualización del corpus</h1>
-  <p>El corpus contiene 91 conceptos de 13 autores en 10 tradiciones intelectuales — desde Whitehead (1929) hasta el principio de energía libre (2009). Estas dos visualizaciones invitan a leerlo de dos modos: <strong>el tiempo</strong> (cuándo apareció cada idea) y <strong>el diálogo</strong> (qué autores se cruzan vía conceptos compartidos).</p>
+  <h1><span class="es">Pensamiento <em>complejo</em> · visualización del corpus</span><span class="en">Complex <em>thought</em> · corpus visualization</span></h1>
+  <p><span class="es">El corpus contiene 91 conceptos de 13 autores en 10 tradiciones intelectuales — desde Whitehead (1929) hasta el principio de energía libre (2009). Estas dos visualizaciones invitan a leerlo de dos modos: <strong>el tiempo</strong> (cuándo apareció cada idea) y <strong>el diálogo</strong> (qué autores se cruzan vía conceptos compartidos).</span><span class="en">The corpus contains 91 concepts from 13 authors across 10 intellectual traditions — from Whitehead (1929) to the free energy principle (2009). These visualizations invite two reading modes: <strong>time</strong> (when each idea appeared) and <strong>dialogue</strong> (which authors intersect through shared concepts).</span></p>
+  <div style="margin-top:16px;">
+    <button onclick="document.body.classList.toggle('lang-en');this.textContent=document.body.classList.contains('lang-en')?'ESPAÑOL':'ENGLISH'" style="font-family:-apple-system,'Segoe UI',sans-serif;font-size:0.72em;letter-spacing:0.1em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--muted);cursor:pointer;padding:0.3rem 0.9rem;border-radius:2px;">ENGLISH</button>
+  </div>
   <div id="global-stats" class="global-stats"></div>
 </header>
 
 <main>
   <nav class="toc">
-    <h3>Visualizaciones</h3>
-    <a href="#timeline-section">1 · Cronología</a>
-    <a href="#chord-section">2 · Diálogo entre autores</a>
-    <a href="#sunburst-section">3 · Jerarquía del corpus</a>
-    <a href="#sankey-section">4 · Flujo entre tradiciones</a>
-    <a href="#bubble-section">5 · Conceptos más citados</a>
-    <a href="#network-section">6 · Red de conceptos</a>
-    <a href="#concept-chord-section">7 · Diálogo entre conceptos</a>
-    <a href="#heatmap-section">8 · Matriz de co-referencias</a>
-    <a href="#dendrogram-section">9 · Dendrograma radial</a>
-    <a href="#metrics-section">10 · Análisis de centralidad</a>
-    <a href="#communities-section">11 · Comunidades algorítmicas</a>
-    <a href="#dissidents-section">12 · Tradición vs comunidad</a>
+    <h3><span class="es">Visualizaciones</span><span class="en">Visualizations</span></h3>
+    <a href="#timeline-section"><span class="es">1 · Cronología</span><span class="en">1 · Chronology</span></a>
+    <a href="#chord-section"><span class="es">2 · Diálogo entre autores</span><span class="en">2 · Author dialogue</span></a>
+    <a href="#sunburst-section"><span class="es">3 · Jerarquía del corpus</span><span class="en">3 · Corpus hierarchy</span></a>
+    <a href="#sankey-section"><span class="es">4 · Flujo entre tradiciones</span><span class="en">4 · Cross-tradition flow</span></a>
+    <a href="#bubble-section"><span class="es">5 · Conceptos más citados</span><span class="en">5 · Most cited concepts</span></a>
+    <a href="#network-section"><span class="es">6 · Red de conceptos</span><span class="en">6 · Concept network</span></a>
+    <a href="#concept-chord-section"><span class="es">7 · Diálogo entre conceptos</span><span class="en">7 · Concept dialogue</span></a>
+    <a href="#heatmap-section"><span class="es">8 · Matriz de co-referencias</span><span class="en">8 · Co-reference matrix</span></a>
+    <a href="#dendrogram-section"><span class="es">9 · Dendrograma radial</span><span class="en">9 · Radial dendrogram</span></a>
+    <a href="#metrics-section"><span class="es">10 · Análisis de centralidad</span><span class="en">10 · Centrality analysis</span></a>
+    <a href="#communities-section"><span class="es">11 · Comunidades algorítmicas</span><span class="en">11 · Algorithmic communities</span></a>
+    <a href="#dissidents-section"><span class="es">12 · Tradición vs comunidad</span><span class="en">12 · Tradition vs community</span></a>
   </nav>
 
   <div class="content">
     <section id="timeline-section">
-      <h2>1 · Cronología de las ideas</h2>
-      <p class="desc">Cada punto es un concepto del glosario, ubicado por <strong>año</strong> de la obra que lo introduce y agrupado por <strong>tradición</strong>. Pasa el cursor para detalle. Clic en una etiqueta de la leyenda para filtrar.</p>
+      <h2><span class="es">1 · Cronología de las ideas</span><span class="en">1 · Chronology of ideas</span></h2>
+      <p class="desc"><span class="es">Cada punto es un concepto del glosario, ubicado por <strong>año</strong> de la obra que lo introduce y agrupado por <strong>tradición</strong>. Pasa el cursor para detalle. Clic en una etiqueta de la leyenda para filtrar.</span><span class="en">Each dot is a concept from the glossary, placed by the <strong>year</strong> of the work that introduces it and grouped by <strong>tradition</strong>. Hover for detail. Click a legend label to filter.</span></p>
       <div id="legend-timeline" class="legend"></div>
       <div id="timeline"></div>
     </section>
 
     <section id="chord-section">
-      <h2>2 · Diálogo entre autores</h2>
-      <p class="desc">Cada arco es un autor. Las cintas conectan autores que <strong>comparten conceptos</strong> en sus refs cruzadas. Más cinta = más diálogo conceptual.</p>
+      <h2><span class="es">2 · Diálogo entre autores</span><span class="en">2 · Author dialogue</span></h2>
+      <p class="desc"><span class="es">Cada arco es un autor. Las cintas conectan autores que <strong>comparten conceptos</strong> en sus refs cruzadas. Más cinta = más diálogo conceptual.</span><span class="en">Each arc is an author. Ribbons connect authors that <strong>share concepts</strong> in their cross-references. More ribbon = more conceptual dialogue.</span></p>
       <div id="chord"></div>
     </section>
 
     <section id="sunburst-section">
-      <h2>3 · Jerarquía del corpus</h2>
-      <p class="desc">Anillos concéntricos: <strong>tradición → autor → concepto</strong>. El tamaño de cada porción es proporcional al número de conceptos. Pasa el cursor para detalle.</p>
+      <h2><span class="es">3 · Jerarquía del corpus</span><span class="en">3 · Corpus hierarchy</span></h2>
+      <p class="desc"><span class="es">Anillos concéntricos: <strong>tradición → autor → concepto</strong>. El tamaño de cada porción es proporcional al número de conceptos. Pasa el cursor para detalle.</span><span class="en">Concentric rings: <strong>tradition → author → concept</strong>. Each slice size is proportional to the number of concepts. Hover for detail.</span></p>
       <div id="sunburst"></div>
     </section>
 
     <section id="sankey-section">
-      <h2>4 · Flujo de refs entre tradiciones</h2>
-      <p class="desc">Cómo circula el discurso. Cada cinta indica que un concepto de la tradición de la <strong>izquierda</strong> referencia (vía <code>refs</code>) un concepto de la tradición de la <strong>derecha</strong>. Más grosor = más densidad de citaciones cruzadas.</p>
+      <h2><span class="es">4 · Flujo de refs entre tradiciones</span><span class="en">4 · Cross-tradition reference flow</span></h2>
+      <p class="desc"><span class="es">Cómo circula el discurso. Cada cinta indica que un concepto de la tradición de la <strong>izquierda</strong> referencia (vía <code>refs</code>) un concepto de la tradición de la <strong>derecha</strong>. Más grosor = más densidad de citaciones cruzadas.</span><span class="en">How discourse circulates. Each ribbon means a concept from the <strong>left</strong> tradition references (via <code>refs</code>) a concept from the <strong>right</strong> tradition. Thicker = denser cross-citations.</span></p>
       <div id="sankey"></div>
     </section>
 
     <section id="bubble-section">
-      <h2>5 · Conceptos más citados</h2>
-      <p class="desc">Burbujas dimensionadas por número de <strong>refs entrantes</strong> — los puentes intelectuales que más conceptos otros señalan como base. Color por tradición.</p>
+      <h2><span class="es">5 · Conceptos más citados</span><span class="en">5 · Most cited concepts</span></h2>
+      <p class="desc"><span class="es">Burbujas dimensionadas por número de <strong>refs entrantes</strong> — los puentes intelectuales que más conceptos otros señalan como base. Color por tradición.</span><span class="en">Bubbles sized by number of <strong>incoming refs</strong> — the intellectual bridges most pointed to as a foundation by other concepts. Color by tradition.</span></p>
       <div id="bubble"></div>
     </section>
 
     <section id="network-section">
-      <h2>6 · Red de conceptos</h2>
-      <p class="desc">Grafo concepto-concepto: cada nodo es un concepto del glosario, cada arista es un ref cruzado. Tamaño por # de menciones, color por tradición. <strong>Arrastra los nodos</strong>, <strong>scroll para zoom</strong>, <strong>busca</strong> con el campo abajo.</p>
-      <input type="text" id="network-search" placeholder="Buscar concepto…" style="margin-bottom: 12px; padding: 6px 12px; font-family: inherit; font-size: 0.92em; width: 240px; border: 1px solid var(--rule); border-radius: 14px;">
+      <h2><span class="es">6 · Red de conceptos</span><span class="en">6 · Concept network</span></h2>
+      <p class="desc"><span class="es">Grafo concepto-concepto: cada nodo es un concepto del glosario, cada arista es un ref cruzado. Tamaño por # de menciones, color por tradición. <strong>Arrastra los nodos</strong>, <strong>scroll para zoom</strong>, <strong>busca</strong> con el campo abajo.</span><span class="en">Concept-to-concept graph: each node is a glossary concept, each edge is a cross-reference. Size by # of mentions, color by tradition. <strong>Drag nodes</strong>, <strong>scroll to zoom</strong>, <strong>search</strong> with the field below.</span></p>
+      <input type="text" id="network-search" placeholder="Search concept…" style="margin-bottom: 12px; padding: 6px 12px; font-family: inherit; font-size: 0.92em; width: 240px; border: 1px solid var(--rule); border-radius: 14px;">
       <div id="network"></div>
     </section>
 
     <section id="concept-chord-section">
-      <h2>7 · Diálogo entre conceptos (top 28)</h2>
-      <p class="desc">Como el chord de autores, pero entre los <strong>28 conceptos más conectados</strong>. Cintas = co-referencias. Útil para ver qué ideas se citan más entre sí — los <em>conceptos bisagra</em> del corpus.</p>
+      <h2><span class="es">7 · Diálogo entre conceptos (top 28)</span><span class="en">7 · Concept dialogue (top 28)</span></h2>
+      <p class="desc"><span class="es">Como el chord de autores, pero entre los <strong>28 conceptos más conectados</strong>. Cintas = co-referencias. Útil para ver qué ideas se citan más entre sí — los <em>conceptos bisagra</em> del corpus.</span><span class="en">Like the author chord, but among the <strong>28 most connected concepts</strong>. Ribbons = co-references. Useful for seeing which ideas cite each other most — the <em>hinge concepts</em> of the corpus.</span></p>
       <div id="concept-chord"></div>
     </section>
 
     <section id="heatmap-section">
-      <h2>8 · Matriz de co-referencias</h2>
-      <p class="desc">Cuadrícula concepto×concepto (91×91). Los conceptos están <strong>ordenados por tradición</strong> — los cuadrados densos cerca de la diagonal son comunidades intra-tradición; los puntos lejos de la diagonal son <strong>puentes inter-tradición</strong>.</p>
+      <h2><span class="es">8 · Matriz de co-referencias</span><span class="en">8 · Co-reference matrix</span></h2>
+      <p class="desc"><span class="es">Cuadrícula concepto×concepto (91×91). Los conceptos están <strong>ordenados por tradición</strong> — los cuadrados densos cerca de la diagonal son comunidades intra-tradición; los puntos lejos de la diagonal son <strong>puentes inter-tradición</strong>.</span><span class="en">Concept×concept grid (91×91). Concepts are <strong>sorted by tradition</strong> — dense squares near the diagonal are intra-tradition communities; dots far from the diagonal are <strong>inter-tradition bridges</strong>.</span></p>
       <div id="heatmap"></div>
     </section>
 
     <section id="dendrogram-section">
-      <h2>9 · Dendrograma radial</h2>
-      <p class="desc">Misma jerarquía que el sunburst pero como árbol radial. Útil para presentar el corpus en una imagen única: el centro es el corpus, las ramas son tradiciones, las hojas son conceptos.</p>
+      <h2><span class="es">9 · Dendrograma radial</span><span class="en">9 · Radial dendrogram</span></h2>
+      <p class="desc"><span class="es">Misma jerarquía que el sunburst pero como árbol radial. Útil para presentar el corpus en una imagen única: el centro es el corpus, las ramas son tradiciones, las hojas son conceptos.</span><span class="en">Hierarchical clustering of concepts shown as a radial tree. Concepts close to each other share more cross-references. Color by tradition.</span></p>
       <div id="dendrogram"></div>
     </section>
 
     <section id="metrics-section">
-      <h2>10 · Análisis de centralidad (NetworkX)</h2>
-      <p class="desc">Rankings calculados con algoritmos de teoría de redes. <strong>Betweenness</strong> identifica los conceptos puente; <strong>eigenvector</strong> los conectados a otros importantes; <strong>closeness</strong> los más accesibles desde todo el corpus. <strong>Modularity</strong> = <span id="metric-modularity"></span> con <span id="metric-n-communities"></span> comunidades algorítmicas.</p>
+      <h2><span class="es">10 · Análisis de centralidad (NetworkX)</span><span class="en">10 · Centrality analysis (NetworkX)</span></h2>
+      <p class="desc"><span class="es">Rankings calculados con algoritmos de teoría de redes. <strong>Betweenness</strong> identifica los conceptos puente; <strong>eigenvector</strong> los conectados a otros importantes; <strong>closeness</strong> los más accesibles desde todo el corpus. <strong>Modularity</strong> = <span id="metric-modularity"></span> con <span id="metric-n-communities"></span> comunidades algorítmicas.</span><span class="en">Four network centrality metrics for each concept: degree (direct connections), betweenness (bridge role), closeness (proximity to all others), and eigenvector (influence via well-connected neighbors).</span></p>
       <div id="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 18px;"></div>
     </section>
 
     <section id="communities-section">
-      <h2>11 · Comunidades algorítmicas</h2>
-      <p class="desc">El algoritmo de Louvain detectó <strong>9 comunidades</strong> con modularidad 0.599 — estructura comunitaria fuerte. Cada tarjeta abajo muestra una comunidad real: sus miembros y su <strong>tradición dominante</strong>. Algunas coinciden con tradiciones declaradas; otras revelan reagrupamientos del algoritmo.</p>
+      <h2><span class="es">11 · Comunidades algorítmicas</span><span class="en">11 · Algorithmic communities</span></h2>
+      <p class="desc"><span class="es">El algoritmo de Louvain detectó <strong>9 comunidades</strong> con modularidad 0.599 — estructura comunitaria fuerte. Cada tarjeta abajo muestra una comunidad real: sus miembros y su <strong>tradición dominante</strong>. Algunas coinciden con tradiciones declaradas; otras revelan reagrupamientos del algoritmo.</span><span class="en">Louvain algorithm detects communities based purely on co-reference structure — ignoring tradition labels. The result: 9 communities that partially cross tradition boundaries.</span></p>
       <div id="communities-grid" class="community-grid"></div>
     </section>
 
     <section id="dissidents-section">
-      <h2>12 · Tradición declarada vs comunidad</h2>
-      <p class="desc">Cuántos conceptos de cada tradición caen en cada comunidad. La diagonal indica acuerdo. <strong>Las celdas fuera de la diagonal son los conceptos disidentes</strong>: el algoritmo los puso en una comunidad cuya tradición dominante es distinta de la suya. Esos son los puentes interteóricos visibles.</p>
+      <h2><span class="es">12 · Tradición declarada vs comunidad</span><span class="en">12 · Tradition vs community</span></h2>
+      <p class="desc"><span class="es">Cuántos conceptos de cada tradición caen en cada comunidad. La diagonal indica acuerdo. <strong>Las celdas fuera de la diagonal son los conceptos disidentes</strong>: el algoritmo los puso en una comunidad cuya tradición dominante es distinta de la suya. Esos son los puentes interteóricos visibles.</span><span class="en">Each concept mapped to both its intellectual tradition and its algorithmic community. "Dissidents" are concepts whose community differs from their tradition — the true interdisciplinary bridges.</span></p>
       <div id="trad-comm-matrix"></div>
       <h3 style="margin-top: 28px; font-family: 'Cormorant Garamond', Georgia, serif; color: var(--accent); font-size: 1.15em;">
-        Conceptos disidentes — su comunidad domina otra tradición
+        <span class="es">Conceptos disidentes — su comunidad domina otra tradición</span><span class="en">Dissident concepts — their community is dominated by another tradition</span>
       </h3>
       <div id="dissidents-list" class="dissidents-list"></div>
     </section>
@@ -480,8 +492,8 @@
 </main>
 
 <footer>
-  Generado a partir del Glosario unificado del Pensamiento Complejo · paleta y datos coherentes con el corpus original.<br>
-  Vault Obsidian: <code>Conocimiento/ObsidianDemo</code>
+  <span class="es">Generado a partir del Glosario unificado del Pensamiento Complejo · paleta y datos coherentes con el corpus original.</span><span class="en">Generated from the Unified Glossary of Complex Thought · palette and data consistent with the original corpus.</span><br>
+  <span class="es">Vault Obsidian:</span><span class="en">Obsidian vault:</span> <code>Conocimiento/ObsidianDemo</code>
 </footer>
 
 <div class="tooltip" id="tooltip"></div>
@@ -1123,18 +1135,20 @@ if (DATA.metrics) {
   if (gs) {
     const banner = d3.select("#global-stats");
     const stats = [
-      {val: gs.n_nodes, label: "Conceptos"},
-      {val: gs.n_edges, label: "Conexiones"},
-      {val: gs.density.toFixed(3), label: "Densidad"},
-      {val: gs.avg_degree.toFixed(1), label: "Grado promedio"},
-      {val: gs.avg_clustering.toFixed(3), label: "Clustering"},
-      {val: gs.diameter, label: "Diámetro"},
-      {val: gs.avg_path_length.toFixed(2), label: "Camino promedio"},
+      {val: gs.n_nodes, label: "Conceptos", labelEn: "Concepts"},
+      {val: gs.n_edges, label: "Conexiones", labelEn: "Connections"},
+      {val: gs.density.toFixed(3), label: "Densidad", labelEn: "Density"},
+      {val: gs.avg_degree.toFixed(1), label: "Grado promedio", labelEn: "Avg. degree"},
+      {val: gs.avg_clustering.toFixed(3), label: "Clustering", labelEn: "Clustering"},
+      {val: gs.diameter, label: "Diámetro", labelEn: "Diameter"},
+      {val: gs.avg_path_length.toFixed(2), label: "Camino promedio", labelEn: "Avg. path length"},
     ];
     stats.forEach(s => {
       const item = banner.append("div").attr("class", "stat");
       item.append("div").attr("class", "stat-val").text(s.val);
-      item.append("div").attr("class", "stat-label").text(s.label);
+      const lbl = item.append("div").attr("class", "stat-label");
+      lbl.append("span").attr("class", "es").text(s.label);
+      lbl.append("span").attr("class", "en").text(s.labelEn);
     });
   }
 
